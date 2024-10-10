@@ -1,0 +1,169 @@
+.hero {
+  height: 600px;
+  backdrop-filter: blur(147px);
+  border-radius: 0px 0px 110px 110px;
+  background: #292929a1;
+  .blurred-balls {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &.white {
+      top: 70%;
+      left: 80%;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .heading {
+    h1 {
+      font-size: 5rem;
+    }
+    p {
+      color: #ffffffcc;
+      font-size: 1.5rem;
+      width: 48ch;
+    }
+  }
+
+  .images {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+      width: 400px;
+      height: 300px;
+      border-radius: 20px;
+
+      &:nth-child(1) {
+        transform: rotate(-15deg) translateY(50px);
+      }
+      &:nth-child(2) {
+        z-index: 5;
+      }
+      &:nth-child(3) {
+        transform: rotate(15deg) translateY(50px);
+      }
+    }
+  }
+}
+
+.our-solutions {
+  margin: 5rem 0rem;
+
+  .heading {
+    p {
+      color: var(--paragraph-text-color);
+      width: 90ch;
+      font-size: 1.2rem;
+      line-height: 40px;
+    }
+  }
+  .col-lg-4 {
+    height: 600px;
+    .solution {
+      cursor: pointer;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .content {
+      border-radius: 14px;
+      background: #f1ae1533;
+
+      img {
+        width: 80%;
+        height: auto;
+      }
+
+      h3 {
+        font-size: 3rem;
+        line-height: 80px;
+      }
+    }
+  }
+}
+
+.contact-banner {
+  padding: 7rem 1rem 3em;
+  background: #252525;
+  .container {
+    position: relative;
+    height: 480px;
+    background: linear-gradient(180deg, #d79b1e 0%, #715110 100%);
+    border-radius: 30px;
+    .images {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      img {
+        position: absolute;
+        &.man {
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 700px;
+          height: auto;
+          z-index: 1;
+        }
+        &.star {
+          width: 250px;
+          height: auto;
+          mix-blend-mode: screen;
+          top: 0;
+          left: -40px;
+        }
+        &.vector {
+          width: 300px;
+          height: auto;
+          mix-blend-mode: overlay;
+          bottom: 0;
+          right: 0;
+        }
+      }
+    }
+
+    .content {
+      h2 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+
+      .contact-buttons {
+        button {
+          border-radius: 30px;
+          font-size: 1.5rem;
+          background: transparent;
+          color: var(--white-text);
+          border: 1px solid var(--white-text);
+          outline: none;
+          .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white-text);
+            color: var(--main-color);
+            i {
+              font-size: 1.5rem;
+            }
+          }
+          &:nth-child(1) {
+            background: var(--white-text);
+            color: var(--main-color);
+            .icon {
+              background: #7d5a11;
+              i {
+                color: var(--white-text);
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

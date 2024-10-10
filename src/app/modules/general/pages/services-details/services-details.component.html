@@ -1,0 +1,178 @@
+<section
+  class="hero d-flex align-items-center justify-content-center position-relative overflow-hidden"
+>
+  <div class="blurred-balls"></div>
+  <div class="blurred-balls white"></div>
+
+  <div class="heading text-center">
+    <h1 class="fw-bold">
+      <span class="heading-color"> Service </span> Details
+    </h1>
+
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home" />
+  </div>
+</section>
+
+<section class="service-information my-sections">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="service-description">
+          <img
+            class="mb-4"
+            src="./assets/images/our-services/1.png"
+            alt="service preview"
+          />
+          <h2 class="h1 fw-bold">
+            Professional <span class="heading-color"> design </span>
+          </h2>
+
+          <p>
+            At Ctrl+P, our creative team specializes in a variety of drawing and
+            design programs, combining professional expertise with artistic
+            creativity. We build distinct visual identities, including logos and
+            comprehensive brand materials, for all your advertising and
+            marketing needs. Every project is approached with careful planning
+            and innovative thinking to ensure your brand stands out with a
+            captivating visual presence.
+          </p>
+        </div>
+
+        <div class="service-content">
+          <h2 class="fw-bold h1 mb-5">What's Included:</h2>
+          <div class="row gx-4 gy-3">
+            <div class="col-lg-6" *ngFor="let item of [1, 2, 3, 4, 5, 6]">
+              <div class="content p-5">
+                <img
+                  class="mb-4"
+                  src="./assets/images/our-services/icons/pen.png"
+                  alt="icon"
+                />
+                <h3 class="mb-3 fw-bold fs-4">Logo & Visual Identity Design</h3>
+                <p class="mb-0">
+                  Custom logos and visual identities that represent your brand
+                  across all platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="working-process my-5">
+          <h2 class="fw-bold h1 mb-5">Working Process :</h2>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div
+                class="step d-flex gap-4 align-items-center justify-content-start"
+              >
+                <div class="no heading-color">1</div>
+                <div class="step-description">
+                  <h4 class="h5 fw-bold">Consultation</h4>
+                  <p>
+                    We begin by discussing your goals, vision, and project
+                    needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div
+                class="step d-flex gap-4 align-items-center justify-content-start"
+              >
+                <div class="no heading-color">2</div>
+                <div class="step-description">
+                  <h4 class="h5 fw-bold">Idea Development</h4>
+                  <p>
+                    Our team brainstorms creative ideas that align with modern
+                    design standards.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div
+                class="step d-flex gap-4 align-items-center justify-content-start"
+              >
+                <div class="no heading-color">3</div>
+                <div class="step-description">
+                  <h4 class="h5 fw-bold">Design Execution</h4>
+                  <p>
+                    You review the design, and we make adjustments based on your
+                    feedback.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div
+                class="step d-flex gap-4 align-items-center justify-content-start"
+              >
+                <div class="no heading-color">4</div>
+                <div class="step-description">
+                  <h4 class="h5 fw-bold">Final Delivery</h4>
+                  <p>
+                    The final design is delivered, ensuring it meets your goals
+                    and delights your audience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="services-list px-4 py-5">
+          <h3 class="fs-4 fw-light mb-4">Our Services</h3>
+          <div
+            class="service pointer p-4 d-flex justify-content-between align-items-center"
+            *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8]"
+          >
+            <h4 class="h5 mb-0">Professional design</h4>
+            <i class="fa-solid fa-arrow-up"></i>
+          </div>
+        </div>
+
+        <div class="service-request p-5">
+          <h3 class="h4 fw-bold">
+            Book Your Design <br />
+            Service Today!
+          </h3>
+          <p class="mb-4 fw-light">
+            Lorem ipsum dolor sit amet consectetur. Varius quis lorem viverra
+            lectus id ac enim.
+          </p>
+
+          <form>
+            <div class="input">
+              <input class="w-100 mb-2" type="text" placeholder="First Name" />
+            </div>
+            <div class="input">
+              <input class="w-100 mb-2" type="email" placeholder="Email" />
+            </div>
+            <div class="input">
+              <input
+                class="w-100 mb-2"
+                type="text"
+                placeholder="Phone Number"
+              />
+            </div>
+            <div class="input">
+              <input class="w-100 mb-2" type="text" placeholder="Subject" />
+            </div>
+            <div class="input">
+              <textarea
+                class="w-100"
+                placeholder="Order Details"
+                rows="5"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
