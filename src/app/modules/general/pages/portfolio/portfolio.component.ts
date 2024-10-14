@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProjectDetailsComponent } from '../../components/project-details/project-details.component';
+import { EventGalleryComponent } from './../../components/event-gallery/event-gallery.component';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent {
+  private modalService = inject(NgbModal);
+
   images: any[] = [
     './assets/images/portfolio/1.jpg',
     './assets/images/portfolio/3.jpg',
@@ -19,4 +24,18 @@ export class PortfolioComponent {
     './assets/images/portfolio/6.jpg',
     './assets/images/portfolio/10.jpg',
   ];
+
+  eventGallery() {
+    this.modalService.open(EventGalleryComponent, {
+      fullscreen: true,
+      scrollable: true,
+    });
+  }
+
+  viewProject() {
+    this.modalService.open(ProjectDetailsComponent, {
+      fullscreen: true,
+      scrollable: true,
+    });
+  }
 }

@@ -149,8 +149,14 @@ img {
   }
 }
 
-.modal-content {
-  background: transparent;
+.modal-dialog {
+  &.modal-fullscreen .modal-content {
+    background: #1f1f1f;
+  }
+
+  .modal-content {
+    background: transparent;
+  }
 }
 
 p-dropdown {
@@ -191,4 +197,8 @@ p-dropdown {
       border: 1px solid var(--main-color);
     }
   }
+}
+
+.p-component {
+  font-family: var(--main-font) !important;
 }
