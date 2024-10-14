@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.AuthenticationModule
       ),
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/order-hub/order-hub.module').then(
+        (m) => m.OrderHubModule
+      ),
+  },
 ];
 
 @NgModule({

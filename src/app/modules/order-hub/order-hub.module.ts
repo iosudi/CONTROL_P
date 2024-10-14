@@ -1,14 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { OrderHubRoutingModule } from './order-hub-routing.module';
-
+import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [CartComponent, CheckoutComponent],
   imports: [
     CommonModule,
-    OrderHubRoutingModule
-  ]
+    OrderHubRoutingModule,
+    FormsModule,
+    CheckboxModule,
+    RadioButtonModule,
+    BreadcrumbModule,
+  ],
 })
-export class OrderHubModule { }
+export class OrderHubModule {}

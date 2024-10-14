@@ -11,6 +11,8 @@
   --white-text: #fff;
   --dark-text: #242424;
   --discount-text-color: #939393;
+  --danger-color: #ff7c7c;
+  --success-color: #7cff94;
   --main-font: "Cairo", sans-serif;
 }
 
@@ -195,6 +197,37 @@ p-dropdown {
 
     &:hover {
       border: 1px solid var(--main-color);
+    }
+  }
+}
+
+p-breadcrumb {
+  .p-breadcrumb {
+    background: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ol {
+      margin: 0;
+      padding: 0;
+      li {
+        a {
+          text-decoration: none;
+          .p-menuitem-text {
+            color: var(--paragraph-text-color);
+          }
+        }
+
+        &:last-child a {
+          .p-menuitem-text {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    homeicon {
+      display: none;
     }
   }
 }
