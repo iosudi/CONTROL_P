@@ -125,6 +125,13 @@
   .event-images {
     columns: 400px;
     column-gap: 2em;
+
+    ngb-modal-window ::ng-deep {
+      .modal-fullscreen .modal-content {
+        background: #171717;
+      }
+    }
+
     .event-preview {
       border-radius: 15px;
       min-height: 250px;

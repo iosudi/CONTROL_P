@@ -1,0 +1,125 @@
+:host {
+  height: 100%;
+}
+.event-details {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+  }
+
+  .row {
+    .event-images {
+      display: grid;
+      grid-template-columns: 2fr 0.8fr 1.5fr;
+      grid-template-rows: repeat(5, 150px);
+      gap: 10px;
+      padding: 10px;
+
+      .image-1 {
+        grid-area: 1 / 1 / 3 / 4;
+      }
+      .image-2 {
+        grid-area: 3 / 1 / 5 / 1;
+      }
+      .image-3 {
+        grid-area: 3 / 2 / 3 / 4;
+      }
+      .image-4 {
+        grid-area: 4 / 2 / 4 / 4;
+      }
+      .image-5 {
+        grid-area: 5 / 1 / 5 / 3;
+      }
+      .image-6 {
+        grid-area: 5 / 3 / 5 / 4;
+        position: relative;
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          font-size: 18px;
+        }
+      }
+    }
+
+    p-timeline ::ng-deep {
+      .p-timeline-event-opposite {
+        display: none;
+      }
+
+      p {
+        line-height: 30px;
+        font-size: 1.1rem;
+      }
+    }
+
+    .testimonials-content {
+      .row {
+        .carousel-container {
+          position: relative;
+          .navigation-dots {
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+            z-index: 5;
+            .dot {
+              width: 8px;
+              height: 50px;
+              border-radius: 20px;
+              background-color: #aaaaaaa6;
+              transition: 0.5s;
+
+              &.active-dot {
+                background-color: white;
+              }
+            }
+          }
+
+          .carousel {
+            .slide {
+              background: white;
+              color: var(--dark-text);
+              border-radius: 20px;
+              transition: 0.5s;
+
+              .quote-symbol {
+                width: 60px;
+                height: auto;
+              }
+
+              p {
+                font-size: 23px;
+              }
+
+              .review-author {
+                .author {
+                  img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 100%;
+                  }
+                  h5 {
+                    font-size: 19px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
