@@ -21,6 +21,11 @@ const routes: Routes = [
         (m) => m.OrderHubModule
       ),
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/account/account.module').then((m) => m.AccountModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,21 @@
+.account-dashboard {
+  h4 {
+    color: var(--paragraph-text-color);
+  }
+
+  p {
+    color: var(--white-text);
+    a {
+      color: var(--paragraph-text-color);
+      text-decoration: underline;
+    }
+  }
+  .account-link {
+    background: #292929a1;
+    border: 1px solid #363636;
+    img {
+      width: 50px;
+      height: auto;
+    }
+  }
+}
