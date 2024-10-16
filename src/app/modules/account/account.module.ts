@@ -8,6 +8,7 @@ import { AccountDetailsComponent } from './pages/account-details/account-details
 import { OrdersComponent } from './pages/orders/orders.component';
 import { AddressesComponent } from './pages/addresses/addresses.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { EditAddAddressComponent } from './components/edit-add-address/edit-add-address.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     AccountDetailsComponent,
     OrdersComponent,
     AddressesComponent,
-    WishlistComponent
+    WishlistComponent,
+    EditAddAddressComponent
   ],
   imports: [
     CommonModule,
