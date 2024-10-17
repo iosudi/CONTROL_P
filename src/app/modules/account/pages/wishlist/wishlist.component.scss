@@ -1,0 +1,96 @@
+.wishlist {
+  .btn {
+    color: var(--white-text);
+  }
+
+  .heading {
+    .socials {
+      a,
+      .btn {
+        font-size: 1.21rem;
+      }
+      a {
+        color: var(--paragraph-text-color);
+        font-size: 0.8rem;
+        margin: 0 0.2rem;
+      }
+    }
+  }
+
+  .wishlist-controls {
+    p-dropdown ::ng-deep {
+      .p-dropdown {
+        padding: 0px 15px;
+      }
+    }
+  }
+
+  .product {
+    background: #252525;
+    border: 0;
+    z-index: 0;
+    transition: 0.5s;
+
+    .product-image {
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.5s;
+
+      .dimensions {
+        background-color: var(--white-text);
+        color: var(--dark-text);
+        top: 15px;
+        left: 15px;
+        font-size: 0.8rem;
+        img {
+          width: 15px;
+          height: auto;
+        }
+      }
+
+      .heart-icon {
+        background-color: var(--white-text);
+        color: var(--main-color);
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        i {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .product-body {
+      .product-title {
+        color: var(--white-text);
+        h4 {
+          font-size: 1.1rem;
+        }
+      }
+      .price {
+        font-size: 1.2rem;
+        .discount {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .product-actions {
+      .quick-view-btn {
+        width: 40px;
+        height: 40px;
+        background: #ffffff1a;
+        outline: none;
+        border: 0;
+        border-radius: 50%;
+        img {
+          width: 30px;
+          height: auto;
+        }
+      }
+    }
+  }
+}

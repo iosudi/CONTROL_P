@@ -6,6 +6,7 @@ import { AccountDetailsComponent } from './pages/account-details/account-details
 import { AddressesComponent } from './pages/addresses/addresses.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
             component: EditAddAddressComponent,
           },
         ],
+      },
+
+      {
+        path: 'wishlist',
+        component: WishlistComponent,
       },
     ],
   },
