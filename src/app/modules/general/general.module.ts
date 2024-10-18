@@ -5,7 +5,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { DropdownModule } from 'primeng/dropdown';
 import { TimelineModule } from 'primeng/timeline';
-import { register as registerSwiperElements } from 'swiper/element/bundle';
 import { EventGalleryComponent } from './components/event-gallery/event-gallery.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { GeneralRoutingModule } from './general-routing.module';
@@ -17,6 +16,7 @@ import { PartnersComponent } from './pages/partners/partners.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ServicesDetailsComponent } from './pages/services-details/services-details.component';
 
+import { register as registerSwiperElements } from 'swiper/element/bundle';
 registerSwiperElements();
 
 @NgModule({
