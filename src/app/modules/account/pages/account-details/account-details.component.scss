@@ -26,6 +26,12 @@
         color: var(--paragraph-text-color);
       }
 
+      &:disabled {
+        background: #222222;
+        color: var(--paragraph-text-color);
+        cursor: no-drop;
+      }
+
       &.error {
         border-color: var(--danger-color);
       }
@@ -42,8 +48,8 @@
       border-radius: 0px;
     }
 
-    textarea {
-      resize: none;
+    p {
+      color: var(--paragraph-text-color);
     }
   }
 }
