@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { SliderModule } from 'primeng/slider';
@@ -19,6 +20,7 @@ registerSwiperElements();
     FormsModule,
     CheckboxModule,
     DropdownModule,
+    NgxPaginationModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

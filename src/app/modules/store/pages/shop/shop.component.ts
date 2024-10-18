@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss'],
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit {
   rangeValues: number[] = [20, 80];
+
+  pageSize: number = 8;
+  currentPage = 1;
 
   filterOptions = [
     { label: '80x50cm', isChecked: false, quantity: 38 },
@@ -16,7 +19,6 @@ export class ShopComponent {
   ];
 
   cities: any[] | undefined;
-
   selectedCity: any | undefined;
 
   ngOnInit() {
@@ -28,4 +30,6 @@ export class ShopComponent {
       { name: 'Paris', code: 'PRS' },
     ];
   }
+
+  pageChanged(event: any): void {}
 }
