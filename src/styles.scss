@@ -25,6 +25,10 @@
   background-color: var(--main-color);
 }
 
+* {
+  list-style: none;
+}
+
 body {
   font-family: var(--main-font);
   background-color: var(--background-primary-color);

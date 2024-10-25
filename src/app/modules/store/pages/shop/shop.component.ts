@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { QuickViewComponent } from '../../components/quick-view/quick-view.component';
 
 @Component({
   selector: 'app-shop',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
+  private modalService = inject(NgbModal);
+
   rangeValues: number[] = [20, 80];
 
   pageSize: number = 8;
@@ -29,6 +33,10 @@ export class ShopComponent implements OnInit {
       { name: 'Istanbul', code: 'IST' },
       { name: 'Paris', code: 'PRS' },
     ];
+  }
+
+  openQuickViewModal() {
+    this.modalService.open(QuickViewComponent, { fullscreen: true });
   }
 
   pageChanged(event: any): void {}
