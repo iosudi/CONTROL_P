@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SiteContentService } from 'src/app/shared/services/site-content.service';
 import { ProjectDetailsComponent } from '../../components/project-details/project-details.component';
 import { EventGalleryComponent } from './../../components/event-gallery/event-gallery.component';
 
@@ -9,6 +10,7 @@ import { EventGalleryComponent } from './../../components/event-gallery/event-ga
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent {
+  constructor(private _SiteContentService: SiteContentService) {}
   private modalService = inject(NgbModal);
 
   images: any[] = [
@@ -25,11 +27,31 @@ export class PortfolioComponent {
     './assets/images/portfolio/10.jpg',
   ];
 
-  eventGallery() {
-    this.modalService.open(EventGalleryComponent, {
+  projects: any[] = [];
+  projectImages: any[] = [];
+
+  ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize(): void {
+    this._SiteContentService.getProjects().subscribe({
+      next: (projects) => {
+        this.projects = projects.data;
+      },
+      error: (error) => {
+        console.error('Error retrieving projects:', error);
+      },
+    });
+  }
+
+  eventGallery(projectImages: any) {
+    const modalRef = this.modalService.open(EventGalleryComponent, {
       fullscreen: true,
       scrollable: true,
     });
+
+    modalRef.componentInstance.images = projectImages;
   }
 
   viewProject() {

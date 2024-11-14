@@ -55,17 +55,12 @@
     <div class="row g-4">
       <div
         class="col-xl-2 col-lg-3 col-md-4 col-6"
-        *ngFor="
-          let item of [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-          ]
-        "
+        *ngFor="let partner of partners"
       >
         <div
-          class="partner-link d-flex align-items-center justify-content-center rounded-3"
+          class="partner-link d-flex align-items-center justify-content-center rounded-3 py-3"
         >
-          <img src="./assets/images/partners-page/partners/1.png" alt="image" />
+          <img [src]="partner.image" alt="partner logo" />
         </div>
       </div>
     </div>

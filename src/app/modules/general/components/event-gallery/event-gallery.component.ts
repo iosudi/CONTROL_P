@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
@@ -15,18 +15,7 @@ export class EventGalleryComponent {
   @ViewChild('GallerySwiper', { static: false }) GallerySwiper?: ElementRef;
   swiperInstance!: Swiper;
 
-  images: any[] = [
-    './assets/images/portfolio/1.jpg',
-    './assets/images/portfolio/3.jpg',
-    './assets/images/portfolio/2.png',
-    './assets/images/portfolio/4.jpg',
-    './assets/images/portfolio/5.jpg',
-    './assets/images/portfolio/8.jpg',
-    './assets/images/portfolio/9.png',
-    './assets/images/portfolio/7.jpg',
-    './assets/images/portfolio/6.jpg',
-    './assets/images/portfolio/10.jpg',
-  ];
+  @Input() images: any[] = [];
 
   activeIndex: number = 1;
 

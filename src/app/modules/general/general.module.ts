@@ -17,6 +17,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ServicesDetailsComponent } from './pages/services-details/services-details.component';
 
 import { register as registerSwiperElements } from 'swiper/element/bundle';
+import { HomeMiniShopComponent } from './components/home-mini-shop/home-mini-shop.component';
 registerSwiperElements();
 
 @NgModule({
@@ -30,6 +31,7 @@ registerSwiperElements();
     PortfolioComponent,
     EventGalleryComponent,
     ProjectDetailsComponent,
+    HomeMiniShopComponent,
   ],
   imports: [
     CommonModule,

@@ -298,12 +298,12 @@
 
     <div class="service-slider">
       <swiper-container slides-per-view="5.5" [spaceBetween]="50">
-        <swiper-slide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
+        <swiper-slide *ngFor="let service of services">
           <div class="service pointer">
-            <h4 class="fw-bold mb-5">Professional design</h4>
+            <h4 class="fw-bold mb-5">{{ service.category.name }}</h4>
 
             <img
-              src="./assets/images/home/services/pro design.png"
+              [src]="service.category.image"
               alt="service"
               class="service-preview"
             />
@@ -333,74 +333,31 @@
           </button>
 
           <div class="categories d-flex flex-column gap-4">
-            <div class="category pointer overflow-hidden active-category">
-              <p class="mb-3 fw-semibold">Abstract art and Plastic art</p>
-              <img
-                src="./assets/images/shop/categories/1.png"
-                alt="category image"
-              />
-            </div>
-            <div class="category pointer overflow-hidden">
-              <p class="mb-3 fw-semibold">ARABIC CALLIGRAPHY</p>
-              <img src="./assets/images/shop/1.png" alt="category image" />
-            </div>
-            <div class="category pointer overflow-hidden">
-              <p class="mb-3 fw-semibold">kids</p>
-              <img src="./assets/images/shop/1.png" alt="category image" />
+            <div
+              class="category pointer overflow-hidden"
+              *ngFor="let category of productsCategories; let i = index"
+              (click)="
+                setActiveCategory(
+                  category.category.id,
+                  category.products,
+                  category.category.name
+                )
+              "
+              [class.activeCategory]="i + 1 == activeCategory"
+            >
+              <p class="mb-3 fw-semibold">{{ category.category.name }}</p>
+              <img [src]="category.category.image" alt="category image" />
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-lg-9">
-        <div class="px-5">
-          <div
-            class="header d-flex align-items-center justify-content-between mb-4"
-          >
-            <p class="mb-0 fs-5">Abstract art and Plastic art</p>
-            <p-dropdown
-              [options]="cities"
-              [(ngModel)]="selectedCity"
-              optionLabel="name"
-              placeholder="Sort by"
-            />
-          </div>
-
-          <div class="row g-3">
-            <div class="col-lg-4" *ngFor="let item of [1, 2, 3, 4, 5, 6]">
-              <div class="card pointer">
-                <div class="card-image position-relative">
-                  <div
-                    class="dimensions position-absolute rounded-5 d-flex gap-2 align-items-center px-2 py-1 fw-semibold"
-                  >
-                    <img src="./assets/images/icons/dimension.png" alt="icon" />
-                    80x50 cm
-                  </div>
-                  <img src="./assets/images/shop/1.png" alt="painting" />
-                </div>
-
-                <div class="card-body">
-                  <div>
-                    <div
-                      class="card-title d-flex justify-content-between align-items-center"
-                    >
-                      <h4 class="h5 mb-0 fw-normal">Product 1</h4>
-                      <p class="mb-0">
-                        4.1
-                        <i class="fa-solid fa-star star-color"></i>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="price heading-color">
-                    <span class="discount"> 435.00 </span>
-                    435.00 SAR
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-home-mini-shop
+          [activeCategory]="activeCategory"
+          [products]="activeCategoryProducts"
+          [categoryName]="activeCategoryName"
+        ></app-home-mini-shop>
       </div>
     </div>
   </div>
@@ -435,37 +392,33 @@
 
             <div class="carousel">
               <swiper-container slides-per-view="1" [spaceBetween]="50">
-                <swiper-slide
-                  *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]; let i = index"
-                >
+                <swiper-slide *ngFor="let review of reviews; let i = index">
                   <div class="slide pb-4 pt-5 px-5">
                     <img
                       src="./assets/images/quote.png"
                       alt="quote symbol"
                       class="quote-symbol"
                     />
-                    <p class="my-4 fw-semibold">
-                      Lorem ipsum dolor sit amet consectetur. Urna tortor dictum
-                      aliquam sit mauris. Est habitant molestie pulvinar mattis.
-                    </p>
+                    <div class="review-content">
+                      <p class="my-4 fw-semibold">
+                        {{ review.content }}
+                      </p>
+                    </div>
                     <div
                       class="review-author d-flex justify-content-between align-items-center border-top pt-4"
                     >
                       <div class="author d-flex gap-2 align-items-center">
-                        <img
-                          src="./assets/images/home/hero-image.png"
-                          alt="profile-icon"
-                        />
+                        <img [src]="review.client_image" alt="profile-icon" />
                         <h5 class="author-name fw-normal mb-0">
-                          Barbara D. Smith
+                          {{ review.client_name }}
                         </h5>
                       </div>
                       <div class="rating">
-                        <i class="fa-solid fa-star star-color"></i>
-                        <i class="fa-solid fa-star star-color"></i>
-                        <i class="fa-solid fa-star star-color"></i>
-                        <i class="fa-solid fa-star star-color"></i>
-                        <i class="fa-solid fa-star star-color"></i>
+                        <i
+                          class="fa-solid fa-star star-color"
+                          [class.rating-color]="review.rating >= num"
+                          *ngFor="let num of [1, 2, 3, 4, 5]"
+                        ></i>
                       </div>
                     </div>
                   </div>
