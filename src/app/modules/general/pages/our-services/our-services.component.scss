@@ -22,7 +22,7 @@
     p {
       color: #ffffffcc;
       font-size: 1.5rem;
-      width: 48ch;
+      max-width: 48ch;
     }
   }
 
@@ -55,7 +55,7 @@
   .heading {
     p {
       color: var(--paragraph-text-color);
-      width: 90ch;
+      max-width: 90ch;
       font-size: 1.2rem;
       line-height: 40px;
     }
@@ -93,6 +93,14 @@
     height: 480px;
     background: linear-gradient(180deg, #d79b1e 0%, #715110 100%);
     border-radius: 30px;
+    .star {
+      position: absolute;
+      width: 250px;
+      height: auto;
+      mix-blend-mode: screen;
+      top: 0;
+      right: 40%;
+    }
     .images {
       position: relative;
       width: 100%;
@@ -107,13 +115,7 @@
           height: auto;
           z-index: 1;
         }
-        &.star {
-          width: 250px;
-          height: auto;
-          mix-blend-mode: screen;
-          top: 0;
-          left: -40px;
-        }
+
         &.vector {
           width: 300px;
           height: auto;
@@ -162,6 +164,220 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .contact-banner {
+    .container {
+      height: 420px;
+
+      .star {
+        width: 200px;
+      }
+
+      .images {
+        img {
+          &.man {
+            width: 600px;
+            height: auto;
+            z-index: 1;
+          }
+
+          &.vector {
+            width: 200px;
+          }
+        }
+      }
+
+      .content {
+        h2 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1.5rem;
+        }
+
+        .contact-buttons {
+          button {
+            font-size: 1.1rem;
+            .icon {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background: var(--white-text);
+              color: var(--main-color);
+              i {
+                font-size: 1.5rem;
+              }
+            }
+            &:nth-child(1) {
+              background: var(--white-text);
+              color: var(--main-color);
+              .icon {
+                background: #7d5a11;
+                i {
+                  color: var(--white-text);
+                  font-size: 1.2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1074px) {
+  .hero {
+    height: 400px;
+
+    .heading {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+
+    .images {
+      bottom: -20px;
+      img {
+        width: 300px;
+        height: 150px;
+      }
+    }
+  }
+
+  .our-solutions {
+    .heading {
+      p {
+        font-size: 1.1rem;
+        line-height: 30px;
+      }
+    }
+    .col-lg-4 {
+      .content {
+        img {
+          width: 80%;
+          height: auto;
+        }
+
+        h3 {
+          font-size: 3rem;
+          line-height: 70px;
+        }
+
+        button {
+          padding: 1rem 2rem !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-banner {
+    padding: 3em 1em;
+    .container {
+      height: 550px;
+      .star {
+        right: 20%;
+      }
+      .images {
+        img {
+          &.man {
+            width: 500px;
+            left: 70%;
+            height: auto;
+            z-index: 1;
+          }
+        }
+      }
+
+      .content {
+        justify-content: start !important;
+        padding: 2em 1em 1em !important;
+
+        p {
+          font-size: 1.2rem;
+        }
+
+        .contact-buttons {
+          button {
+            font-size: 0.9rem;
+            padding: 0.5em 1em !important;
+            gap: 10px !important;
+            .icon {
+              width: 30px;
+              height: 30px;
+              i {
+                font-size: 0.8rem;
+              }
+            }
+            &:nth-child(1) {
+              .icon {
+                i {
+                  font-size: 0.6rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 250px;
+    border-radius: 0px;
+
+    .heading {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .images {
+      bottom: -70px;
+      img {
+        width: 200px;
+        height: 150px;
+      }
+    }
+  }
+
+  .contact-banner {
+    .container {
+      height: 550px;
+      .star {
+        width: 150px;
+        right: 5%;
+      }
+      .images {
+        img {
+          &.man {
+            width: 400px;
+            left: 50%;
+          }
+        }
+      }
+
+      .content {
+        padding: 1em !important;
+        h2 {
+          font-size: 1.8rem;
         }
       }
     }

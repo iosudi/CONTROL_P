@@ -40,7 +40,7 @@
 
     <div class="row g-4">
       <div
-        class="col-lg-4"
+        class="col-lg-4 col-md-6"
         *ngFor="let solution of solutions_images"
         routerLink="Professional Design"
       >
@@ -76,8 +76,9 @@
   </div>
 </section>
 
-<section class="contact-banner">
-  <div class="container">
+<section class="contact-banner overflow-hidden">
+  <div class="container position-relative">
+    <img class="star" src="./assets/images/home/banner/star.png" alt="star" />
     <div class="row h-100">
       <div class="col-lg-6 d-flex align-items-center px-0">
         <div
@@ -129,11 +130,6 @@
             class="man"
             src="./assets/images/our-services/man.png"
             alt="man"
-          />
-          <img
-            class="star"
-            src="./assets/images/home/banner/star.png"
-            alt="star"
           />
         </div>
       </div>

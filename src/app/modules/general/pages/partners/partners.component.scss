@@ -61,7 +61,7 @@
     .heading {
       p {
         font-size: 1.1rem;
-        width: 100ch;
+        max-width: 100ch;
         line-height: 35px;
         color: #ffffffcc;
       }
@@ -109,7 +109,7 @@
 
       p {
         font-size: 1.2rem;
-        width: 30ch;
+        max-width: 30ch;
         color: var(--paragraph-text-color);
       }
 
@@ -132,11 +132,101 @@
 .join-us {
   margin-bottom: 9rem;
   p {
-    width: 42ch;
+    max-width: 42ch;
     color: #b6b6b6;
   }
 
   button {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 250px;
+    border-radius: 0px;
+
+    .heading {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .images {
+      bottom: -70px;
+      img {
+        width: 200px;
+        height: 150px;
+      }
+    }
+  }
+
+  .trusted-brands {
+    margin-bottom: 5em;
+
+    img {
+      border-radius: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 35px;
+    }
+  }
+
+  .partners {
+    .container {
+      padding: 2em !important;
+      .heading {
+        p {
+          font-size: 1rem;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+
+  .why-us {
+    margin: 3em 0;
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .features {
+      .feature {
+        .icon {
+          width: 60px;
+          height: 60px;
+          img {
+            width: 30px;
+          }
+        }
+
+        h4 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+
+  .join-us {
+    margin-bottom: 5rem;
+    .container {
+      flex-direction: column !important;
+
+      button {
+        font-size: 1.2rem;
+        padding: 0.5em 2em !important;
+      }
+    }
   }
 }

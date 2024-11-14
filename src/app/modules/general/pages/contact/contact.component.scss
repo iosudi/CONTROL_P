@@ -22,7 +22,7 @@
     p {
       color: #ffffffcc;
       font-size: 1.5rem;
-      width: 48ch;
+      max-width: 48ch;
     }
   }
 }
@@ -101,6 +101,84 @@
     height: 400px;
     iframe {
       border-radius: 15px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 250px;
+    border-radius: 0px;
+
+    .heading {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 0.9rem;
+        width: 90%;
+      }
+    }
+
+    .images {
+      bottom: -70px;
+      img {
+        width: 200px;
+        height: 150px;
+      }
+    }
+  }
+
+  .contact-methods {
+    top: -60px;
+    .method {
+      border-radius: 10px;
+      img {
+        width: 60px;
+      }
+    }
+  }
+
+  .contact-message {
+    padding: 1em;
+    .container {
+      padding: 2rem 1rem;
+      border-radius: 20px;
+      .row.form-container {
+        flex-direction: column-reverse !important;
+      }
+      .content {
+        h2 {
+          text-align: center;
+          font-size: 1.5rem;
+        }
+        p {
+          line-height: 30px;
+          font-size: 1rem;
+          text-align: center;
+        }
+
+        .social {
+          justify-content: center;
+          a {
+            width: 40px;
+            height: 40px;
+            img {
+              width: auto;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      form {
+        padding: 2em !important;
+        flex-direction: column !important;
+
+        label {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }

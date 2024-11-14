@@ -12,7 +12,9 @@
     </p>
   </div>
 
-  <div class="images position-absolute d-flex align-items-center gap-3">
+  <div
+    class="images position-absolute d-flex justify-content-center align-items-center gap-3"
+  >
     <img src="./assets/images/home/work/1.png" alt="image" />
     <img src="./assets/images/home/work/5.png" alt="image" />
     <img src="./assets/images/home/work/6.png" alt="image" />
@@ -22,7 +24,7 @@
 
 <section class="staff-crew">
   <div class="container">
-    <div class="row gx-5 gy-4">
+    <div class="row gy-4">
       <div class="col-lg-6">
         <img src="./assets/images/about/staff.jpg" alt="image" />
       </div>
@@ -49,7 +51,7 @@
 
 <section class="about-us">
   <div class="container rounded-5">
-    <div class="row g-5">
+    <div class="row gy-3 gx-5">
       <div class="col-lg-4">
         <div
           class="card d-flex align-items-center justify-content-start p-5 h-100"
@@ -102,7 +104,7 @@
         Convallis ullamcorper aliquet ultrices orci cum vestibulum lobortis erat
       </p>
     </div>
-    <swiper-container slides-per-view="4" [spaceBetween]="50">
+    <swiper-container [breakpoints]="TeamSlider">
       <swiper-slide *ngFor="let item of [1, 2, 3, 4]">
         <div class="member">
           <img
@@ -166,7 +168,7 @@
       you come.
     </p>
 
-    <div class="row">
+    <div class="row gy-4">
       <div class="col-lg-4">
         <div class="feature">
           <img
@@ -215,7 +217,7 @@
 
 <section class="how-we-work">
   <div class="container">
-    <div class="row">
+    <div class="row gy-3">
       <div class="col-lg-6">
         <div class="content">
           <img
@@ -323,7 +325,7 @@
 
 <section class="FAQS my-sections">
   <div class="container">
-    <div class="row">
+    <div class="row gy-5">
       <div class="col-lg-6">
         <div class="heading">
           <h2 class="fw-bold">Some of your questions answered here</h2>

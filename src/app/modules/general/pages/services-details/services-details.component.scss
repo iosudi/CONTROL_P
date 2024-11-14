@@ -32,7 +32,7 @@
 
   .heading {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
     }
     p {
       color: #ffffffcc;
@@ -150,7 +150,7 @@
     }
 
     p {
-      width: 35ch;
+      max-width: 35ch;
     }
 
     form {
@@ -168,6 +168,34 @@
           color: var(--dark-text);
           opacity: 80%;
           font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 250px;
+    border-radius: 0;
+    backdrop-filter: blur(147px);
+
+    .heading {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    p-breadcrumb ::ng-deep {
+      .p-breadcrumb {
+        ol {
+          li {
+            a {
+              .p-menuitem-text {
+                font-size: 1rem;
+              }
+            }
+          }
         }
       }
     }
