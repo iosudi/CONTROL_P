@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   contentContainerHeight: number = 0;
 
   //testimonials Section Variables
+  @ViewChild('testimonialSwiper') testimonialSwiper!: ElementRef;
   @ViewChild('dot1') dot1!: ElementRef;
   @ViewChild('dot2') dot2!: ElementRef;
   @ViewChild('dot3') dot3!: ElementRef;
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
     nav: false,
   };
 
+  activeIndex: number = 0;
   swiperInstance!: Swiper; // Swiper instance type
 
   ngOnInit() {
@@ -102,12 +104,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onSlideChange(event: any): void {
-    console.log('fasfasf');
-    this.swiperInstance = event.swiper;
-    this.swiperInstance?.on('slideChange', () => {
-      console.log('slideChange');
-    });
+  onSlideChange(): void {
+    const swiper = this.testimonialSwiper?.nativeElement.swiper;
+    this.activeIndex = swiper.activeIndex;
+
+    this.setActive(swiper.activeIndex);
   }
 
   triggerNext(): void {
@@ -119,19 +120,29 @@ export class HomeComponent implements OnInit {
   }
 
   setActive(index: number): void {
-    this.dotWidth = this.dot1.nativeElement.offsetWidth + 16;
+    this.dotHeight = this.dot1.nativeElement.offsetHeight + 8;
 
+    // Adjust transforms for vertical movement
     const transforms = [
-      [0, 0, 0],
-      [-this.dotWidth, this.dotWidth, 0],
-      [-this.dotWidth * 2, this.dotWidth, this.dotWidth],
+      // For index 0 (default position, no movement)
+      [0, 0, 0, 0],
+
+      // For index 1 (move the dots up or down in a vertical direction)
+      [this.dotHeight, -this.dotHeight, 0, 0],
+
+      // For index 2 (further movement of dots in vertical direction)
+      [this.dotHeight * 2, -this.dotHeight, -this.dotHeight, 0],
+
+      // For index 3 (maximum movement for each dot)
+      [this.dotHeight * 3, -this.dotHeight, -this.dotHeight, -this.dotHeight],
     ];
 
+    // Apply vertical transform to each dot
     [this.dot1, this.dot2, this.dot3, this.dot4].forEach((dot, i) => {
       this.renderer.setStyle(
         dot.nativeElement,
         'transform',
-        `translateX(${transforms[index][i] || 0}px)`
+        `translateY(${transforms[index][i] || 0}px)` // Use translateY for vertical movement
       );
     });
   }

@@ -405,9 +405,10 @@
 
             <div class="carousel">
               <swiper-container
+                #testimonialSwiper
                 slides-per-view="1"
                 [spaceBetween]="50"
-                (sliderMove)="onSlideChange($event)"
+                (swiperslidechangetransitionend)="onSlideChange()"
               >
                 <swiper-slide *ngFor="let review of reviews; let i = index">
                   <div class="slide pb-4 pt-5 px-5">
