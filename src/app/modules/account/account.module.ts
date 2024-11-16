@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { AccountRoutingModule } from './account-routing.module';
 import { EditAddAddressComponent } from './components/edit-add-address/edit-add-address.component';
 import { AccountDashboardComponent } from './pages/account-dashboard/account-dashboard.component';
@@ -22,6 +23,12 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     WishlistComponent,
     EditAddAddressComponent,
   ],
-  imports: [CommonModule, AccountRoutingModule, DropdownModule, FormsModule],
+  imports: [
+    CommonModule,
+    AccountRoutingModule,
+    DropdownModule,
+    FormsModule,
+    SharedModule,
+  ],
 })
 export class AccountModule {}

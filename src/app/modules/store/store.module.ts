@@ -8,6 +8,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { SliderModule } from 'primeng/slider';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { register as registerSwiperElements } from 'swiper/element/bundle';
 import { ProductDescriptionComponent } from './components/product-description/product-description.component';
 import { ProductReviewsComponent } from './components/product-reviews/product-reviews.component';
@@ -38,6 +39,7 @@ registerSwiperElements();
     BreadcrumbModule,
     NgbRatingModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

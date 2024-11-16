@@ -1,3 +1,5 @@
+<app-home-navbar></app-home-navbar>
+
 <section class="categories">
   <div class="container">
     <swiper-container slides-per-view="3" [spaceBetween]="20">
@@ -138,7 +140,10 @@
                       }
               "
             >
-              <div class="product px-2 py-3 rounded-4 pointer">
+              <div
+                class="product px-2 py-3 rounded-4 pointer"
+                routerLink="/product-details"
+              >
                 <div class="product-image mb-3 position-relative">
                   <div
                     class="dimensions position-absolute rounded-5 d-flex gap-2 align-items-center px-2 py-1 fw-semibold"
@@ -217,3 +222,5 @@
     </div>
   </div>
 </section>
+
+<app-footer></app-footer>

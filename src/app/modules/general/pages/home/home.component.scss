@@ -1,4 +1,16 @@
-// hero section
+app-home-navbar ::ng-deep {
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: transparent;
+    backdrop-filter: unset;
+    box-shadow: unset;
+  }
+}
+
 .hero {
   .container-fluid {
     backdrop-filter: blur(147px);

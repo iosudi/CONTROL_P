@@ -1,16 +1,14 @@
 import {
   Component,
   ElementRef,
-  inject,
   OnInit,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent, OwlOptions } from 'ngx-owl-carousel-o';
-import { LoginComponent } from 'src/app/modules/authentication/pages/login/login.component';
-import { RegisterComponent } from 'src/app/modules/authentication/pages/register/register.component';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { OurServicesService } from 'src/app/shared/services/our-services.service';
 import { SiteContentService } from 'src/app/shared/services/site-content.service';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +18,13 @@ import { SiteContentService } from 'src/app/shared/services/site-content.service
 export class HomeComponent implements OnInit {
   constructor(
     private _SiteContentService: SiteContentService,
-    private _OurServicesService: OurServicesService
+    private _OurServicesService: OurServicesService,
+    private renderer: Renderer2
   ) {}
 
+  @ViewChild('ourWorkSwiper', { static: false }) ourWorkSwiper?: ElementRef;
   ourWork: any[] = [];
+
   services: any[] = [];
   reviews: any[] = [];
   productsCategories: any[] = [];
@@ -32,15 +33,15 @@ export class HomeComponent implements OnInit {
   activeCategoryProducts: any[] = [];
   activeCategoryName: string | undefined;
 
-  private modalService = inject(NgbModal);
+  activeSlideIndex = 0;
+  dotWidth: number = 0;
+  contentContainerHeight: number = 0;
 
   //testimonials Section Variables
-  @ViewChild('testimonialsCarousel', { static: false })
-  testimonialsCarousel!: CarouselComponent;
-  @ViewChild('testimonialsDot1') testimonialsDot1!: ElementRef;
-  @ViewChild('testimonialsDot2') testimonialsDot2!: ElementRef;
-  @ViewChild('testimonialsDot3') testimonialsDot3!: ElementRef;
-  @ViewChild('testimonialsDot4') testimonialsDot4!: ElementRef;
+  @ViewChild('dot1') dot1!: ElementRef;
+  @ViewChild('dot2') dot2!: ElementRef;
+  @ViewChild('dot3') dot3!: ElementRef;
+  @ViewChild('dot4') dot4!: ElementRef;
   testimonialsIndex: number = 0;
   dotHeight: number = 0;
   testimonialsOptions: OwlOptions = {
@@ -54,6 +55,8 @@ export class HomeComponent implements OnInit {
     items: 1,
     nav: false,
   };
+
+  swiperInstance!: Swiper; // Swiper instance type
 
   ngOnInit() {
     this.initialize();
@@ -99,6 +102,40 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onSlideChange(event: any): void {
+    console.log('fasfasf');
+    this.swiperInstance = event.swiper;
+    this.swiperInstance?.on('slideChange', () => {
+      console.log('slideChange');
+    });
+  }
+
+  triggerNext(): void {
+    this.ourWorkSwiper?.nativeElement.swiper.slideNext();
+  }
+
+  triggerPrev(): void {
+    this.ourWorkSwiper?.nativeElement.swiper.slidePrev();
+  }
+
+  setActive(index: number): void {
+    this.dotWidth = this.dot1.nativeElement.offsetWidth + 16;
+
+    const transforms = [
+      [0, 0, 0],
+      [-this.dotWidth, this.dotWidth, 0],
+      [-this.dotWidth * 2, this.dotWidth, this.dotWidth],
+    ];
+
+    [this.dot1, this.dot2, this.dot3, this.dot4].forEach((dot, i) => {
+      this.renderer.setStyle(
+        dot.nativeElement,
+        'transform',
+        `translateX(${transforms[index][i] || 0}px)`
+      );
+    });
+  }
+
   setActiveCategory(
     categoryId: number,
     products: any,
@@ -107,22 +144,5 @@ export class HomeComponent implements OnInit {
     this.activeCategory = categoryId;
     this.activeCategoryProducts = products;
     this.activeCategoryName = categoryName;
-  }
-
-  openLoginDialog() {
-    const modalRef = this.modalService.open(LoginComponent, {
-      centered: true,
-      backdrop: 'static',
-      scrollable: true,
-    });
-  }
-
-  openRegisterDialog() {
-    const modalRef = this.modalService.open(RegisterComponent, {
-      centered: true,
-      backdrop: 'static',
-      size: 'md',
-      scrollable: true,
-    });
   }
 }

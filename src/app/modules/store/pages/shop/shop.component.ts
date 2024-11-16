@@ -10,7 +10,7 @@ import { QuickViewComponent } from '../../components/quick-view/quick-view.compo
 export class ShopComponent implements OnInit {
   private modalService = inject(NgbModal);
 
-  rangeValues: number[] = [20, 80];
+  rangeValues: number[] = [0, 100];
 
   pageSize: number = 8;
   currentPage = 1;

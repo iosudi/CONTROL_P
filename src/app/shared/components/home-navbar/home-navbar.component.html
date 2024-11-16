@@ -1,0 +1,61 @@
+<nav>
+  <div class="navbar container d-flex align-items-center gap-2">
+    <div class="logo pointer" routerLink="/">
+      <img src="./assets/images/logo.png" alt="logo" />
+    </div>
+
+    <ul class="nav-items p-0 m-0 d-flex align-items-center gap-3">
+      <li><a routerLink="/home" routerLinkActive="active-link">Home</a></li>
+      <li>
+        <a routerLink="/about-us" routerLinkActive="active-link">About</a>
+      </li>
+      <li>
+        <a routerLink="/portfolio" routerLinkActive="active-link">Portfolio</a>
+      </li>
+      <li>
+        <a routerLink="/services" routerLinkActive="active-link">Services</a>
+      </li>
+      <li><a routerLink="/shop" routerLinkActive="active-link">Shop</a></li>
+      <li>
+        <a routerLink="/partners" routerLinkActive="active-link">Partners</a>
+      </li>
+      <li>
+        <a routerLink="/contact-us" routerLinkActive="active-link"
+          >Contact Us</a
+        >
+      </li>
+    </ul>
+
+    <div class="nav-controls d-flex align-items-center">
+      <div class="d-flex align-items-center gap-3 border-end pe-3">
+        <button class="btn p-0 d-flex align-items-center gap-3">
+          <img src="./assets/images/icons/search.svg" alt="icon" />
+        </button>
+        <button class="btn p-0 d-flex align-items-center gap-3 language-btn">
+          <img src="./assets/images/icons/global.svg" alt="icon" />
+          English
+        </button>
+      </div>
+
+      <div class="d-flex align-items-center gap-3 ps-3">
+        <button
+          class="btn p-0 d-flex align-items-center"
+          (click)="openLoginDialog()"
+        >
+          <img src="./assets/images/icons/user.svg" alt="icon" />
+        </button>
+        <button class="btn p-0 d-flex align-items-center gap-1">
+          <img src="./assets/images/icons/heart.svg" alt="icon" />
+          1
+        </button>
+        <button class="btn p-0 d-flex align-items-center gap-2">
+          <img src="./assets/images/icons/cart.svg" alt="icon" />
+          <span class="d-flex gap-1">
+            <span class="cart-count">1 </span> /
+            <span class="cart-price"> 0</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

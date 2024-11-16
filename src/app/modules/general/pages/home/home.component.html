@@ -1,7 +1,4 @@
-<button class="btn btn-primary" (click)="openLoginDialog()">Login</button>
-<button class="btn btn-outline-info" (click)="openRegisterDialog()">
-  register
-</button>
+<app-home-navbar></app-home-navbar>
 
 <section class="hero position-relative">
   <div
@@ -53,17 +50,17 @@
       Our <span class="fw-bold heading-color">Works</span>
     </h2>
     <div class="slider-arrows d-flex align-items-center gap-4">
-      <button class="prev-btn white-outlined-btn">
+      <button (click)="triggerPrev()" class="prev-btn white-outlined-btn">
         <i class="fa-solid fa-arrow-left"></i>
       </button>
-      <button class="next-btn white-outlined-btn">
+      <button (click)="triggerNext()" class="next-btn white-outlined-btn">
         <i class="fa-solid fa-arrow-right"></i>
       </button>
     </div>
   </div>
 
   <div class="work-categories">
-    <swiper-container slides-per-view="5.25">
+    <swiper-container slides-per-view="5.25" #ourWorkSwiper>
       <swiper-slide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
         <div
           class="category d-flex justify-content-between overflow-hidden px-4 pointer"
@@ -384,14 +381,34 @@
         <div class="col-lg-6">
           <div class="carousel-container">
             <div class="navigation-dots d-flex flex-column gap-2 my-4">
-              <div #testimonialsDot1 class="dot active-dot"></div>
-              <div #testimonialsDot2 class="dot"></div>
-              <div #testimonialsDot3 class="dot"></div>
-              <div #testimonialsDot4 class="dot"></div>
+              <div
+                #dot1
+                class="dot"
+                [class.active-dot]="activeSlideIndex === 0"
+              ></div>
+              <div
+                #dot2
+                class="dot"
+                [class.active-dot]="activeSlideIndex === 1"
+              ></div>
+              <div
+                #dot3
+                class="dot"
+                [class.active-dot]="activeSlideIndex === 2"
+              ></div>
+              <div
+                #dot4
+                class="dot"
+                [class.active-dot]="activeSlideIndex === 3"
+              ></div>
             </div>
 
             <div class="carousel">
-              <swiper-container slides-per-view="1" [spaceBetween]="50">
+              <swiper-container
+                slides-per-view="1"
+                [spaceBetween]="50"
+                (sliderMove)="onSlideChange($event)"
+              >
                 <swiper-slide *ngFor="let review of reviews; let i = index">
                   <div class="slide pb-4 pt-5 px-5">
                     <img
@@ -526,3 +543,5 @@
     </div>
   </div>
 </section>
+
+<app-footer></app-footer>

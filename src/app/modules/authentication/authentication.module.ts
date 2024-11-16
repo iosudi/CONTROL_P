@@ -4,6 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputOtpModule } from 'primeng/inputotp';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { CheckEmailComponent } from './pages/check-email/check-email.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -26,6 +27,7 @@ import { VerifyEmailComponent } from './pages/verify-email/verify-email.componen
     FormsModule,
     InputOtpModule,
     CheckboxModule,
+    SharedModule,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

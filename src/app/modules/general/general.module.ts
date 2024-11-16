@@ -16,6 +16,8 @@ import { PartnersComponent } from './pages/partners/partners.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ServicesDetailsComponent } from './pages/services-details/services-details.component';
 
+import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { register as registerSwiperElements } from 'swiper/element/bundle';
 import { HomeMiniShopComponent } from './components/home-mini-shop/home-mini-shop.component';
 registerSwiperElements();
@@ -41,6 +43,8 @@ registerSwiperElements();
     CarouselModule,
     BreadcrumbModule,
     TimelineModule,
+    SharedModule,
+    RouterModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
