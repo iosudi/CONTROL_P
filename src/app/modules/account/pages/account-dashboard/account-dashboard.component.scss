@@ -19,3 +19,23 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .account-dashboard {
+    .account-link {
+      background: transparent;
+      border: 0;
+      flex-direction: row !important;
+      justify-content: start !important;
+      gap: 1rem !important;
+      padding: 0.5rem 0 !important;
+      font-size: 1.1rem;
+
+      img {
+        width: 20px;
+        margin-bottom: 0 !important ;
+        height: auto;
+      }
+    }
+  }
+}

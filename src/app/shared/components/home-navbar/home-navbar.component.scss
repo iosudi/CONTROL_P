@@ -43,3 +43,72 @@ nav {
     }
   }
 }
+
+app-mobile-navbar {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  nav {
+    .navbar {
+      .logo img {
+        width: 8rem;
+      }
+
+      .nav-items {
+        li {
+          a {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .nav-controls {
+        .btn {
+          img {
+            width: 20px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  nav {
+    .navbar {
+      .logo img {
+        width: 6rem;
+      }
+
+      .nav-items {
+        li {
+          a {
+            font-size: 0.7rem;
+          }
+        }
+      }
+
+      .nav-controls {
+        .btn {
+          img {
+            width: 15px;
+            height: auto;
+          }
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  nav {
+    display: none;
+  }
+
+  app-mobile-navbar {
+    display: block;
+  }
+}

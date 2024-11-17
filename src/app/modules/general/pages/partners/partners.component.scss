@@ -141,6 +141,21 @@
   }
 }
 
+@media (max-width: 991px) {
+  .hero {
+    height: 400px;
+
+    .heading {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .hero {
     height: 250px;

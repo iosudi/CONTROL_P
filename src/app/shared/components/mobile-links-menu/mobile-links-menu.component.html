@@ -1,0 +1,70 @@
+<div class="nav-menu py-5">
+  <div
+    class="nav-heading d-flex align-items-center justify-content-between border-bottom pb-1 px-3 mb-4"
+  >
+    <h5 class="mb-0">Menu</h5>
+    <button
+      class="close-menu-btn d-flex align-items-center gap-1"
+      (click)="closeMenu()"
+    >
+      <i class="fa-solid fa-xmark"></i>
+      close
+    </button>
+  </div>
+
+  <ul class="nav-items m-0 p-0 px-3">
+    <li
+      class="pt-3 pb-1 fs-5 border-bottom"
+      routerLink="/home"
+      routerLinkActive="active-link"
+    >
+      Home
+    </li>
+    <li
+      class="pt-3 pb-1 fs-5 border-bottom"
+      routerLink="/about-us"
+      routerLinkActive="active-link"
+    >
+      About
+    </li>
+    <li
+      class="pt-3 pb-1 fs-5 border-bottom"
+      routerLink="/portfolio"
+      routerLinkActive="active-link"
+    >
+      Portfolio
+    </li>
+    <li
+      class="pt-3 pb-1 fs-5 border-bottom"
+      routerLink="/shop"
+      routerLinkActive="active-link"
+    >
+      Shop
+    </li>
+    <li
+      class="pt-3 pb-1 fs-5 border-bottom"
+      routerLink="/partners"
+      routerLinkActive="active-link"
+    >
+      partners
+    </li>
+    <li
+      class="pt-3 pb-1 fs-5 border-bottom"
+      routerLink="/contact-us"
+      routerLinkActive="active-link"
+    >
+      Contact Us
+    </li>
+    <li class="py-2 fs-5" routerLink="/services" routerLinkActive="active-link">
+      Services
+    </li>
+    <button class="btn px-0 d-flex align-items-center gap-2 fs-5">
+      <img src="../../../../assets/images/icons/nav-heart.svg" alt="icon" />
+      Wishlist
+    </button>
+    <button class="btn px-0 d-flex align-items-center gap-2 fs-5">
+      <img src="../../../../assets/images/icons/nav-user.svg" alt="icon" />
+      Account
+    </button>
+  </ul>
+</div>

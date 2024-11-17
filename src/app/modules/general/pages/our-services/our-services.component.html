@@ -41,20 +41,23 @@
     </div>
 
     <div class="row g-4">
-      <div
-        class="col-lg-4 col-md-6"
-        *ngFor="let solution of solutions_images"
-        routerLink="Professional Design"
-      >
+      <div class="col-lg-4 col-md-6" *ngFor="let solution of solutions_images">
         <div class="solution h-100">
           <img [src]="solution" alt="image" />
-          <div class="content d-none">
-            <h3 class="h4">Printing</h3>
-            <p>
-              From small business cards to large-scale corporate materials,
-              we've got you covered. We offer a variety of printing solutions,
-              including traditional and digital printing, as well as custom
-              printing services.
+          <div
+            class="content-overlay d-flex flex-column justify-content-end p-4"
+          >
+            <button
+              class="d-flex align-items-center justify-content-center pointer mb-3"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <h3 class="h4 fw-bold">Professional Design</h3>
+            <p
+              class="mb-0 fs-5 heading-color text-uppercase pointer"
+              routerLink="Professional Design"
+            >
+              read more
             </p>
           </div>
         </div>

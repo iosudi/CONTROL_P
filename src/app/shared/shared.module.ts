@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeNavbarComponent } from './components/home-navbar/home-navbar.component';
+import { MobileNavbarComponent } from './components/mobile-navbar/mobile-navbar.component';
+import { MobileLinksMenuComponent } from './components/mobile-links-menu/mobile-links-menu.component';
+import { CartOverlayComponent } from './components/cart-overlay/cart-overlay.component';
 
 @NgModule({
-  declarations: [HomeNavbarComponent, FooterComponent],
+  declarations: [HomeNavbarComponent, FooterComponent, MobileNavbarComponent, MobileLinksMenuComponent, CartOverlayComponent],
   imports: [CommonModule, RouterModule],
   exports: [HomeNavbarComponent, FooterComponent],
 })

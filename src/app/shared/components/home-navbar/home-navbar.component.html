@@ -1,3 +1,5 @@
+<app-cart-overlay *ngIf="cartOverlayOpened"></app-cart-overlay>
+
 <nav>
   <div class="navbar container d-flex align-items-center gap-2">
     <div class="logo pointer" routerLink="/">
@@ -27,7 +29,7 @@
     </ul>
 
     <div class="nav-controls d-flex align-items-center">
-      <div class="d-flex align-items-center gap-3 border-end pe-3">
+      <div class="d-flex align-items-center gap-lg-3 gap-2 border-end pe-3">
         <button class="btn p-0 d-flex align-items-center gap-3">
           <img src="./assets/images/icons/search.svg" alt="icon" />
         </button>
@@ -37,7 +39,7 @@
         </button>
       </div>
 
-      <div class="d-flex align-items-center gap-3 ps-3">
+      <div class="d-flex align-items-center gap-lg-3 gap-2 ps-3">
         <button
           class="btn p-0 d-flex align-items-center"
           (click)="openLoginDialog()"
@@ -48,7 +50,10 @@
           <img src="./assets/images/icons/heart.svg" alt="icon" />
           1
         </button>
-        <button class="btn p-0 d-flex align-items-center gap-2">
+        <button
+          class="btn p-0 d-flex align-items-center gap-lg-2 gap-1"
+          (click)="openCartOverlay()"
+        >
           <img src="./assets/images/icons/cart.svg" alt="icon" />
           <span class="d-flex gap-1">
             <span class="cart-count">1 </span> /
@@ -59,3 +64,5 @@
     </div>
   </div>
 </nav>
+
+<app-mobile-navbar></app-mobile-navbar>
