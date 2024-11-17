@@ -9,7 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class MobileLinksMenuComponent {
   constructor(private router: Router) {}
 
-  @Input() menuOpened: boolean = false;
+  @Input() menuOpened: boolean = true;
   @Output() menuStatusChange = new EventEmitter<boolean>();
 
   ngOnInit(): void {
@@ -18,6 +18,12 @@ export class MobileLinksMenuComponent {
         this.closeMenu();
       }
     });
+
+    this.toggleBodyScroll();
+  }
+
+  toggleBodyScroll(): void {
+    document.body.style.overflow = this.menuOpened ? 'hidden' : 'auto';
   }
 
   closeMenu() {

@@ -67,6 +67,7 @@ export class MobileNavbarComponent implements OnInit {
 
   onMenuStatusChange(status: boolean) {
     this.menuOpened = status;
+    this.toggleBodyScroll();
   }
 
   checkCartOverlay(): boolean {
@@ -77,5 +78,9 @@ export class MobileNavbarComponent implements OnInit {
     if (!this.checkCartOverlay()) {
       this._CartService.openedCartOverlay.next(true);
     }
+  }
+
+  toggleBodyScroll(): void {
+    document.body.style.overflow = this.menuOpened ? 'hidden' : 'auto';
   }
 }
