@@ -27,8 +27,50 @@ export class PortfolioComponent {
     './assets/images/portfolio/10.jpg',
   ];
 
+  ourWorkBreakpoints = {
+    0: {
+      slidesPerView: 1.25,
+      spaceBetween: 20,
+    },
+    450: {
+      slidesPerView: 1.75,
+      spaceBetween: 20,
+    },
+    540: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    767: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    991: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1200: {
+      slidesPerView: 3.25,
+      spaceBetween: 20,
+    },
+    1400: {
+      slidesPerView: 4.15,
+      spaceBetween: 20,
+    },
+  };
+
+  workCategoriesBreakPoints = {
+    0: {
+      slidesPerView: 3.25,
+      spaceBetween: 5,
+    },
+
+    550: {
+      slidesPerView: 4,
+      spaceBetween: 5,
+    },
+  };
+
   projects: any[] = [];
-  projectImages: any[] = [];
 
   ngOnInit(): void {
     this.initialize();
@@ -45,7 +87,7 @@ export class PortfolioComponent {
     });
   }
 
-  eventGallery(projectImages: any) {
+  eventGallery(projectImages: any[]) {
     const modalRef = this.modalService.open(EventGalleryComponent, {
       fullscreen: true,
       scrollable: true,

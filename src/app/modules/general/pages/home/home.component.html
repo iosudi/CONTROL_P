@@ -8,7 +8,7 @@
     <div class="blurred-balls"></div>
     <div class="row justify-content-between">
       <div class="col-lg-6">
-        <div class="title">
+        <div class="title py-4">
           <h1 class="fw-bold">
             Innovative
             <span class="d-block fw-medium heading-color">
@@ -47,7 +47,7 @@
   </button>
 </section>
 
-<section class="our-work my-sections px-container">
+<section class="our-work my-sections px-container overflow-hidden">
   <div class="header d-flex justify-content-between align-items-center mb-5">
     <h2 class="h1 text-center fw-bold">
       Our <span class="fw-bold heading-color">Works</span>
@@ -63,13 +63,17 @@
   </div>
 
   <div class="work-categories">
-    <swiper-container slides-per-view="5.25" #ourWorkSwiper>
+    <swiper-container
+      slides-per-view="5.25"
+      [breakpoints]="ourWorkBreakpoints"
+      #ourWorkSwiper
+    >
       <swiper-slide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
         <div
           class="category d-flex justify-content-between overflow-hidden px-4 pointer"
         >
           <div class="title d-flex flex-column justify-content-center">
-            <h4 class="fw-bold mb-1">Events</h4>
+            <h4 class="fw-bold mb-0">Events</h4>
             <p class="mb-0">Sector</p>
           </div>
 
@@ -108,7 +112,7 @@
 
   <div class="work-preview mt-5">
     <div class="heading d-flex justify-content-between align-items-center">
-      <h3 class="fw-light"><span class="fw-bold">Events</span> Sector</h3>
+      <h3 class="fw-ligh mb-0"><span class="fw-bold">Events</span> Sector</h3>
       <button
         class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
         routerLink="/portfolio"
@@ -157,8 +161,8 @@
     <div class="background"></div>
     <div class="container-fluid pb-5">
       <div class="blurred-balls"></div>
-      <div class="row">
-        <div class="col-lg-6 d-flex justify-content-between flex-column">
+      <div class="row gy-4 justify-content-between">
+        <div class="col-lg-5 d-flex justify-content-between flex-column">
           <h3 class="h2 mb-2">
             About <br />
             <span class="heading-color fw-bold">CTRL + P</span>
@@ -199,77 +203,92 @@
 <section class="why-us my-sections px-container position-relative">
   <div class="blurred-balls"></div>
 
-  <h3 class="fw-light text-center">
-    Why Choose <span class="heading-color fw-bold">Ctrl+P</span>
-  </h3>
+  <div class="container">
+    <h3 class="fw-light text-center">
+      Why Choose <span class="heading-color fw-bold">Ctrl+P</span>
+    </h3>
 
-  <div class="features">
-    <div
-      class="feature d-flex align-items-center justify-content-center flex-column"
-    >
-      <div class="icon d-flex align-items-center justify-content-center mb-3">
-        <img
-          src="./assets/images/icons/Hotel-Five-Star--Streamline-Core.png"
-          alt="icon"
-        />
+    <div class="features row g-4">
+      <div class="col-lg-3 col-6">
+        <div
+          class="feature d-flex align-items-center justify-content-center flex-column"
+        >
+          <div
+            class="icon d-flex align-items-center justify-content-center mb-3"
+          >
+            <img
+              src="./assets/images/icons/Hotel-Five-Star--Streamline-Core.png"
+              alt="icon"
+            />
+          </div>
+
+          <h4 class="h3">Experience</h4>
+          <p class="text-center mb-0">
+            With 13+ years of expertise, we know the industry inside out,
+            ensuring flawless execution of your event.
+          </p>
+        </div>
       </div>
+      <div class="col-lg-3 col-6">
+        <div
+          class="feature d-flex align-items-center justify-content-center flex-column"
+        >
+          <div
+            class="icon d-flex align-items-center justify-content-center mb-3"
+          >
+            <img
+              src="./assets/images/icons/Collaborations-Idea--Streamline-Core.png"
+              alt="icon"
+            />
+          </div>
 
-      <h4 class="h3">Experience</h4>
-      <p class="text-center mb-0">
-        With 13+ years of expertise, we know the industry inside out, ensuring
-        flawless execution of your event.
-      </p>
-    </div>
-
-    <div
-      class="feature d-flex align-items-center justify-content-center flex-column"
-    >
-      <div class="icon d-flex align-items-center justify-content-center mb-3">
-        <img
-          src="./assets/images/icons/Collaborations-Idea--Streamline-Core.png"
-          alt="icon"
-        />
+          <h4>Talent</h4>
+          <p class="text-center mb-0">
+            Our team of specialists in every field collaborates to develop and
+            implement your event seamlessly.
+          </p>
+        </div>
       </div>
+      <div class="col-lg-3 col-6">
+        <div
+          class="feature d-flex align-items-center justify-content-center flex-column"
+        >
+          <div
+            class="icon d-flex align-items-center justify-content-center mb-3"
+          >
+            <img
+              src="./assets/images/icons/Business-Handshake--Streamline-Core.png"
+              alt="icon"
+            />
+          </div>
 
-      <h4>Talent</h4>
-      <p class="text-center mb-0">
-        Our team of specialists in every field collaborates to develop and
-        implement your event seamlessly.
-      </p>
-    </div>
-
-    <div
-      class="feature d-flex align-items-center justify-content-center flex-column"
-    >
-      <div class="icon d-flex align-items-center justify-content-center mb-3">
-        <img
-          src="./assets/images/icons/Business-Handshake--Streamline-Core.png"
-          alt="icon"
-        />
+          <h4>Broadness</h4>
+          <p class="text-center mb-0">
+            We offer comprehensive event services, from planning and design to
+            execution, activation, and closure.
+          </p>
+        </div>
       </div>
+      <div class="col-lg-3 col-6">
+        <div
+          class="feature d-flex align-items-center justify-content-center flex-column"
+        >
+          <div
+            class="icon d-flex align-items-center justify-content-center mb-3"
+          >
+            <img
+              src="./assets/images/icons/Share-Setting-Bolt--Streamline-Core.png"
+              alt="icon"
+            />
+          </div>
 
-      <h4>Broadness</h4>
-      <p class="text-center mb-0">
-        We offer comprehensive event services, from planning and design to
-        execution, activation, and closure.
-      </p>
-    </div>
-
-    <div
-      class="feature d-flex align-items-center justify-content-center flex-column"
-    >
-      <div class="icon d-flex align-items-center justify-content-center mb-3">
-        <img
-          src="./assets/images/icons/Share-Setting-Bolt--Streamline-Core.png"
-          alt="icon"
-        />
+          <h4>Assets</h4>
+          <p class="text-center mb-0">
+            Equipped with carpentry, printing, and souvenir manufacturing
+            workshops, we manage your event with complete professionalism.
+          </p>
+        </div>
       </div>
-
-      <h4>Assets</h4>
-      <p class="text-center mb-0">
-        Equipped with carpentry, printing, and souvenir manufacturing workshops,
-        we manage your event with complete professionalism.
-      </p>
     </div>
   </div>
 </section>
@@ -301,16 +320,16 @@
     </div>
 
     <div class="service-slider">
-      <swiper-container slides-per-view="5.5" [spaceBetween]="50">
+      <swiper-container
+        slides-per-view="5.5"
+        [spaceBetween]="50"
+        [breakpoints]="servicesBreakpoints"
+      >
         <swiper-slide *ngFor="let service of services">
           <div class="service pointer">
-            <h4 class="fw-bold mb-5">{{ service.category.name }}</h4>
+            <h4 class="fw-bold mb-5">{{ service.name }}</h4>
 
-            <img
-              [src]="service.category.image"
-              alt="service"
-              class="service-preview"
-            />
+            <img [src]="service.image" alt="service" class="service-preview" />
           </div>
         </swiper-slide>
       </swiper-container>
@@ -321,11 +340,11 @@
 <section class="shop position-relative">
   <div class="blurred-balls"></div>
   <div class="container-fluid px-container my-sections">
-    <div class="row">
+    <div class="row gy-4">
       <div class="col-lg-3">
         <div class="px-5 py-5 categories-list h-100">
           <h3 class="fw-normal mb-5">
-            Shop Our <br />
+            Shop Our
             <span class="fw-bold">Painting</span>
           </h3>
 
@@ -368,11 +387,13 @@
 </section>
 
 <section class="testimonials">
-  <div class="testimonials-content position-relative overflow-hidden">
+  <div
+    class="testimonials-content position-relative ps-sm-5 ps-3 pe-2 overflow-hidden"
+  >
     <div class="background"></div>
-    <div class="container position-relative">
+    <div class="container ps-sm-5 ps-4 position-relative">
       <div class="blurred-balls"></div>
-      <div class="row">
+      <div class="row gy-4">
         <div class="col-lg-6 d-flex justify-content-center flex-column">
           <h3 class="h2 mb-2">
             What Our <br />
@@ -387,7 +408,7 @@
 
         <div class="col-lg-6">
           <div class="carousel-container">
-            <div class="navigation-dots d-flex flex-column gap-2 my-4">
+            <div class="navigation-dots d-flex flex-column gap-2">
               <div
                 #dot1
                 class="dot"
@@ -438,7 +459,7 @@
                           {{ review.client_name }}
                         </h5>
                       </div>
-                      <div class="rating">
+                      <div class="rating d-flex align-items-center">
                         <i
                           class="fa-solid fa-star star-color"
                           [class.rating-color]="review.rating >= num"
@@ -453,11 +474,19 @@
           </div>
         </div>
       </div>
+      <button
+        class="white-outlined-btn px-3 py-1 fs-6 fw-light rounded-5 d-none align-items-center justify-content-center gap-2 mt-4 me-auto"
+      >
+        Write your comment
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
   </div>
 </section>
 
-<section class="event-step d-flex align-items-center justify-content-center">
+<section
+  class="event-step d-flex align-items-center justify-content-center overflow-hidden"
+>
   <div class="images">
     <img src="./assets/images/home/events/8.jpg" alt="image" />
     <img src="./assets/images/home/events/1.jpg" alt="image" />
@@ -489,8 +518,9 @@
   </div>
 </section>
 
-<section class="contact-banner">
-  <div class="container">
+<section class="contact-banner overflow-hidden">
+  <div class="container position-relative">
+    <img class="star" src="./assets/images/home/banner/star.png" alt="star" />
     <div class="row h-100">
       <div class="col-lg-6 d-flex align-items-center px-0">
         <div class="content px-5">
@@ -504,6 +534,7 @@
             need. Whether it’s planning, design, or execution, we’ve got you
             covered.
           </p>
+
           <div class="contact-buttons d-flex align-items-center gap-3">
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
@@ -540,11 +571,6 @@
             class="man"
             src="./assets/images/home/banner/man.png"
             alt="man"
-          />
-          <img
-            class="star"
-            src="./assets/images/home/banner/star.png"
-            alt="star"
           />
         </div>
       </div>

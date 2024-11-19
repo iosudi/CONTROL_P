@@ -39,34 +39,6 @@
       font-size: 1.5rem;
     }
   }
-
-  p-breadcrumb ::ng-deep {
-    .p-breadcrumb {
-      ol {
-        li {
-          a {
-            .p-menuitem-text {
-              color: var(--main-color);
-              font-size: 1.2rem;
-            }
-          }
-
-          &:last-child a {
-            text-decoration: none;
-            .p-menuitem-text {
-              color: var(--white-text);
-            }
-          }
-        }
-        .p-icon {
-          color: var(--main-color);
-        }
-      }
-      homeicon {
-        display: none;
-      }
-    }
-  }
 }
 
 .service-information {

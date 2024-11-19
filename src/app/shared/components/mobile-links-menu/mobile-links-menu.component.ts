@@ -29,5 +29,6 @@ export class MobileLinksMenuComponent {
   closeMenu() {
     this.menuOpened = false;
     this.menuStatusChange.emit(this.menuOpened);
+    this.toggleBodyScroll();
   }
 }

@@ -17,9 +17,33 @@ export class EventGalleryComponent {
 
   @Input() images: any[] = [];
 
+  thumbnailsBreakpoints = {
+    0: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    500: {
+      slidesPerView: 4,
+      spaceBetween: 20,
+    },
+    991: {
+      slidesPerView: 5.5,
+      spaceBetween: 20,
+    },
+    1199: {
+      slidesPerView: 6.5,
+      spaceBetween: 20,
+    },
+    1399: {
+      slidesPerView: 7.5,
+      spaceBetween: 20,
+    },
+  };
+
   activeIndex: number = 1;
 
   ngOnInit(): void {
+    console.log(this.images);
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => {

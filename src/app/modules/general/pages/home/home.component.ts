@@ -23,9 +23,11 @@ export class HomeComponent implements OnInit {
   ) {}
 
   @ViewChild('ourWorkSwiper', { static: false }) ourWorkSwiper?: ElementRef;
+
   ourWork: any[] = [];
 
   services: any[] = [];
+
   reviews: any[] = [];
   productsCategories: any[] = [];
 
@@ -36,6 +38,80 @@ export class HomeComponent implements OnInit {
   activeSlideIndex = 0;
   dotWidth: number = 0;
   contentContainerHeight: number = 0;
+
+  ourWorkBreakpoints = {
+    0: {
+      slidesPerView: 2,
+      spaceBetween: 5,
+    },
+    445: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    501: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    525: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    671: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    1050: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1267: {
+      slidesPerView: 3.75,
+      spaceBetween: 20,
+    },
+    1480: {
+      slidesPerView: 4.5,
+      spaceBetween: 20,
+    },
+    1700: {
+      slidesPerView: 5.25,
+      spaceBetween: 20,
+    },
+  };
+
+  servicesBreakpoints = {
+    0: {
+      slidesPerView: 1.75,
+      spaceBetween: 20,
+    },
+    671: {
+      slidesPerView: 2.25,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    1050: {
+      slidesPerView: 3.25,
+      spaceBetween: 20,
+    },
+    1267: {
+      slidesPerView: 3.75,
+      spaceBetween: 20,
+    },
+    1480: {
+      slidesPerView: 4.5,
+      spaceBetween: 20,
+    },
+    1700: {
+      slidesPerView: 5.5,
+      spaceBetween: 20,
+    },
+  };
 
   //testimonials Section Variables
   @ViewChild('testimonialSwiper') testimonialSwiper!: ElementRef;

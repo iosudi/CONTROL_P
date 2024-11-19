@@ -8,20 +8,27 @@
       <div
         class="controls py-3 px-4 rounded-4 d-flex align-items-center justify-content-center gap-2"
       >
-        <button class="btn view-project">
+        <button
+          class="btn d-flex align-items-center justify-content-center view-project"
+        >
           View Project
           <i class="fa-solid fa-arrow-up ms-3"></i>
         </button>
 
-        <button class="btn">
+        <button class="btn d-flex align-items-center justify-content-center">
           <i class="fa-solid fa-arrow-up-from-bracket"></i>
         </button>
 
-        <button class="btn heart-icon">
+        <button
+          class="btn d-flex align-items-center justify-content-center heart-icon"
+        >
           <i class="fa-regular fa-heart"></i>
         </button>
 
-        <button class="btn close-btn ms-4" (click)="close()">
+        <button
+          class="btn d-flex align-items-center justify-content-center close-btn ms-4"
+          (click)="close()"
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -50,6 +57,7 @@
         class="mySwiper"
         thumbs-swiper=".mySwiper2"
         space-between="10"
+        pagination="true"
       >
         <swiper-slide *ngFor="let image of images">
           <img [src]="image.image" />
@@ -63,6 +71,7 @@
       slides-per-view="7.5"
       free-mode="true"
       watch-slides-progress="true"
+      [breakpoints]="thumbnailsBreakpoints"
     >
       <swiper-slide *ngFor="let image of images">
         <img [src]="image.image" />

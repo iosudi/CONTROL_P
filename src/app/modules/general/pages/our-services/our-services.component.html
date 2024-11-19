@@ -41,9 +41,9 @@
     </div>
 
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6" *ngFor="let solution of solutions_images">
+      <div class="col-lg-4 col-md-6" *ngFor="let solution of services">
         <div class="solution h-100">
-          <img [src]="solution" alt="image" />
+          <img [src]="solution.image" alt="image" />
           <div
             class="content-overlay d-flex flex-column justify-content-end p-4"
           >
@@ -52,10 +52,10 @@
             >
               <i class="fa-solid fa-plus"></i>
             </button>
-            <h3 class="h4 fw-bold">Professional Design</h3>
+            <h3 class="h4 fw-bold">{{ solution.name }}</h3>
             <p
               class="mb-0 fs-5 heading-color text-uppercase pointer"
-              routerLink="Professional Design"
+              (click)="openServiceDetails(solution.id)"
             >
               read more
             </p>

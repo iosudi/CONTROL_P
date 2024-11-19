@@ -1,4 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
@@ -12,7 +19,11 @@ import { EventGalleryComponent } from '../event-gallery/event-gallery.component'
 export class ProjectDetailsComponent implements OnInit {
   private modalService = inject(NgbModal);
 
-  constructor(public activeModal: NgbActiveModal, private router: Router) {
+  constructor(
+    public activeModal: NgbActiveModal,
+    private router: Router,
+    private renderer: Renderer2
+  ) {
     this.events = [
       {
         status: 'يوم التأسيس السعودي',
@@ -61,6 +72,18 @@ export class ProjectDetailsComponent implements OnInit {
     );
   }
 
+  @ViewChild('testimonialSwiper') testimonialSwiper!: ElementRef;
+  @ViewChild('dot1') dot1!: ElementRef;
+  @ViewChild('dot2') dot2!: ElementRef;
+  @ViewChild('dot3') dot3!: ElementRef;
+  @ViewChild('dot4') dot4!: ElementRef;
+
+  activeSlideIndex = 0;
+  contentContainerHeight: number = 0;
+  dotHeight: number = 0;
+
+  activeIndex: number = 0;
+
   events: any[];
   eventsWithIndex: any[];
 
@@ -74,10 +97,49 @@ export class ProjectDetailsComponent implements OnInit {
       });
   }
 
+  onSlideChange(): void {
+    const swiper = this.testimonialSwiper?.nativeElement.swiper;
+    this.activeIndex = swiper.activeIndex;
+
+    this.setActive(swiper.activeIndex);
+  }
+
+  setActive(index: number): void {
+    this.dotHeight = this.dot1.nativeElement.offsetHeight + 8;
+
+    // Adjust transforms for vertical movement
+    const transforms = [
+      // For index 0 (default position, no movement)
+      [0, 0, 0, 0],
+
+      // For index 1 (move the dots up or down in a vertical direction)
+      [this.dotHeight, -this.dotHeight, 0, 0],
+
+      // For index 2 (further movement of dots in vertical direction)
+      [this.dotHeight * 2, -this.dotHeight, -this.dotHeight, 0],
+
+      // For index 3 (maximum movement for each dot)
+      [this.dotHeight * 3, -this.dotHeight, -this.dotHeight, -this.dotHeight],
+    ];
+
+    // Apply vertical transform to each dot
+    [this.dot1, this.dot2, this.dot3, this.dot4].forEach((dot, i) => {
+      this.renderer.setStyle(
+        dot.nativeElement,
+        'transform',
+        `translateY(${transforms[index][i] || 0}px)` // Use translateY for vertical movement
+      );
+    });
+  }
+
   eventGallery() {
     this.modalService.open(EventGalleryComponent, {
       fullscreen: true,
       scrollable: true,
     });
+  }
+
+  close(): void {
+    this.activeModal.close();
   }
 }

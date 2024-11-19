@@ -1,5 +1,30 @@
 <div class="event-details">
   <div class="container my-5">
+    <div
+      class="controls-wrapper d-flex p-3 justify-content-end align-items-center"
+    >
+      <div
+        class="controls rounded-4 d-flex align-items-center justify-content-center gap-2"
+      >
+        <button class="btn d-flex align-items-center justify-content-center">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        </button>
+
+        <button
+          class="btn d-flex align-items-center justify-content-center heart-icon"
+        >
+          <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <button
+          class="btn d-flex align-items-center justify-content-center close-btn ms-4"
+          (click)="close()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-7">
         <p-timeline
@@ -35,19 +60,40 @@
 
         <div class="testimonials-content position-relative overflow-hidden">
           <div class="row">
-            <div class="col-9 ms-auto">
+            <div class="col-md-9 col-11 ms-auto">
               <div class="carousel-container">
-                <div class="navigation-dots d-flex flex-column gap-2 my-4">
-                  <div #testimonialsDot1 class="dot active-dot"></div>
-                  <div #testimonialsDot2 class="dot"></div>
-                  <div #testimonialsDot3 class="dot"></div>
-                  <div #testimonialsDot4 class="dot"></div>
+                <div class="navigation-dots d-flex flex-column gap-2">
+                  <div
+                    #dot1
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 0"
+                  ></div>
+                  <div
+                    #dot2
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 1"
+                  ></div>
+                  <div
+                    #dot3
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 2"
+                  ></div>
+                  <div
+                    #dot4
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 3"
+                  ></div>
                 </div>
 
                 <div class="carousel">
-                  <swiper-container slides-per-view="1" [spaceBetween]="50">
+                  <swiper-container
+                    #testimonialSwiper
+                    slides-per-view="1"
+                    [spaceBetween]="50"
+                    (swiperslidechangetransitionend)="onSlideChange()"
+                  >
                     <swiper-slide
-                      *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]; let i = index"
+                      *ngFor="let item of [1, 2, 3, 4]; let i = index"
                     >
                       <div class="slide pb-4 pt-5 px-5" dir="rtl">
                         <img
@@ -55,11 +101,13 @@
                           alt="quote symbol"
                           class="quote-symbol"
                         />
-                        <p class="my-4 fw-semibold">
-                          كانت تجربة العمل مع Ctrl+P استثنائية. لقد أبدعوا في
-                          تحويل رؤيتنا ليوم التأسيس إلى واقع حي بكل احترافية
-                          وإبداع.
-                        </p>
+                        <div class="feedback-content">
+                          <p class="my-4 fw-semibold">
+                            كانت تجربة العمل مع Ctrl+P استثنائية. لقد أبدعوا في
+                            تحويل رؤيتنا ليوم التأسيس إلى واقع حي بكل احترافية
+                            وإبداع.
+                          </p>
+                        </div>
                         <div
                           class="review-author d-flex justify-content-between align-items-center border-top pt-4"
                         >

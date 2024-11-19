@@ -5,7 +5,12 @@
     <div class="row g-md-5 gy-4 gx-0">
       <div class="col-lg-3 col-md-6 d-flex flex-column justify-content-center">
         <div class="footer-item company">
-          <img src="./assets/images/logo.png" alt="logo" class="logo mb-3" />
+          <img
+            src="./assets/images/logo.png"
+            alt="logo"
+            class="logo mb-3 pointer"
+            routerLink="/"
+          />
           <p>
             Lorem ipsum dolor sit amet consectetur. Urna tortor dictum aliquam
             sit mauris.
@@ -86,12 +91,14 @@
           </div>
 
           <ul class="mb-0 p-0">
-            <li class="mb-2 pointer">Home</li>
-            <li class="mb-2 pointer">About Us</li>
-            <li class="mb-2 pointer">Services</li>
-            <li class="mb-2 pointer">Privacy Policy</li>
-            <li class="mb-2 pointer">Replacement, Return poll</li>
-            <li class="mb-2 pointer">Contact Us</li>
+            <li class="mb-2 pointer" routerLink="/home">Home</li>
+            <li class="mb-2 pointer" routerLink="/about-us">About Us</li>
+            <li class="mb-2 pointer" routerLink="/services">Services</li>
+            <li class="mb-2 pointer" routerLink="/">Privacy Policy</li>
+            <li class="mb-2 pointer" routerLink="/">
+              Replacement, Return poll
+            </li>
+            <li class="mb-2 pointer" routerLink="/contact-us">Contact Us</li>
           </ul>
         </div>
       </div>

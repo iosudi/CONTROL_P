@@ -24,7 +24,7 @@
 
 <section class="work-categories">
   <div class="container">
-    <swiper-container slides-per-view="4">
+    <swiper-container slides-per-view="4" [breakpoints]="ourWorkBreakpoints">
       <swiper-slide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
         <div
           class="category d-flex justify-content-between overflow-hidden px-4 pointer"
@@ -85,12 +85,35 @@
         <i class="fa-solid fa-magnifying-glass pointer"></i>
       </div>
 
-      <div class="category rounded-5 px-4 py-2 fs-5 pointer">Trending</div>
-      <div class="category rounded-5 px-4 py-2 fs-5 pointer">Latest</div>
-      <div class="category rounded-5 px-4 py-2 fs-5 pointer">
-        Milestone Projects
+      <div class="categories d-flex gap-2">
+        <div class="category rounded-5 px-4 py-2 fs-5 pointer">Trending</div>
+        <div class="category rounded-5 px-4 py-2 fs-5 pointer">Latest</div>
+        <div class="category rounded-5 px-4 py-2 fs-5 pointer">
+          Milestone Projects
+        </div>
+        <div class="category rounded-5 px-4 py-2 fs-5 pointer">most view</div>
       </div>
-      <div class="category rounded-5 px-4 py-2 fs-5 pointer">most view</div>
+
+      <swiper-container
+        slides-per-view="4"
+        class="mx-0 w-100"
+        [breakpoints]="workCategoriesBreakPoints"
+      >
+        <swiper-slide>
+          <div class="category rounded-5 px-4 py-2 fs-5 pointer">Trending</div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="category rounded-5 px-4 py-2 fs-5 pointer">Latest</div>
+        </swiper-slide>
+        <swiper-slide
+          ><div class="category rounded-5 px-4 py-2 fs-5 pointer">
+            Milestone Projects
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="category rounded-5 px-4 py-2 fs-5 pointer">most view</div>
+        </swiper-slide>
+      </swiper-container>
     </div>
 
     <div class="event-images">
@@ -98,7 +121,11 @@
         class="event-preview position-relative pointer"
         *ngFor="let project of projects"
       >
-        <img [src]="project.images[1].image" alt="image" />
+        <img
+          [src]="project.images[0].image"
+          *ngIf="project.images.length > 0"
+          alt="image"
+        />
         <div
           class="event-info position-absolute d-flex align-items-center justify-content-center"
         >

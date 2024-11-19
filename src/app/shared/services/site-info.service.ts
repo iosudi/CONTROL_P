@@ -6,14 +6,14 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
-export class OurServicesService {
+export class SiteInfoService {
   constructor(private http: HttpClient) {}
 
-  getServices(): Observable<any> {
-    return this.http.get(environment.baseURL + 'services');
+  getTeamMembers(): Observable<any> {
+    return this.http.get(environment.baseURL + 'ourTeam');
   }
 
-  getServiceById(id: number): Observable<any> {
-    return this.http.get(environment.baseURL + `serviceDetails/${id}`);
+  getFaqs(): Observable<any> {
+    return this.http.get(environment.baseURL + 'Faqs');
   }
 }

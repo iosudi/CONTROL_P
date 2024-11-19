@@ -244,3 +244,10 @@ p-breadcrumb {
 .p-component {
   font-family: var(--main-font) !important;
 }
+
+@media (max-width: 991px) {
+  .px-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

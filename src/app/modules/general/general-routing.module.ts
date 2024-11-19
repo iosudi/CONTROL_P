@@ -35,7 +35,7 @@ const routes: Routes = [
     title: 'Our services - Ctrl+P for advertising and modern marketing',
   },
   {
-    path: 'services/Professional Design',
+    path: 'services/:id',
     component: ServicesDetailsComponent,
     title: 'Our services - Ctrl+P for advertising and modern marketing',
   },
