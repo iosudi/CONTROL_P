@@ -138,6 +138,12 @@ img {
   &:active {
     transform: scale(0.95);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: null;
+    cursor: not-allowed;
+  }
 }
 
 .dark-outlined-btn {

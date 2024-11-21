@@ -8,7 +8,6 @@ import {
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { OurServicesService } from 'src/app/shared/services/our-services.service';
 import { SiteContentService } from 'src/app/shared/services/site-content.service';
-import Swiper from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +24,9 @@ export class HomeComponent implements OnInit {
   @ViewChild('ourWorkSwiper', { static: false }) ourWorkSwiper?: ElementRef;
 
   ourWork: any[] = [];
-
   services: any[] = [];
-
   reviews: any[] = [];
+  partners: any[] = [];
   productsCategories: any[] = [];
 
   activeCategory: number = 1;
@@ -113,6 +111,9 @@ export class HomeComponent implements OnInit {
     },
   };
 
+  @ViewChild('serviceSwiper') serviceSwiper!: ElementRef;
+  dotsCount: any[] = [];
+
   //testimonials Section Variables
   @ViewChild('testimonialSwiper') testimonialSwiper!: ElementRef;
   @ViewChild('dot1') dot1!: ElementRef;
@@ -134,7 +135,6 @@ export class HomeComponent implements OnInit {
   };
 
   activeIndex: number = 0;
-  swiperInstance!: Swiper; // Swiper instance type
 
   ngOnInit() {
     this.initialize();
@@ -153,6 +153,10 @@ export class HomeComponent implements OnInit {
     this._OurServicesService.getServices().subscribe({
       next: (data) => {
         this.services = data.data;
+        setTimeout(() => {
+          this.dotsCount =
+            this.serviceSwiper?.nativeElement.swiper.pagination.bullets;
+        }, 100);
       },
       error: (error) => {
         console.log(error);
@@ -178,13 +182,37 @@ export class HomeComponent implements OnInit {
         console.log(error);
       },
     });
+
+    this._SiteContentService.getPartners().subscribe({
+      next: (partners) => {
+        this.partners = partners.data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
-  onSlideChange(): void {
-    const swiper = this.testimonialSwiper?.nativeElement.swiper;
-    this.activeIndex = swiper.activeIndex;
+  onSlideChange(swiperName: string): void {
+    let swiper;
+    if (swiperName === 'feedbacks') {
+      swiper = this.testimonialSwiper?.nativeElement.swiper;
+      this.activeIndex = swiper.activeIndex;
+      this.setActive(swiper.activeIndex);
+    } else if (swiperName === 'services') {
+      swiper = this.serviceSwiper?.nativeElement.swiper;
+      this.dotsCount = swiper.pagination.bullets;
+    }
+  }
 
-    this.setActive(swiper.activeIndex);
+  slideTo(index: number): void {
+    const swiper = this.serviceSwiper?.nativeElement.swiper;
+    console.log(swiper.slideTo(index));
+  }
+
+  updateDots(): void {
+    const swiper = this.serviceSwiper?.nativeElement.swiper;
+    this.dotsCount = swiper.pagination.bullets;
   }
 
   triggerNext(): void {
@@ -193,6 +221,15 @@ export class HomeComponent implements OnInit {
 
   triggerPrev(): void {
     this.ourWorkSwiper?.nativeElement.swiper.slidePrev();
+  }
+
+  preventSlide(direction: string): boolean {
+    if (direction === 'next') {
+      return this.ourWorkSwiper?.nativeElement.swiper.isEnd ?? false;
+    } else if (direction === 'prev') {
+      return this.ourWorkSwiper?.nativeElement.swiper.isBeginning ?? false;
+    }
+    return false;
   }
 
   setActive(index: number): void {

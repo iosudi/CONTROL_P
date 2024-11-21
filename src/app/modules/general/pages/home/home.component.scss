@@ -321,20 +321,27 @@ app-home-navbar ::ng-deep {
     }
 
     .dots {
-      .dot {
+      .swiper-pagination-bullet {
         width: 15px;
         height: 15px;
         border-radius: 50%;
         background: #919191;
-      }
-      .active-dot {
-        width: 50px;
-        height: 15px;
-        border-radius: 20px;
-        background: var(--main-color);
+        transition: 0.3s;
+        &.swiper-pagination-bullet-active {
+          width: 50px;
+          height: 15px;
+          border-radius: 20px;
+          background: var(--main-color);
+        }
       }
     }
     .service-slider {
+      swiper-container {
+        &::part(pagination) {
+          display: none !important;
+        }
+      }
+
       .service {
         background: var(--white-text);
         border-radius: 24px;
@@ -504,6 +511,74 @@ app-home-navbar ::ng-deep {
           }
         }
       }
+    }
+  }
+}
+
+.partners-slider {
+  position: relative;
+
+  .blurred-balls {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+  }
+
+  .list {
+    width: 100%;
+    min-width: calc(180px * var(--quantity));
+    height: calc(var(--height));
+    position: relative;
+    .partner-link {
+      background: white;
+      width: var(--width);
+      min-width: var(--width);
+      height: var(--height);
+      position: absolute;
+      left: 100%;
+      top: 0;
+      animation: autoRunLeft 11s linear infinite;
+      animation-delay: calc(
+        (11s / var(--quantity) * (var(--position) - 1) - 11s)
+      );
+
+      &.reversed {
+        right: 100%;
+        left: unset;
+        animation: autoRunRight 11s linear infinite;
+        animation-delay: calc(
+          (11s / var(--quantity) * (var(--position) - 1) - 11s)
+        );
+      }
+
+      img {
+        width: 60%;
+        height: auto;
+      }
+    }
+    &:hover .partner-link {
+      animation-play-state: paused !important ;
+    }
+  }
+
+  @keyframes autoRunLeft {
+    from {
+      left: 100%;
+    }
+    to {
+      left: calc(var(--width) * -1);
+    }
+  }
+
+  @keyframes autoRunRight {
+    from {
+      right: 100%;
+    }
+    to {
+      right: calc(var(--width) * -1);
     }
   }
 }
@@ -1442,13 +1517,13 @@ app-home-navbar ::ng-deep {
       }
 
       .dots {
-        .dot {
+        .swiper-pagination-bullet {
           width: 10px;
           height: 10px;
-        }
-        .active-dot {
-          width: 40px;
-          height: 10px;
+          &.swiper-pagination-bullet-active {
+            width: 40px;
+            height: 10px;
+          }
         }
       }
       .service-slider {
