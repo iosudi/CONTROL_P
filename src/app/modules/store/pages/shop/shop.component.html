@@ -1,8 +1,16 @@
 <app-home-navbar></app-home-navbar>
-
+<app-mobile-filter-container
+  *ngIf="filtersOpened"
+  [menuOpened]="filtersOpened"
+  (menuStatusChange)="onMenuStatusChange($event)"
+></app-mobile-filter-container>
 <section class="categories">
   <div class="container">
-    <swiper-container slides-per-view="3" [spaceBetween]="20">
+    <swiper-container
+      slides-per-view="3"
+      [spaceBetween]="20"
+      [breakpoints]="categoriesBreakpoints"
+    >
       <swiper-slide *ngFor="let item of [1, 2, 3]">
         <div
           class="category rounded-3 d-flex justify-content-start align-items-center gap-3 overflow-hidden p-3 pointer"
@@ -26,7 +34,7 @@
 <section class="shop py-5">
   <div class="container">
     <div class="row g-4">
-      <div class="col-lg-3">
+      <div class="col-lg-3 filters">
         <div class="filtering-container py-5 px-4 rounded-3">
           <div class="price-filter">
             <h4 class="mb-4">Price</h4>
@@ -55,7 +63,7 @@
             <div
               class="filter-title d-flex align-items-center justify-content-between mb-4"
             >
-              <h5 class="mb-0">Size</h5>
+              <h4 class="mb-0">Size</h4>
 
               <i class="fa-solid fa-angle-down"></i>
             </div>
@@ -99,19 +107,35 @@
               Abstract and plastic art <span>(150 result)</span>
             </h2>
 
-            <div class="controls d-flex align-items-center gap-3">
-              <div class="preview-options">
-                <i class="bx bx-grid-horizontal pointer"></i>
-                <i class="bx bx-grid-small active pointer"></i>
-                <i class="bx bxs-grid pointer"></i>
+            <div class="controls">
+              <div class="desktop-controls d-flex align-items-center gap-3">
+                <div class="preview-options">
+                  <i class="bx bx-grid-horizontal pointer"></i>
+                  <i class="bx bx-grid-small active pointer"></i>
+                  <i class="bx bxs-grid pointer"></i>
+                </div>
+
+                <p-dropdown
+                  [options]="cities"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Sort by popularity"
+                />
               </div>
 
-              <p-dropdown
-                [options]="cities"
-                [(ngModel)]="selectedCity"
-                optionLabel="name"
-                placeholder="Sort by popularity"
-              />
+              <div
+                class="mobile-controls d-none justify-content-between align-items-center w-100"
+              >
+                <button
+                  class="filter-sidebar-btn btn d-flex align-items-center gap-2 p-0"
+                  (click)="openFiltersMenu()"
+                >
+                  <i class="fa-solid fa-bars"></i>
+                  <span>Show sidebar</span>
+                </button>
+
+                <img src="./assets/images/icons/sort.svg" alt="sort icon" />
+              </div>
             </div>
           </div>
 
@@ -126,9 +150,9 @@
             </button>
           </div>
 
-          <div class="row g-4 mt-3">
+          <div class="row g-4 mt-lg-3 mt-1">
             <div
-              class="col-lg-4"
+              class="col-lg-4 col-md-6"
               *ngFor="
                 let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
                   | paginate

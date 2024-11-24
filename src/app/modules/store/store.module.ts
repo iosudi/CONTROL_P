@@ -10,6 +10,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { SliderModule } from 'primeng/slider';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { register as registerSwiperElements } from 'swiper/element/bundle';
+import { MobileFilterContainerComponent } from './components/mobile-filter-container/mobile-filter-container.component';
 import { ProductDescriptionComponent } from './components/product-description/product-description.component';
 import { ProductReviewsComponent } from './components/product-reviews/product-reviews.component';
 import { QuickViewComponent } from './components/quick-view/quick-view.component';
@@ -27,6 +28,7 @@ registerSwiperElements();
     ProductDescriptionComponent,
     ProductReviewsComponent,
     ShippingDeliveryComponent,
+    MobileFilterContainerComponent,
   ],
   imports: [
     CommonModule,

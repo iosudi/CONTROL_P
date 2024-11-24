@@ -165,3 +165,171 @@
     }
   }
 }
+
+@media (max-width: 1199px) {
+  .product-details-section {
+    .container {
+      .product-preview {
+        .product-main-image {
+          .mySwiper {
+            height: 550px;
+          }
+        }
+      }
+
+      .mySwiper2 {
+        padding: 0.8rem 0 !important;
+      }
+
+      .product-information {
+        .actions {
+          .main-btn {
+            font-size: 1rem;
+          }
+
+          .whatsapp-order {
+            font-size: 1.2rem;
+          }
+        }
+
+        .product-details {
+          p {
+            font-size: 1rem;
+            span {
+              i {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .product-information-section {
+    nav {
+      ul {
+        li {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .product-information-section {
+    padding: 3rem 0rem;
+    nav {
+      display: none;
+    }
+
+    .info-box {
+      max-height: 40px;
+
+      .title {
+        display: flex !important;
+      }
+
+      &.activeSection {
+        max-height: 800px;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .product-details-section {
+    p-breadcrumb ::ng-deep {
+      .p-breadcrumb {
+        ol {
+          li {
+            a {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+
+    .container {
+      .product-preview {
+        .product-main-image {
+          .mySwiper {
+            height: 350px;
+          }
+        }
+      }
+
+      .mySwiper2 {
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 5px;
+        }
+      }
+
+      .product-information {
+        h2 {
+          font-size: 1rem;
+        }
+        .product-rating {
+          .stars {
+            font-size: 1rem !important;
+          }
+          .total-reviews {
+            font-size: 0.7rem !important;
+          }
+        }
+
+        .product-price {
+          font-size: 1rem !important;
+        }
+
+        .product-description {
+          font-size: 0.9rem;
+        }
+
+        .product-specifications {
+          h6 {
+            font-size: 0.9rem;
+          }
+          ul {
+            li {
+              padding: 0.3em 0.7em;
+              font-size: 0.7rem;
+            }
+          }
+        }
+
+        .actions {
+          .quantity {
+            input {
+              font-size: 0.8rem !important;
+            }
+          }
+
+          .main-btn {
+            font-size: 0.8rem;
+          }
+
+          .whatsapp-order {
+            font-size: 0.8rem;
+          }
+        }
+
+        .product-details {
+          p {
+            font-size: 0.7rem;
+            span {
+              color: var(--paragraph-text-color);
+              i {
+                font-size: 0.7rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

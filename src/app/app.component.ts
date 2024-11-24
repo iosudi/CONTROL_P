@@ -18,7 +18,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      const lang = params['lang'] || 'en'; // Default to 'en' if no lang parameter
+      const lang = params['lang'] || 'ar'; // Default to 'en' if no lang parameter
       this.languageService.setLanguage(lang);
 
       // Optionally update the URL to include the lang parameter if missing

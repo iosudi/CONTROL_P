@@ -65,11 +65,6 @@ export class ProjectDetailsComponent implements OnInit {
       ...event,
       index,
     }));
-
-    console.log(
-      '🚀 ~ ProjectDetailsComponent ~ this.eventsWithIndex=this.events.map ~ eventsWithIndex:',
-      this.eventsWithIndex
-    );
   }
 
   @ViewChild('testimonialSwiper') testimonialSwiper!: ElementRef;

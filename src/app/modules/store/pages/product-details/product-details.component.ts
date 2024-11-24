@@ -26,6 +26,13 @@ export class ProductDetailsComponent {
 
   home: MenuItem | undefined;
 
+  productImagesBreakpoints = {
+    0: {
+      slidesPerView: 5,
+      spaceBetween: 20,
+    },
+  };
+
   ngOnInit() {
     this.items = [
       { label: 'Shop', routerLink: '/shop' },

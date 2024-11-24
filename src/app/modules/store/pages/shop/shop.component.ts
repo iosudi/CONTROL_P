@@ -14,6 +14,7 @@ export class ShopComponent implements OnInit {
 
   pageSize: number = 8;
   currentPage = 1;
+  filtersOpened: boolean = false;
 
   filterOptions = [
     { label: '80x50cm', isChecked: false, quantity: 38 },
@@ -25,6 +26,21 @@ export class ShopComponent implements OnInit {
   cities: any[] | undefined;
   selectedCity: any | undefined;
 
+  categoriesBreakpoints = {
+    0: {
+      slidesPerView: 1.25,
+      spaceBetween: 20,
+    },
+    767: {
+      slidesPerView: 2.1,
+      spaceBetween: 20,
+    },
+    1199: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+  };
+
   ngOnInit() {
     this.cities = [
       { name: 'New York', code: 'NY' },
@@ -35,9 +51,22 @@ export class ShopComponent implements OnInit {
     ];
   }
 
+  openFiltersMenu() {
+    this.filtersOpened = true;
+  }
+
+  onMenuStatusChange(status: boolean) {
+    this.filtersOpened = status;
+    this.toggleBodyScroll();
+  }
+
   openQuickViewModal() {
     this.modalService.open(QuickViewComponent, { fullscreen: true });
   }
 
   pageChanged(event: any): void {}
+
+  toggleBodyScroll(): void {
+    document.body.style.overflow = this.filtersOpened ? 'hidden' : 'auto';
+  }
 }

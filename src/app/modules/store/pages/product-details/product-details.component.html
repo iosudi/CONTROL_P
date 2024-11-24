@@ -14,6 +14,7 @@
         <ng-template pTemplate="separator"> / </ng-template>
       </p-breadcrumb>
     </div>
+
     <div class="row">
       <div class="col-lg-6">
         <div class="product-preview overflow-hidden">
@@ -35,6 +36,7 @@
               space-between="20"
               slides-per-view="5"
               free-mode="true"
+              [breakpoints]="productImagesBreakpoints"
               watch-slides-progress="true"
             >
               <swiper-slide *ngFor="let image of images">
@@ -166,16 +168,52 @@
       </ul>
     </nav>
 
-    <div *ngIf="activeSection === 'product-description'">
-      <app-product-description></app-product-description>
+    <div
+      class="info-box overflow-hidden py-2"
+      [class.activeSection]="activeSection === 'product-description'"
+    >
+      <div
+        class="title d-none align-items-center justify-content-between mb-3"
+        (click)="changeActiveSection('product-description')"
+      >
+        <h5 class="h4 mb-0 text-uppercase">Additional information</h5>
+        <span><i class="fa-solid fa-chevron-down"></i></span>
+      </div>
+      <app-product-description
+        *ngIf="activeSection === 'product-description'"
+      ></app-product-description>
     </div>
 
-    <div *ngIf="activeSection === 'product-reviews'">
-      <app-product-reviews></app-product-reviews>
+    <div
+      class="info-box overflow-hidden py-2"
+      [class.activeSection]="activeSection === 'product-reviews'"
+    >
+      <div
+        class="title d-none align-items-center justify-content-between mb-3"
+        (click)="changeActiveSection('product-reviews')"
+      >
+        <h5 class="h4 mb-0 text-uppercase">Reviews(1)</h5>
+        <span><i class="fa-solid fa-chevron-down"></i></span>
+      </div>
+      <app-product-reviews
+        *ngIf="activeSection === 'product-reviews'"
+      ></app-product-reviews>
     </div>
 
-    <div *ngIf="activeSection === 'product-delivery'">
-      <app-shipping-delivery></app-shipping-delivery>
+    <div
+      class="info-box overflow-hidden py-2"
+      [class.activeSection]="activeSection === 'product-delivery'"
+    >
+      <div
+        class="title d-none align-items-center justify-content-between mb-3"
+        (click)="changeActiveSection('product-delivery')"
+      >
+        <h5 class="h4 mb-0 text-uppercase">SHIPPING & DELIVERY</h5>
+        <span><i class="fa-solid fa-chevron-down"></i></span>
+      </div>
+      <app-shipping-delivery
+        *ngIf="activeSection === 'product-delivery'"
+      ></app-shipping-delivery>
     </div>
   </div>
 </section>
