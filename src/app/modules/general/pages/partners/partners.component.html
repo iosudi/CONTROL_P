@@ -7,14 +7,17 @@
   <div class="blurred-balls white"></div>
 
   <div class="heading text-center">
-    <h1 class="fw-bold"><span class="heading-color"> Our </span> Partners</h1>
+    <h1
+      class="fw-bold"
+      [innerHTML]="'PartnersPage.Hero.title' | translate"
+    ></h1>
     <p class="mb-0">
-      Proudly collaborating with leading brands and businesses.
+      {{ "PartnersPage.Hero.paragraph" | translate }}
     </p>
   </div>
 </section>
 
-<section class="trusted-brands overflow-hidden">
+<section class="trusted-brands overflow-hidden" [dir]="'dir' | translate">
   <div class="container">
     <div class="row gx-5 gy-4">
       <div class="col-lg-6">
@@ -22,15 +25,12 @@
       </div>
       <div class="col-lg-6">
         <div class="content h-100 d-flex flex-column justify-content-center">
-          <h2 class="fw-bold">
-            Trusted by <span class="heading-color"> Leading Brands </span>
-          </h2>
+          <h2
+            class="fw-bold"
+            [innerHTML]="'PartnersPage.TrustedBrands.title' | translate"
+          ></h2>
           <p class="mb-0">
-            We take pride in working with some of the most prestigious brands
-            and organizations across various industries. From creative design
-            projects to large-scale events, our partnerships have helped us
-            deliver top-quality results and exceed expectations. Below are some
-            of the valued clients/partners who trust us with their business.
+            {{ "PartnersPage.TrustedBrands.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -38,19 +38,20 @@
   </div>
 </section>
 
-<section class="partners">
+<section class="partners" [dir]="'dir' | translate">
   <div class="container overflow-hidden position-relative rounded-5 p-5">
     <div class="vector position-absolute">
       <img src="./assets/images/partners-page/vector.png" alt="vector" />
     </div>
     <div class="heading mb-5">
-      <h2 class="fw-bold mb-3">
+      <h2
+        class="fw-bold mb-3"
+        [innerHTML]="'PartnersPage.PartnersSection.title' | translate"
+      >
         Our Valued <span class="fs-1">Partners</span>
       </h2>
       <p class="fw-normal">
-        We proudly collaborate with a diverse range of esteemed clients and
-        partners, delivering exceptional projects across various industries.
-        Explore the brands that trust us with their most important work.
+        {{ "PartnersPage.PartnersSection.paragraph" | translate }}
       </p>
     </div>
 
@@ -69,13 +70,14 @@
   </div>
 </section>
 
-<section class="why-us my-sections position-relative">
+<section class="why-us my-sections position-relative" [dir]="'dir' | translate">
   <div class="blurred-balls"></div>
 
   <div class="container">
-    <h3 class="fw-light text-center">
-      <span class="heading-color fw-bold">Why Partner</span> With Us?
-    </h3>
+    <h3
+      class="fw-light text-center"
+      [innerHTML]="'PartnersPage.WhyUs.title' | translate"
+    ></h3>
 
     <div class="features row g-4">
       <div class="col-lg-3 col-6">
@@ -91,13 +93,17 @@
             />
           </div>
 
-          <h4 class="h3">Experience</h4>
+          <h4 class="h3">
+            {{ "PartnersPage.WhyUs.features.experience.title" | translate }}
+          </h4>
           <p class="text-center mb-0">
-            With 13+ years of expertise, we know the industry inside out,
-            ensuring flawless execution of your event.
+            {{
+              "PartnersPage.WhyUs.features.experience.description" | translate
+            }}
           </p>
         </div>
       </div>
+
       <div class="col-lg-3 col-6">
         <div
           class="feature d-flex align-items-center justify-content-center flex-column"
@@ -111,10 +117,9 @@
             />
           </div>
 
-          <h4>Talent</h4>
+          <h4>{{ "PartnersPage.WhyUs.features.talent.title" | translate }}</h4>
           <p class="text-center mb-0">
-            Our team of specialists in every field collaborates to develop and
-            implement your event seamlessly.
+            {{ "PartnersPage.WhyUs.features.talent.description" | translate }}
           </p>
         </div>
       </div>
@@ -131,10 +136,13 @@
             />
           </div>
 
-          <h4>Broadness</h4>
+          <h4>
+            {{ "PartnersPage.WhyUs.features.broadness.title" | translate }}
+          </h4>
           <p class="text-center mb-0">
-            We offer comprehensive event services, from planning and design to
-            execution, activation, and closure.
+            {{
+              "PartnersPage.WhyUs.features.broadness.description" | translate
+            }}
           </p>
         </div>
       </div>
@@ -151,10 +159,9 @@
             />
           </div>
 
-          <h4>Assets</h4>
+          <h4>{{ "PartnersPage.WhyUs.features.assets.title" | translate }}</h4>
           <p class="text-center mb-0">
-            Equipped with carpentry, printing, and souvenir manufacturing
-            workshops, we manage your event with complete professionalism.
+            {{ "PartnersPage.WhyUs.features.assets.description" | translate }}
           </p>
         </div>
       </div>
@@ -162,17 +169,22 @@
   </div>
 </section>
 
-<section class="join-us">
+<section class="join-us" [dir]="'dir' | translate">
   <div class="container d-flex align-items-start justify-content-between gap-2">
     <p class="fs-3 fw-light">
-      <span class="fw-bold"
-        >Interested in
-        <span class="heading-color">partnering with us</span>?</span
-      >
-      Let’s discuss how we can help bring your vision to life.
+      <span
+        class="fw-bold"
+        [innerHTML]="'PartnersPage.JoinUs.title' | translate"
+      ></span>
+      {{ "PartnersPage.JoinUs.paragraph" | translate }}
     </p>
 
-    <button class="fw-normal rounded-5 main-btn px-5 py-3">Be a partner</button>
+    <button
+      class="fw-normal rounded-5 main-btn px-5 py-3"
+      routerLink="/contact-us"
+    >
+      {{ "PartnersPage.JoinUs.button" | translate }}
+    </button>
   </div>
 </section>
 

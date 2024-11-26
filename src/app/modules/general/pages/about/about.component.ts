@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { SiteInfoService } from 'src/app/shared/services/site-info.service';
 
 @Component({
@@ -7,7 +8,11 @@ import { SiteInfoService } from 'src/app/shared/services/site-info.service';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
-  constructor(private _SiteInfoService: SiteInfoService) {}
+  constructor(
+    private _SiteInfoService: SiteInfoService,
+    public translate: TranslateService
+  ) {}
+  direction: string = 'ltr'; // Default direction
 
   expandedIndex: number | null = null;
   teamMembers: any[] = [];
@@ -39,6 +44,14 @@ export class AboutComponent {
   }
 
   initialize(): void {
+    const currentLang =
+      this.translate.currentLang || this.translate.getDefaultLang() || 'en';
+    this.direction = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+    this.translate.onLangChange.subscribe((event) => {
+      this.direction = event.lang === 'ar' ? 'rtl' : 'ltr';
+    });
+
     this._SiteInfoService.getTeamMembers().subscribe({
       next: (teamMembers) => {
         this.teamMembers = teamMembers.data;

@@ -1,6 +1,6 @@
 <app-home-navbar></app-home-navbar>
 
-<section class="hero position-relative">
+<section class="hero position-relative" [dir]="'dir' | translate">
   <div
     class="container-fluid px-container d-flex align-items-end justify-content-centers position-relative overflow-hidden"
   >
@@ -9,24 +9,27 @@
     <div class="row justify-content-between">
       <div class="col-lg-6">
         <div class="title py-4">
-          <h1 class="fw-bold">
-            Innovative
-            <span class="d-block fw-medium heading-color">
-              Printing Solutions
-            </span>
-          </h1>
+          <h1
+            class="fw-bold"
+            [innerHTML]="'HomePage.Hero.title' | translate"
+          ></h1>
           <p class="mt-4">
-            Leading the way in printing and digital marketing for the Saudi
-            market.
+            {{ "HomePage.Hero.paragraph" | translate }}
           </p>
           <button
-            class="main-btn p-3 rounded-5 me-auto mt-5"
+            class="main-btn p-3 rounded-5 mt-5 disabled"
+            [ngClass]="{
+              'me-auto': direction === 'ltr',
+              'ms-auto': direction === 'rtl'
+            }"
             routerLink="/shop"
           >
-            <div class="icon d-flex align-items-center justify-content-center">
+            <span class="icon d-flex align-items-center justify-content-center">
               <img src="./assets/images/icons/Cart.png" alt="cart icon" />
-            </div>
-            <span class="fw-semibold"> Shop Now </span>
+            </span>
+            <span class="fw-semibold">
+              {{ "HomePage.btn_shop" | translate }}
+            </span>
           </button>
         </div>
       </div>
@@ -48,11 +51,22 @@
 </section>
 
 <section class="our-work my-sections px-container overflow-hidden">
-  <div class="header d-flex justify-content-between align-items-center mb-5">
-    <h2 class="h1 text-center fw-bold">
-      Our <span class="fw-bold heading-color">Works</span>
-    </h2>
-    <div class="slider-arrows d-flex align-items-center gap-4">
+  <div
+    class="header d-flex justify-content-between align-items-center mb-5"
+    [dir]="'dir' | translate"
+  >
+    <h2
+      class="h1 text-center fw-bold mb-0"
+      [innerHTML]="'HomePage.our_work.title' | translate"
+    ></h2>
+    <div
+      class="slider-arrows gap-4"
+      [ngClass]="{
+        'd-flex': direction === 'ltr' || direction === 'rtl',
+        'flex-row align-items-center': direction === 'ltr',
+        'flex-row-reverse align-items-center': direction === 'rtl'
+      }"
+    >
       <button
         (click)="triggerPrev()"
         [disabled]="preventSlide('prev')"
@@ -119,14 +133,23 @@
   </div>
 
   <div class="work-preview mt-5">
-    <div class="heading d-flex justify-content-between align-items-center">
+    <div
+      class="heading d-flex justify-content-between align-items-center"
+      [dir]="'dir' | translate"
+    >
       <h3 class="fw-ligh mb-0"><span class="fw-bold">Events</span> Sector</h3>
       <button
         class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
         routerLink="/portfolio"
       >
-        Discover More
-        <i class="fa-solid fa-arrow-right"></i>
+        {{ "HomePage.btn_discover" | translate }}
+        <i
+          class="fa-solid fa-arrow-right"
+          [ngClass]="{
+            'fa-arrow-right': direction === 'ltr',
+            'fa-arrow-left': direction === 'rtl'
+          }"
+        ></i>
       </button>
     </div>
 
@@ -164,32 +187,38 @@
   </div>
 </section>
 
-<section class="about">
+<section class="about" [dir]="'dir' | translate">
   <div class="about-content position-relative overflow-hidden">
     <div class="background"></div>
     <div class="container-fluid pb-5">
       <div class="blurred-balls"></div>
       <div class="row gy-4 justify-content-between">
         <div class="col-lg-5 d-flex justify-content-between flex-column">
-          <h3 class="h2 mb-2">
-            About <br />
-            <span class="heading-color fw-bold">CTRL + P</span>
-          </h3>
+          <h3
+            class="h2 mb-2"
+            [innerHTML]="'HomePage.about_us.title' | translate"
+          ></h3>
 
           <p class="mb-2 fw-normal">
-            Ctrl+P is a local Advertising 6 Marketing agency established in
-            2000, based in we are Riyadh, Saudi Arabia. We have a huge business
-            that has been accomplished with senior partners in Saudi Arabia. We
-            have a great experience and technical expertise to qualify for mega
-            projects.
+            {{ "HomePage.about_us.paragraph" | translate }}
           </p>
 
           <button
-            class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3 me-auto"
+            class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
+            [ngClass]="{
+              'me-auto': direction === 'ltr',
+              'ms-auto': direction === 'rtl'
+            }"
             routerLink="/about-us"
           >
-            Discover More
-            <i class="fa-solid fa-arrow-right"></i>
+            {{ "HomePage.btn_discover" | translate }}
+            <i
+              class="fa-solid fa-arrow-right"
+              [ngClass]="{
+                'fa-arrow-right': direction === 'ltr',
+                'fa-arrow-left': direction === 'rtl'
+              }"
+            ></i>
           </button>
         </div>
 
@@ -208,13 +237,17 @@
   </div>
 </section>
 
-<section class="why-us my-sections px-container position-relative">
+<section
+  class="why-us my-sections px-container position-relative"
+  [dir]="'dir' | translate"
+>
   <div class="blurred-balls"></div>
 
   <div class="container">
-    <h3 class="fw-light text-center">
-      Why Choose <span class="heading-color fw-bold">Ctrl+P</span>
-    </h3>
+    <h3
+      class="fw-light text-center"
+      [innerHTML]="'HomePage.why_us.title' | translate"
+    ></h3>
 
     <div class="features row g-4">
       <div class="col-lg-3 col-6">
@@ -230,13 +263,15 @@
             />
           </div>
 
-          <h4 class="h3">Experience</h4>
+          <h4 class="h3">
+            {{ "HomePage.why_us.cards.experience.title" | translate }}
+          </h4>
           <p class="text-center mb-0">
-            With 13+ years of expertise, we know the industry inside out,
-            ensuring flawless execution of your event.
+            {{ "HomePage.why_us.cards.experience.description" | translate }}
           </p>
         </div>
       </div>
+
       <div class="col-lg-3 col-6">
         <div
           class="feature d-flex align-items-center justify-content-center flex-column"
@@ -250,13 +285,13 @@
             />
           </div>
 
-          <h4>Talent</h4>
+          <h4>{{ "HomePage.why_us.cards.talent.title" | translate }}</h4>
           <p class="text-center mb-0">
-            Our team of specialists in every field collaborates to develop and
-            implement your event seamlessly.
+            {{ "HomePage.why_us.cards.talent.description" | translate }}
           </p>
         </div>
       </div>
+
       <div class="col-lg-3 col-6">
         <div
           class="feature d-flex align-items-center justify-content-center flex-column"
@@ -270,13 +305,13 @@
             />
           </div>
 
-          <h4>Broadness</h4>
+          <h4>{{ "HomePage.why_us.cards.broadness.title" | translate }}</h4>
           <p class="text-center mb-0">
-            We offer comprehensive event services, from planning and design to
-            execution, activation, and closure.
+            {{ "HomePage.why_us.cards.broadness.description" | translate }}
           </p>
         </div>
       </div>
+
       <div class="col-lg-3 col-6">
         <div
           class="feature d-flex align-items-center justify-content-center flex-column"
@@ -290,10 +325,9 @@
             />
           </div>
 
-          <h4>Assets</h4>
+          <h4>{{ "HomePage.why_us.cards.assets.title" | translate }}</h4>
           <p class="text-center mb-0">
-            Equipped with carpentry, printing, and souvenir manufacturing
-            workshops, we manage your event with complete professionalism.
+            {{ "HomePage.why_us.cards.assets.description" | translate }}
           </p>
         </div>
       </div>
@@ -315,10 +349,10 @@
     />
   </div>
   <div class="services">
-    <h3 class="h2 mb-4 fw-light">
-      Ctrl + P <br />
-      <span class="heading-color fw-bold">Popular service</span>
-    </h3>
+    <h3
+      class="h2 mb-4 fw-light"
+      [innerHTML]="'HomePage.services.title' | translate"
+    ></h3>
 
     <div class="dots d-flex gap-2 mb-5">
       <span
@@ -350,21 +384,21 @@
   </div>
 </section>
 
-<section class="shop position-relative">
+<section class="shop position-relative" [dir]="'dir' | translate">
   <div class="blurred-balls"></div>
   <div class="container-fluid px-container my-sections">
     <div class="row gy-4">
       <div class="col-lg-3">
         <div class="px-5 py-5 categories-list h-100">
-          <h3 class="fw-normal mb-5">
-            Shop Our
-            <span class="fw-bold">Painting</span>
-          </h3>
+          <h3
+            class="fw-normal mb-5"
+            [innerHTML]="'HomePage.mini_shop.title' | translate"
+          ></h3>
 
           <button
             class="dark-outlined-btn px-4 py-2 rounded-5 d-flex gap-4 fw-semibold mb-4"
           >
-            Shop More
+            {{ "HomePage.btn_shop" | translate }}
             <i class="fa-solid fa-arrow-right"></i>
           </button>
 
@@ -399,7 +433,7 @@
   </div>
 </section>
 
-<section class="testimonials">
+<section class="testimonials" [dir]="'dir' | translate">
   <div
     class="testimonials-content position-relative ps-sm-5 ps-3 pe-2 overflow-hidden"
   >
@@ -408,19 +442,18 @@
       <div class="blurred-balls"></div>
       <div class="row gy-4">
         <div class="col-lg-6 d-flex justify-content-center flex-column">
-          <h3 class="h2 mb-2">
-            What Our <br />
-            <span class="heading-color fw-bold">Clients Say</span>
-          </h3>
+          <h3
+            class="h2 mb-2"
+            [innerHTML]="'HomePage.testimonials.title' | translate"
+          ></h3>
 
           <p class="mb-2 fw-light">
-            Lorem ipsum dolor sit amet consectetur. Urna tortor dictum aliquam
-            sit mauris. Est habitant molestie pulvinar mattis.
+            {{ "HomePage.testimonials.paragraph" | translate }}
           </p>
         </div>
 
         <div class="col-lg-6">
-          <div class="carousel-container">
+          <div class="carousel-container" dir="ltr">
             <div class="navigation-dots d-flex flex-column gap-2">
               <div
                 #dot1
@@ -452,7 +485,7 @@
                 (swiperslidechangetransitionend)="onSlideChange('feedbacks')"
               >
                 <swiper-slide *ngFor="let review of reviews; let i = index">
-                  <div class="slide pb-4 pt-5 px-5">
+                  <div class="slide pb-4 pt-5 px-5" [dir]="'dir' | translate">
                     <img
                       src="./assets/images/quote.png"
                       alt="quote symbol"
@@ -549,41 +582,42 @@
     <img src="./assets/images/home/events/7.jpg" alt="image" />
   </div>
   <div class="content text-center">
-    <h3 class="fw-bold fs-1">
-      Event success, <br />
-      just one step away
-    </h3>
+    <h3
+      class="fw-bold fs-1"
+      [innerHTML]="'HomePage.events.title' | translate"
+    ></h3>
 
     <p class="mx-auto fw-light">
-      Whether it's a large-scale event or a custom project, our expert team is
-      here to deliver exceptional results. Contact us today and let's turn your
-      ideas into reality.
+      {{ "HomePage.events.paragraph" | translate }}
     </p>
 
-    <button class="main-btn p-2 rounded-5 mx-auto">
+    <button class="main-btn p-2 rounded-5 mx-auto disabled">
       <div class="icon d-flex align-items-center justify-content-center">
         <img src="./assets/images/icons/Cart.png" alt="cart icon" />
       </div>
-      <span class="fw-semibold mx-2" routerLink="/shop"> Shop Now </span>
+      <span class="fw-semibold mx-2" routerLink="/shop">
+        {{ "HomePage.btn_shop" | translate }}
+      </span>
     </button>
   </div>
 </section>
 
-<section class="contact-banner overflow-hidden">
+<section
+  class="contact-banner overflow-hidden"
+  [class.ar]="direction == 'rtl'"
+  [dir]="'dir' | translate"
+>
   <div class="container position-relative">
     <img class="star" src="./assets/images/home/banner/star.png" alt="star" />
     <div class="row h-100">
       <div class="col-lg-6 d-flex align-items-center px-0">
         <div class="content px-5">
-          <h2 class="fw-bold">
-            Call Us Now for <br />
-            Expert Solutions!
-          </h2>
+          <h2
+            class="fw-bold"
+            [innerHTML]="'HomePage.contact_banner.title' | translate"
+          ></h2>
           <p class="fw-light">
-            Ready to make your event unforgettable or bring your project to
-            life? Our team is here to provide the expertise and support you
-            need. Whether it’s planning, design, or execution, we’ve got you
-            covered.
+            {{ "HomePage.contact_banner.paragraph" | translate }}
           </p>
 
           <div class="contact-buttons d-flex align-items-center gap-3">
@@ -595,7 +629,7 @@
               >
                 <i class="fa-solid fa-phone"></i>
               </span>
-              Call Now
+              {{ "HomePage.contact_banner.btn_call" | translate }}
             </button>
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
@@ -605,7 +639,7 @@
               >
                 <i class="fa-brands fa-whatsapp"></i>
               </span>
-              What's app
+              {{ "HomePage.contact_banner.btn_whatsapp" | translate }}
             </button>
           </div>
         </div>

@@ -7,10 +7,9 @@
   <div class="blurred-balls white"></div>
 
   <div class="heading text-center">
-    <h1 class="fw-bold"><span class="heading-color"> Contact </span> Us</h1>
+    <h1 class="fw-bold" [innerHTML]="'ContactPage.Hero.title' | translate"></h1>
     <p class="mb-0 mx-auto">
-      Got a question or need help with your project? Reach out to us, and we’ll
-      get back to you promptly.
+      {{ "ContactPage.Hero.paragraph" | translate }}
     </p>
   </div>
 </section>
@@ -27,12 +26,16 @@
             src="./assets/images/contact/phone.png"
             alt="phone"
           />
-          <h2 class="h5 fw-bold">Call us</h2>
-          <p>Speak to our team directly</p>
-          <p class="heading-color">+966 54 722 3203</p>
+          <h2 class="h5 fw-bold text-center">
+            {{ "ContactPage.ContactMethods.CallUs.title" | translate }}
+          </h2>
+          <p class="text-center">
+            {{ "ContactPage.ContactMethods.CallUs.description" | translate }}
+          </p>
+          <p class="heading-color text-center">+966 54 722 3203</p>
 
           <button class="fs-5 main-btn outlined px-5 py-2 rounded-5">
-            Call Us Now
+            {{ "ContactPage.ContactMethods.CallUs.button" | translate }}
           </button>
         </div>
       </div>
@@ -46,12 +49,20 @@
             src="./assets/images/contact/mail.png"
             alt="phone"
           />
-          <h2 class="h5 fw-bold">Email Us</h2>
-          <p>Reach out anytime</p>
-          <p class="heading-color">info&#64;controlpadv.com</p>
+          <h2 class="h5 fw-bold text-center">
+            {{ "ContactPage.ContactMethods.EmailUs.title" | translate }}
+          </h2>
+          <p class="text-center">
+            {{ "ContactPage.ContactMethods.EmailUs.description" | translate }}
+          </p>
+          <p class="heading-color text-center">info&#64;controlpadv.com</p>
 
-          <button class="fs-5 main-btn outlined px-5 py-2 rounded-5">
-            Email Us Now
+          <button
+            class="fs-5 main-btn outlined px-5 py-2 rounded-5"
+            routerLink="/contact-us"
+            fragment="contact"
+          >
+            {{ "ContactPage.ContactMethods.EmailUs.button" | translate }}
           </button>
         </div>
       </div>
@@ -64,12 +75,22 @@
             src="./assets/images/contact/location.png"
             alt="phone"
           />
-          <h2 class="h5 fw-bold">Visit Us</h2>
-          <p>Let's meet in person</p>
-          <p class="heading-color">Ryiadh, Saudi Arabia</p>
+          <h2 class="h5 fw-bold text-center">
+            {{ "ContactPage.ContactMethods.VisitUs.title" | translate }}
+          </h2>
+          <p class="text-center">
+            {{ "ContactPage.ContactMethods.VisitUs.description" | translate }}
+          </p>
+          <p class="heading-color text-center">
+            {{ "ContactPage.ContactMethods.VisitUs.address" | translate }}
+          </p>
 
-          <button class="fs-5 main-btn outlined px-5 py-2 rounded-5">
-            Visit Us Now
+          <button
+            class="fs-5 main-btn outlined px-5 py-2 rounded-5"
+            routerLink="/contact-us"
+            fragment="location"
+          >
+            {{ "ContactPage.ContactMethods.VisitUs.button" | translate }}
           </button>
         </div>
       </div>
@@ -77,75 +98,107 @@
   </div>
 </section>
 
-<section class="contact-message">
+<section class="contact-message" id="contact" [dir]="'dir' | translate">
   <div class="container">
     <div class="row form-container gy-4">
       <div class="col-lg-8">
         <form class="p-5 h-100">
           <div class="row g-4">
             <div class="col-lg-6 d">
-              <label class="d-block fw-bold" for="name">Full Name</label>
+              <label class="d-block fw-bold" for="name">{{
+                "ContactPage.ContactMessage.Form.fields.fullName.label"
+                  | translate
+              }}</label>
               <input
                 class="w-100 px-4 py-3"
                 type="text"
                 id="Name"
-                placeholder="Adel Saudi"
+                [placeholder]="
+                  'ContactPage.ContactMessage.Form.fields.fullName.placeholder'
+                    | translate
+                "
               />
             </div>
             <div class="col-lg-6 d">
-              <label class="d-block fw-bold" for="email">Email</label>
+              <label class="d-block fw-bold" for="email">{{
+                "ContactPage.ContactMessage.Form.fields.email.label" | translate
+              }}</label>
               <input
                 class="w-100 px-4 py-3"
                 type="email"
                 id="email"
-                placeholder="example@gmail.com"
+                [placeholder]="
+                  'ContactPage.ContactMessage.Form.fields.email.placeholder'
+                    | translate
+                "
               />
             </div>
             <div class="col-lg-6 d">
-              <label class="d-block fw-bold" for="phone">Phone</label>
+              <label class="d-block fw-bold" for="phone">{{
+                "ContactPage.ContactMessage.Form.fields.phone.label" | translate
+              }}</label>
               <input
                 class="w-100 px-4 py-3"
                 type="text"
                 id="phone"
-                placeholder="(123) 456 - 789"
+                [placeholder]="
+                  'ContactPage.ContactMessage.Form.fields.phone.placeholder'
+                    | translate
+                "
               />
             </div>
             <div class="col-lg-6 d">
-              <label class="d-block fw-bold" for="subject">Subject</label>
+              <label class="d-block fw-bold" for="subject">{{
+                "ContactPage.ContactMessage.Form.fields.subject.label"
+                  | translate
+              }}</label>
               <input
                 class="w-100 px-4 py-3"
                 type="text"
                 id="subject"
-                placeholder="ex. Support"
+                [placeholder]="
+                  'ContactPage.ContactMessage.Form.fields.subject.placeholder'
+                    | translate
+                "
               />
             </div>
             <div class="col-12">
-              <label class="d-block fw-bold" for="message">Message</label>
+              <label class="d-block fw-bold" for="message">{{
+                "ContactPage.ContactMessage.Form.fields.message.label"
+                  | translate
+              }}</label>
               <textarea
                 class="w-100 px-4 py-3"
                 id="message"
-                placeholder="Please type your message here..."
+                [placeholder]="
+                  'ContactPage.ContactMessage.Form.fields.message.placeholder'
+                    | translate
+                "
                 rows="5"
                 maxlength="500"
               ></textarea>
             </div>
           </div>
           <button
-            class="main-btn mt-4 fs-5 px-5 py-3 rounded-5 fw-bold me-auto"
+            class="main-btn mt-4 fs-5 px-5 py-3 rounded-5 fw-bold"
+            [ngClass]="{
+              'me-auto': direction === 'ltr',
+              'ms-auto': direction === 'rtl'
+            }"
           >
-            Send message
+            {{ "ContactPage.ContactMessage.Form.button" | translate }}
           </button>
         </form>
       </div>
 
       <div class="col-lg-4">
         <div class="content mt-5">
-          <h2 class="h3 fw-bold mb-1">
-            Prefer to leave us a <span class="heading-color">message?</span>
-          </h2>
+          <h2
+            class="h3 fw-bold mb-1"
+            [innerHTML]="'ContactPage.ContactMessage.Form.title' | translate"
+          ></h2>
           <p>
-            Have a question or request? Feel free to send us a message, and
-            we'll get back to you promptly.
+            {{ "ContactPage.ContactMessage.Form.paragraph" | translate }}
           </p>
           <div class="social d-flex align-items-center gap-3">
             <a class="d-flex align-items-center justify-content-center" href="">
@@ -173,7 +226,7 @@
   </div>
 </section>
 
-<section class="our-location my-5">
+<section class="our-location my-5" id="location">
   <div class="container">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d466640.30510255817!2d42.699564!3d23.973613!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0757b1bea081%3A0xef92be33e3490686!2z2YjZg9in2YTYqSDYqtit2YPZhSDYp9mE2LfYqNin2LnYqSDZhNmE2K_Yudin2YrYqSDZiNin2YTYp9i52YTYp9mGINin2YTYp9iv2KfYsdipINin2YTYudin2YXYqSAo2YPYqtix2YjZhCDYqNmE2LMg2KjZiiljb250cm9sIHByaW50IGFkdmVydGlzaW5nIGFnZW5jeSAoY3RybCtwKQ!5e0!3m2!1sen!2ssa!4v1728567896240!5m2!1sen!2ssa"

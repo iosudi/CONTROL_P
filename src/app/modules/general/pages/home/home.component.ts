@@ -5,7 +5,7 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { TranslateService } from '@ngx-translate/core';
 import { OurServicesService } from 'src/app/shared/services/our-services.service';
 import { SiteContentService } from 'src/app/shared/services/site-content.service';
 
@@ -18,8 +18,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private _SiteContentService: SiteContentService,
     private _OurServicesService: OurServicesService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public translate: TranslateService
   ) {}
+  direction: string = 'ltr'; // Default direction
 
   @ViewChild('ourWorkSwiper', { static: false }) ourWorkSwiper?: ElementRef;
 
@@ -122,17 +124,6 @@ export class HomeComponent implements OnInit {
   @ViewChild('dot4') dot4!: ElementRef;
   testimonialsIndex: number = 0;
   dotHeight: number = 0;
-  testimonialsOptions: OwlOptions = {
-    loop: false,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    items: 1,
-    nav: false,
-  };
 
   activeIndex: number = 0;
 
@@ -141,6 +132,14 @@ export class HomeComponent implements OnInit {
   }
 
   initialize() {
+    const currentLang =
+      this.translate.currentLang || this.translate.getDefaultLang() || 'en';
+    this.direction = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+    this.translate.onLangChange.subscribe((event) => {
+      this.direction = event.lang === 'ar' ? 'rtl' : 'ltr';
+    });
+
     this._SiteContentService.getOurWorks().subscribe({
       next: (data) => {
         this.ourWork = data.data;
@@ -234,7 +233,6 @@ export class HomeComponent implements OnInit {
 
   setActive(index: number): void {
     this.dotHeight = this.dot1.nativeElement.offsetHeight + 8;
-
     // Adjust transforms for vertical movement
     const transforms = [
       // For index 0 (default position, no movement)

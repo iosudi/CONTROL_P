@@ -1,8 +1,9 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
 import Swiper from 'swiper';
+import { ProjectDetailsComponent } from '../project-details/project-details.component';
 
 @Component({
   selector: 'app-event-gallery',
@@ -11,6 +12,7 @@ import Swiper from 'swiper';
 })
 export class EventGalleryComponent {
   constructor(public activeModal: NgbActiveModal, private router: Router) {}
+  private modalService = inject(NgbModal);
 
   @ViewChild('GallerySwiper', { static: false }) GallerySwiper?: ElementRef;
   swiperInstance!: Swiper;
@@ -65,6 +67,14 @@ export class EventGalleryComponent {
     if (this.activeIndex > 1) {
       this.activeIndex--;
     }
+  }
+
+  viewProject() {
+    this.modalService.open(ProjectDetailsComponent, {
+      fullscreen: true,
+      scrollable: true,
+    });
+    this.activeModal.close();
   }
 
   close(): void {

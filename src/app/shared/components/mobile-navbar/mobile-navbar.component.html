@@ -17,9 +17,10 @@
       </button>
 
       <div
-        class="search-field d-flex align-items-center justify-content-between rounded-5 p-2"
+        class="search-field disabled d-flex align-items-center justify-content-between rounded-5 p-2"
+        [dir]="'dir' | translate"
       >
-        <p class="mb-0">Search for</p>
+        <p class="mb-0">{{ "Navbar.search_label" | translate }}</p>
 
         <div class="icon d-flex align-items-center justify-content-center">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -27,7 +28,7 @@
       </div>
 
       <button
-        class="cart d-flex align-items-center justify-content-center"
+        class="cart d-flex align-items-center justify-content-center disabled"
         (click)="openCartOverlay()"
       >
         <img src="./assets/images/icons/cart-white.svg" alt="icon" />
@@ -36,7 +37,7 @@
   </div>
 </nav>
 
-<nav class="links-bar">
+<nav class="links-bar" [dir]="'dir' | translate">
   <div class="navbar">
     <ul
       class="nav-items d-flex align-items-center justify-content-between m-0 px-4 py-1 w-100"
@@ -54,10 +55,10 @@
           "
           alt="icon"
         />
-        <span> Home </span>
+        <span> {{ "Navbar.home" | translate }} </span>
       </li>
       <li
-        class="d-flex flex-column align-items-center justify-content-center"
+        class="d-flex disabled flex-column align-items-center justify-content-center"
         routerLink="/profile/wishlist"
         routerLinkActive="active-link"
       >
@@ -69,10 +70,10 @@
           "
           alt="icon"
         />
-        <span> Wishlist </span>
+        <span> {{ "Navbar.wishlist" | translate }} </span>
       </li>
       <li
-        class="d-flex flex-column align-items-center justify-content-center"
+        class="d-flex disabled flex-column align-items-center justify-content-center"
         routerLink="/cart"
         routerLinkActive="active-link"
       >
@@ -84,10 +85,10 @@
           "
           alt="icon"
         />
-        <span> Cart </span>
+        <span> {{ "Navbar.cart" | translate }} </span>
       </li>
       <li
-        class="d-flex flex-column align-items-center justify-content-center"
+        class="d-flex disabled flex-column align-items-center justify-content-center"
         routerLink="/profile"
         [ngClass]="{ 'active-link': isProfileActive }"
       >
@@ -99,7 +100,7 @@
           "
           alt="icon"
         />
-        <span> my account </span>
+        <span> {{ "Navbar.my_account" | translate }} </span>
       </li>
     </ul>
   </div>

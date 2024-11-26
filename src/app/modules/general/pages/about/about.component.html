@@ -7,10 +7,9 @@
   <div class="blurred-balls white"></div>
 
   <div class="heading text-center">
-    <h1 class="fw-bold"><span class="heading-color"> About </span> Us</h1>
+    <h1 class="fw-bold" [innerHTML]="'AboutPage.hero.title' | translate"></h1>
     <p class="mb-0">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-      luctus nec ullamcorper mattis, pulvinar dapibus leo.
+      {{ "AboutPage.hero.paragraph" | translate }}
     </p>
   </div>
 
@@ -24,7 +23,7 @@
   </div>
 </section>
 
-<section class="staff-crew">
+<section class="staff-crew" [dir]="'dir' | translate">
   <div class="container">
     <div class="row gy-4">
       <div class="col-lg-6">
@@ -32,18 +31,12 @@
       </div>
       <div class="col-lg-6">
         <div class="content h-100 d-flex flex-column justify-content-center">
-          <h2 class="fw-bold">
-            We make sure your idea & creation<span class="heading-color">
-              delivered properly
-            </span>
-          </h2>
+          <h2
+            class="fw-bold"
+            [innerHTML]="'AboutPage.staff_crew.title' | translate"
+          ></h2>
           <p class="mb-0">
-            The control p Company is a limited liability company of Saudi
-            origin, established in the year 1430 AH Based on The principles of
-            the kingdom and the development in the field of advertising,
-            advertising and digital marketing of what the local market needs,
-            finding innovative solutions and highlighting everything new in the
-            field
+            {{ "AboutPage.staff_crew.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -59,11 +52,11 @@
           class="card d-flex align-items-center justify-content-start p-5 h-100"
         >
           <img src="./assets/images/icons/vision.png" alt="eye" />
-          <h3 class="h1 mb-5 fw-bold">Vision</h3>
+          <h3 class="h1 mb-5 fw-bold">
+            {{ "AboutPage.about_us.vision.title" | translate }}
+          </h3>
           <p class="text-center mb-0">
-            Control Printing drives innovation for dynamic, sustainable growth,
-            benefiting employees, society, and supporting Saudi Arabia's
-            expanding economy.
+            {{ "AboutPage.about_us.vision.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -72,10 +65,11 @@
           class="card d-flex align-items-center justify-content-start p-5 h-100"
         >
           <img src="./assets/images/icons/message.png" alt="message" />
-          <h3 class="h1 mb-5 fw-bold">Mission</h3>
+          <h3 class="h1 mb-5 fw-bold">
+            {{ "AboutPage.about_us.mission.title" | translate }}
+          </h3>
           <p class="text-center mb-0">
-            Excellence through sustainable growth driven by innovation, talent
-            and responsible care...
+            {{ "AboutPage.about_us.mission.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -84,11 +78,11 @@
           class="card d-flex align-items-center justify-content-start p-5 h-100"
         >
           <img src="./assets/images/icons/group.png" alt="group" />
-          <h3 class="h1 mb-5 fw-bold">Team</h3>
+          <h3 class="h1 mb-5 fw-bold">
+            {{ "AboutPage.about_us.team.title" | translate }}
+          </h3>
           <p class="text-center mb-0">
-            Our team members are our greatest asset, our ability to provide the
-            best results to our clients begins with our special team of
-            technical experts and professional designers.
+            {{ "AboutPage.about_us.team.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -99,11 +93,12 @@
 <section class="team-members overflow-hidden my-5">
   <div class="container overflow-hidden py-5">
     <div class="heading text-center mb-5">
-      <h3 class="text-center">
-        Our <span class="heading-color fw-bold">Team</span>
-      </h3>
+      <h3
+        class="text-center"
+        [innerHTML]="'AboutPage.our_team.title' | translate"
+      ></h3>
       <p class="text-center">
-        Convallis ullamcorper aliquet ultrices orci cum vestibulum lobortis erat
+        {{ "AboutPage.our_team.paragraph" | translate }}
       </p>
     </div>
     <swiper-container [breakpoints]="TeamSlider">
@@ -158,16 +153,10 @@
 
 <section class="our-features my-5">
   <div class="container text-center">
-    <h2 class="h1">
-      Buyers <span class="heading-color fw-bold"> trust us </span>
-    </h2>
-    <p>Our Strategy Is To Provide Our Customers With Quality Products</p>
+    <h2 class="h1" [innerHTML]="'AboutPage.features.title' | translate"></h2>
+    <p>{{ "AboutPage.features.paragraph1" | translate }}</p>
     <p class="description my-5">
-      If the copy becomes distracting in the design then you are doing something
-      wrong or they are discussing copy changes. It might be a bit annoying but
-      you could tell them that that discussion would be best suited. You begin
-      with a text, you sculpt information, you chisel away what’s not needed,
-      you come.
+      {{ "AboutPage.features.paragraph2" | translate }}
     </p>
 
     <div class="row gy-4">
@@ -178,10 +167,11 @@
             src="./assets/images/about/icons/truck.png"
             alt="truck"
           />
-          <h3 class="h4">Fast Delivery</h3>
+          <h3 class="h4">
+            {{ "AboutPage.features.cards.delivery.title" | translate }}
+          </h3>
           <p class="mb-0 mx-auto">
-            Chances are there wasn’t collaboration and checkpoints, there wasn’t
-            a process.
+            {{ "AboutPage.features.cards.delivery.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -192,10 +182,11 @@
             src="./assets/images/about/icons/like.png"
             alt="truck"
           />
-          <h3 class="h4">Best Quality</h3>
+          <h3 class="h4">
+            {{ "AboutPage.features.cards.quality.title" | translate }}
+          </h3>
           <p class="mb-0 mx-auto">
-            It's content strategy gone awry right from the start. Forswearing
-            the use of Lorem Ipsum.
+            {{ "AboutPage.features.cards.quality.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -206,10 +197,11 @@
             src="./assets/images/about/icons/return.png"
             alt="truck"
           />
-          <h3 class="h4">Free Return</h3>
+          <h3 class="h4">
+            {{ "AboutPage.features.cards.return.title" | translate }}
+          </h3>
           <p class="mb-0 mx-auto">
-            True enough, but that's not all that it takes to get things back on
-            track out there for a text.
+            {{ "AboutPage.features.cards.return.paragraph" | translate }}
           </p>
         </div>
       </div>
@@ -217,7 +209,7 @@
   </div>
 </section>
 
-<section class="how-we-work">
+<section class="how-we-work" [dir]="'dir' | translate">
   <div class="container">
     <div class="row gy-3">
       <div class="col-lg-6">
@@ -227,40 +219,64 @@
             src="./assets/images/about/mac.jpg"
             alt="image"
           />
-          <h4 class="h5 fw-bold">How we work</h4>
-          <p class="my-5">
-            At <span class="fw-bold">Ctrl+P</span>, our process is built on a
-            foundation of creativity, collaboration, and attention to detail.
-            Here's how we work:
-          </p>
+          <h4 class="h5 fw-bold">
+            {{ "AboutPage.how_we_work.work.title" | translate }}
+          </h4>
+          <p
+            class="my-5"
+            [innerHTML]="'AboutPage.how_we_work.work.paragraph' | translate"
+          ></p>
 
           <ul>
             <li class="mb-3">
-              <h5>Consultation:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.work.list.item1.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                We start with understanding your goals and vision.
+                {{
+                  "AboutPage.how_we_work.work.list.item1.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Design:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.work.list.item2.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                Our team crafts unique designs tailored to your needs.
+                {{
+                  "AboutPage.how_we_work.work.list.item2.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Execution:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.work.list.item3.title" | translate }}
+                :
+              </h5>
               <p class="mb-0">
-                We handle everything from setup to final delivery.
+                {{
+                  "AboutPage.how_we_work.work.list.item3.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Quality Check:</h5>
-              <p class="mb-0">Every detail is checked for flawless results</p>
+              <h5>
+                {{ "AboutPage.how_we_work.work.list.item4.title" | translate }}:
+              </h5>
+              <p class="mb-0">
+                {{
+                  "AboutPage.how_we_work.work.list.item4.paragraph" | translate
+                }}
+              </p>
             </li>
             <li class="mb-3">
-              <h5>Support:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.work.list.item5.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                Post-project support to ensure long-term success.
+                {{
+                  "AboutPage.how_we_work.work.list.item5.paragraph" | translate
+                }}:
               </p>
             </li>
           </ul>
@@ -274,48 +290,73 @@
             src="./assets/images/about/book.jpg"
             alt="image"
           />
-          <h4 class="h5 fw-bold">How we do</h4>
-          <p class="my-5">
-            At <span class="fw-bold">Ctrl+P</span>, we offer a comprehensive
-            suite of services designed to meet all your advertising, event
-            management, and printing needs. From concept to execution, we bring
-            your vision to life with creativity, precision, and professionalism.
-            Here’s what we do:
-          </p>
+          <h4 class="h5 fw-bold">
+            {{ "AboutPage.how_we_work.do.title" | translate }}:
+          </h4>
+          <p
+            class="my-5"
+            [innerHTML]="'AboutPage.how_we_work.do.paragraph' | translate"
+          ></p>
 
           <ul>
             <li class="mb-3">
-              <h5>Event Management:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.do.list.item1.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                Full-service event planning, from concept to execution.
+                {{
+                  "AboutPage.how_we_work.do.list.item1.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Signage & Murals:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.do.list.item2.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                Custom signage and murals for impactful branding.
+                {{
+                  "AboutPage.how_we_work.do.list.item2.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Vehicle Branding:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.do.list.item3.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                Eye-catching vehicle graphics to expand your reach.
+                {{
+                  "AboutPage.how_we_work.do.list.item3.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Exhibitions & Conferences:</h5>
-              <p class="mb-0">Seamless management of booths and events.</p>
-            </li>
-            <li class="mb-3">
-              <h5>3D Letters & Facades:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.do.list.item4.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                Custom 3D letters and facades for enhanced visibility.
+                {{
+                  "AboutPage.how_we_work.do.list.item4.paragraph" | translate
+                }}
               </p>
             </li>
             <li class="mb-3">
-              <h5>Printing & Leatherworks:</h5>
+              <h5>
+                {{ "AboutPage.how_we_work.do.list.item5.title" | translate }}:
+              </h5>
               <p class="mb-0">
-                High-quality printing and custom leather products.
+                {{
+                  "AboutPage.how_we_work.do.list.item5.paragraph" | translate
+                }}
+              </p>
+            </li>
+            <li class="mb-3">
+              <h5>
+                {{ "AboutPage.how_we_work.do.list.item6.title" | translate }}:
+              </h5>
+              <p class="mb-0">
+                {{
+                  "AboutPage.how_we_work.do.list.item6.paragraph" | translate
+                }}
               </p>
             </li>
           </ul>
@@ -325,22 +366,29 @@
   </div>
 </section>
 
-<section class="FAQS my-sections">
+<section class="FAQS my-sections" [dir]="'dir' | translate">
   <div class="container">
     <div class="row gy-5">
       <div class="col-lg-6">
         <div class="heading">
-          <h2 class="fw-bold">Some of your questions answered here</h2>
+          <h2 class="fw-bold">
+            {{ "AboutPage.faqs.title" | translate }}
+          </h2>
           <p>
-            We often receive questions about our services, and we’re here to
-            help.You can get any answers.
+            {{ "AboutPage.faqs.paragraph" | translate }}
           </p>
 
           <button
-            class="main-btn px-4 py-2 rounded-5 me-auto mt-5"
+            class="main-btn px-4 py-2 rounded-5 mt-5"
             routerLink="/contact-us"
+            [ngClass]="{
+              'me-auto': direction === 'ltr',
+              'ms-auto': direction === 'rtl'
+            }"
           >
-            <span class="fw-semibold"> Contact us </span>
+            <span class="fw-semibold">
+              {{ "AboutPage.faqs.btn_contact" | translate }}
+            </span>
             <div class="icon d-flex align-items-center justify-content-center">
               <img src="./assets/images/icons/phone.png" alt="phone icon" />
             </div>

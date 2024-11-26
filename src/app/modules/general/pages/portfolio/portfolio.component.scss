@@ -22,7 +22,7 @@
     p {
       color: #ffffffcc;
       font-size: 1.5rem;
-      width: 48ch;
+      max-width: 48ch;
     }
   }
 
@@ -137,7 +137,6 @@
     }
 
     .event-preview {
-      border-radius: 15px;
       min-height: 250px;
       margin-bottom: 1em;
       overflow: hidden;

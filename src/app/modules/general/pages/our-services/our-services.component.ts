@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { OurServicesService } from 'src/app/shared/services/our-services.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { OurServicesService } from 'src/app/shared/services/our-services.service
   templateUrl: './our-services.component.html',
   styleUrls: ['./our-services.component.scss'],
 })
-export class OurServicesComponent {
+export class OurServicesComponent implements OnInit {
   constructor(
     private route: Router,
-    private _OurServicesService: OurServicesService
+    private _OurServicesService: OurServicesService,
+    public translate: TranslateService
   ) {}
+  direction: string = 'ltr'; // Default direction
 
   solutions_images = [
     './assets/images/our-services/1.png',
@@ -34,6 +37,14 @@ export class OurServicesComponent {
       error: (error) => {
         console.error('Error fetching services:', error);
       },
+    });
+
+    const currentLang =
+      this.translate.currentLang || this.translate.getDefaultLang() || 'en';
+    this.direction = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+    this.translate.onLangChange.subscribe((event) => {
+      this.direction = event.lang === 'ar' ? 'rtl' : 'ltr';
     });
   }
 

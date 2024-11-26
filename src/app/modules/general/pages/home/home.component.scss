@@ -196,6 +196,7 @@ app-home-navbar ::ng-deep {
 
     .container-fluid {
       padding-left: 100px;
+      padding-right: 100px;
       padding-top: 8rem;
       .blurred-balls {
         bottom: 0;
@@ -759,6 +760,28 @@ app-home-navbar ::ng-deep {
       }
     }
   }
+
+  &.ar {
+    .container {
+      .star {
+        left: 40%;
+        right: unset;
+      }
+      .images {
+        img {
+          &.man {
+            transform: translateX(-50%) scaleX(-1);
+          }
+
+          &.vector {
+            left: 0;
+            right: unset;
+            transform: scaleX(-1);
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1550px) {
@@ -1016,6 +1039,7 @@ app-home-navbar ::ng-deep {
     .about-content {
       .container-fluid {
         padding-left: 80px;
+        padding-right: 80px;
         .row {
           h3 {
             font-size: 3rem;
@@ -1142,6 +1166,7 @@ app-home-navbar ::ng-deep {
 
   .about {
     padding-left: 1rem;
+    padding-right: 1rem;
 
     .about-content {
       .container-fluid {
@@ -1339,6 +1364,15 @@ app-home-navbar ::ng-deep {
               }
             }
           }
+        }
+      }
+    }
+
+    &.ar {
+      .container {
+        .star {
+          right: unset;
+          left: 20%;
         }
       }
     }
@@ -1768,6 +1802,7 @@ app-home-navbar ::ng-deep {
     .about-content {
       .container-fluid {
         padding-left: 3rem;
+        padding-right: 3rem;
         padding-top: 3rem;
 
         .row {
@@ -1874,6 +1909,15 @@ app-home-navbar ::ng-deep {
               }
             }
           }
+        }
+      }
+    }
+
+    &.ar {
+      .container {
+        .star {
+          right: unset;
+          left: 5%;
         }
       }
     }

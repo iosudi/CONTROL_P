@@ -132,6 +132,7 @@ export class ProjectDetailsComponent implements OnInit {
       fullscreen: true,
       scrollable: true,
     });
+    this.activeModal.close();
   }
 
   close(): void {

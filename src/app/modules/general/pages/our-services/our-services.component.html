@@ -8,10 +8,11 @@
     <div class="blurred-balls white"></div>
 
     <div class="heading text-center mb-5">
-      <h1 class="fw-bold"><span class="heading-color"> Our </span> Services</h1>
+      <h1 class="fw-bold" [innerHTML]="'Services.hero.title' | translate">
+        <span class="heading-color"> Our </span> Services
+      </h1>
       <p class="mb-0 mx-auto">
-        Explore our range of innovative solutions designed to elevate your brand
-        and deliver outstanding results.
+        {{ "Services.hero.paragraph" | translate }}
       </p>
     </div>
 
@@ -23,20 +24,18 @@
   </div>
 </section>
 
-<section class="our-solutions">
+<section class="our-solutions" [dir]="'dir' | translate">
   <div class="container">
     <div class="heading text-center mb-5">
-      <h2 class="mb-3">
-        Our <span class="heading-color fw-bold"> Solutions </span>
-      </h2>
+      <h2
+        class="mb-3"
+        [innerHTML]="'Services.our_solutions.title' | translate"
+      ></h2>
       <h3 class="fs-4 mb-3">
-        Comprehensive Solutions for Your Printing and Design Needs
+        {{ "Services.our_solutions.subtitle" | translate }}
       </h3>
       <p class="mx-auto">
-        At Ctrl+P, we offer a wide range of services tailored to meet all your
-        printing and design requirements. Our expert team is dedicated to
-        delivering high-quality results that enhance your brand's visibility and
-        impact.
+        {{ "Services.our_solutions.paragraph" | translate }}
       </p>
     </div>
 
@@ -57,7 +56,7 @@
               class="mb-0 fs-5 heading-color text-uppercase pointer"
               (click)="openServiceDetails(solution.id)"
             >
-              read more
+              {{ "Services.btn_read_more" | translate }}
             </p>
           </div>
         </div>
@@ -68,12 +67,20 @@
           class="content d-flex justify-content-center gap-5 flex-column h-100 p-5"
         >
           <img src="./assets/images/logo.png" alt="logo" />
-          <h3 class="fw-bold">Bring Your Vision to Life</h3>
+          <h3 class="fw-bold">
+            {{ "Services.solutions_cards.card_extra.title" | translate }}
+          </h3>
           <button
-            class="white-btn fw-semibold fs-4 px-5 py-3 rounded-5 me-auto"
+            class="white-btn fw-semibold fs-4 px-5 py-3 rounded-5"
             routerLink="/about-us"
+            [ngClass]="{
+              'me-auto': direction === 'ltr',
+              'ms-auto': direction === 'rtl'
+            }"
           >
-            Get in touch
+            {{
+              "Services.solutions_cards.card_extra.btn_get_in_touch" | translate
+            }}
           </button>
         </div>
       </div>
@@ -81,7 +88,11 @@
   </div>
 </section>
 
-<section class="contact-banner overflow-hidden">
+<section
+  class="contact-banner overflow-hidden"
+  [dir]="'dir' | translate"
+  [class.ar]="direction == 'rtl'"
+>
   <div class="container position-relative">
     <img class="star" src="./assets/images/home/banner/star.png" alt="star" />
     <div class="row h-100">
@@ -90,12 +101,15 @@
           class="content d-flex flex-column justify-content-around h-100 py-5 px-5"
         >
           <div>
-            <h2 class="fw-bold">
+            <h2
+              class="fw-bold"
+              [innerHTML]="'Services.contact_banner.title' | translate"
+            >
               Enjoy 20% Off Your <br />
               First Order!
             </h2>
             <p class="fw-light">
-              This exclusive offer is valid until 27/9/2024
+              {{ "Services.contact_banner.paragraph" | translate }}
             </p>
           </div>
 
@@ -108,7 +122,7 @@
               >
                 <i class="fa-solid fa-phone"></i>
               </span>
-              Contact Us
+              {{ "Services.contact_banner.btn_call" | translate }}
             </button>
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
@@ -118,7 +132,7 @@
               >
                 <i class="fa-brands fa-whatsapp"></i>
               </span>
-              What's app
+              {{ "Services.contact_banner.btn_whatsapp" | translate }}
             </button>
           </div>
         </div>

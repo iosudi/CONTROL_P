@@ -17,6 +17,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ServicesDetailsComponent } from './pages/services-details/services-details.component';
 
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { register as registerSwiperElements } from 'swiper/element/bundle';
 import { HomeMiniShopComponent } from './components/home-mini-shop/home-mini-shop.component';
@@ -45,6 +46,7 @@ registerSwiperElements();
     TimelineModule,
     SharedModule,
     RouterModule,
+    TranslateModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

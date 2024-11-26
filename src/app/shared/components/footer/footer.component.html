@@ -1,4 +1,4 @@
-<footer class="overflow-hidden py-5">
+<footer class="overflow-hidden py-5" [dir]="'dir' | translate">
   <div class="blurred-balls"></div>
   <div class="blurred-balls white"></div>
   <div class="container footer-items">
@@ -12,8 +12,7 @@
             routerLink="/"
           />
           <p>
-            Lorem ipsum dolor sit amet consectetur. Urna tortor dictum aliquam
-            sit mauris.
+            {{ "Footer.company.description" | translate }}
           </p>
           <ul class="socials mb-0 p-0 d-flex align-items-center gap-2">
             <li
@@ -48,26 +47,26 @@
       <div class="col-lg-3 col-md-6">
         <div class="footer-item contacts">
           <div class="title mb-4 text-uppercase">
-            <h4 class="mb-0">Contact Us</h4>
+            <h4 class="mb-0">{{ "Footer.contactUs.title" | translate }}</h4>
           </div>
           <ul class="mb-0 p-0">
             <li class="d-flex gap-2 align-items-center mb-4">
               <img src="./assets/images/icons/home.svg" alt="icon" />
-              Ryiadh, Saudi Arabia
+              {{ "Footer.contactUs.address" | translate }}
             </li>
             <li class="d-flex gap-2 align-items-center mb-4">
               <img src="./assets/images/icons/phone.svg" alt="icon" />
 
-              +966 54 722 3203
+              <span dir="ltr">{{ "Footer.contactUs.phone" | translate }}</span>
             </li>
             <li class="d-flex gap-2 align-items-center mb-4">
               <img src="./assets/images/icons/mail.svg" alt="icon" />
 
-              info&#64;controlpadv.com
+              {{ "Footer.contactUs.email" | translate }}
             </li>
           </ul>
 
-          <div class="mobile-application d-flex align-items-center gap-3 px-3">
+          <!-- <div class="mobile-application d-flex align-items-center gap-3 px-3">
             <a href="#">
               <img
                 src="./assets/images/icons/on-google-play.svg"
@@ -80,25 +79,33 @@
                 alt="app-store"
               />
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
         <div class="footer-item links">
           <div class="title mb-4 text-uppercase">
-            <h4 class="mb-0">Links</h4>
+            <h4 class="mb-0">{{ "Footer.links.title" | translate }}</h4>
           </div>
 
           <ul class="mb-0 p-0">
-            <li class="mb-2 pointer" routerLink="/home">Home</li>
-            <li class="mb-2 pointer" routerLink="/about-us">About Us</li>
-            <li class="mb-2 pointer" routerLink="/services">Services</li>
-            <li class="mb-2 pointer" routerLink="/">Privacy Policy</li>
+            <li class="mb-2 pointer" routerLink="/home">
+              {{ "Footer.links.home" | translate }}
+            </li>
+            <li class="mb-2 pointer" routerLink="/about-us">
+              {{ "Footer.links.aboutUs" | translate }}
+            </li>
+            <li class="mb-2 pointer" routerLink="/services">
+              {{ "Footer.links.services" | translate }}
+            </li>
+            <!-- <li class="mb-2 pointer" routerLink="/">Privacy Policy</li>
             <li class="mb-2 pointer" routerLink="/">
               Replacement, Return poll
+            </li> -->
+            <li class="mb-2 pointer" routerLink="/contact-us">
+              {{ "Footer.links.contactUs" | translate }}
             </li>
-            <li class="mb-2 pointer" routerLink="/contact-us">Contact Us</li>
           </ul>
         </div>
       </div>
@@ -106,14 +113,11 @@
       <div class="col-lg-3 col-md-6">
         <div class="footer-item info">
           <div class="title mb-4 text-uppercase">
-            <h4 class="mb-0">Info</h4>
+            <h4 class="mb-0">{{ "Footer.info.title" | translate }}</h4>
           </div>
 
           <p>
-            The control p Company is a limited liability company of Saudi
-            origin, established in the year 1430 AH Based on The principles of
-            the kingdom and the development in the field of advertising,
-            advertising and
+            {{ "Footer.info.description" | translate }}
           </p>
 
           <div class="payment-methods">
