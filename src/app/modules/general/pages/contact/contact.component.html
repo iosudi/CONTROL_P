@@ -1,5 +1,5 @@
+<p-toast />
 <app-home-navbar></app-home-navbar>
-
 <section
   class="hero d-flex align-items-center justify-content-center position-relative overflow-hidden"
 >
@@ -102,7 +102,11 @@
   <div class="container">
     <div class="row form-container gy-4">
       <div class="col-lg-8">
-        <form class="p-5 h-100">
+        <form
+          class="p-5 h-100"
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+        >
           <div class="row g-4">
             <div class="col-lg-6 d">
               <label class="d-block fw-bold" for="name">{{
@@ -113,11 +117,26 @@
                 class="w-100 px-4 py-3"
                 type="text"
                 id="Name"
+                formControlName="full_name"
                 [placeholder]="
                   'ContactPage.ContactMessage.Form.fields.fullName.placeholder'
                     | translate
                 "
               />
+              <div
+                class="alerts"
+                *ngIf="
+                  contactForm.get('full_name')?.errors &&
+                  contactForm.get('full_name')?.touched
+                "
+              >
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('full_name')?.getError('required')"
+                >
+                  {{ "Validation.required" | translate }}
+                </p>
+              </div>
             </div>
             <div class="col-lg-6 d">
               <label class="d-block fw-bold" for="email">{{
@@ -127,11 +146,32 @@
                 class="w-100 px-4 py-3"
                 type="email"
                 id="email"
+                formControlName="email"
                 [placeholder]="
                   'ContactPage.ContactMessage.Form.fields.email.placeholder'
                     | translate
                 "
               />
+              <div
+                class="alerts"
+                *ngIf="
+                  contactForm.get('email')?.errors &&
+                  contactForm.get('email')?.touched
+                "
+              >
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('email')?.getError('required')"
+                >
+                  {{ "Validation.required" | translate }}
+                </p>
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('email')?.getError('email')"
+                >
+                  {{ "Validation.email_invalid" | translate }}
+                </p>
+              </div>
             </div>
             <div class="col-lg-6 d">
               <label class="d-block fw-bold" for="phone">{{
@@ -141,11 +181,32 @@
                 class="w-100 px-4 py-3"
                 type="text"
                 id="phone"
+                formControlName="phone"
                 [placeholder]="
                   'ContactPage.ContactMessage.Form.fields.phone.placeholder'
                     | translate
                 "
               />
+              <div
+                class="alerts"
+                *ngIf="
+                  contactForm.get('phone')?.errors &&
+                  contactForm.get('phone')?.touched
+                "
+              >
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('phone')?.getError('required')"
+                >
+                  {{ "Validation.required" | translate }}
+                </p>
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('phone')?.getError('maxlength')"
+                >
+                  {{ "Validation.phone_length" | translate }}
+                </p>
+              </div>
             </div>
             <div class="col-lg-6 d">
               <label class="d-block fw-bold" for="subject">{{
@@ -156,11 +217,26 @@
                 class="w-100 px-4 py-3"
                 type="text"
                 id="subject"
+                formControlName="subject"
                 [placeholder]="
                   'ContactPage.ContactMessage.Form.fields.subject.placeholder'
                     | translate
                 "
               />
+              <div
+                class="alerts"
+                *ngIf="
+                  contactForm.get('subject')?.errors &&
+                  contactForm.get('subject')?.touched
+                "
+              >
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('subject')?.getError('required')"
+                >
+                  {{ "Validation.required" | translate }}
+                </p>
+              </div>
             </div>
             <div class="col-12">
               <label class="d-block fw-bold" for="message">{{
@@ -170,6 +246,7 @@
               <textarea
                 class="w-100 px-4 py-3"
                 id="message"
+                formControlName="message"
                 [placeholder]="
                   'ContactPage.ContactMessage.Form.fields.message.placeholder'
                     | translate
@@ -177,6 +254,20 @@
                 rows="5"
                 maxlength="500"
               ></textarea>
+              <div
+                class="alerts"
+                *ngIf="
+                  contactForm.get('message')?.errors &&
+                  contactForm.get('message')?.touched
+                "
+              >
+                <p
+                  class="text-danger mb-1"
+                  *ngIf="contactForm.get('message')?.getError('required')"
+                >
+                  {{ "Validation.required" | translate }}
+                </p>
+              </div>
             </div>
           </div>
           <button
@@ -185,6 +276,7 @@
               'me-auto': direction === 'ltr',
               'ms-auto': direction === 'rtl'
             }"
+            type="submit"
           >
             {{ "ContactPage.ContactMessage.Form.button" | translate }}
           </button>

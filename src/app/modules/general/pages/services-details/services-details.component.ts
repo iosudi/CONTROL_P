@@ -14,28 +14,35 @@ export class ServicesDetailsComponent implements OnInit {
     private _ActivatedRoute: ActivatedRoute
   ) {}
 
-  items: MenuItem[] | undefined;
-
   home: MenuItem | undefined;
+  activeServiceId!: number;
 
   serviceDetails: any;
+  services: any[] = [];
 
   ngOnInit() {
     this.initialize();
   }
 
   initialize() {
-    this.items = [
-      { label: 'Services', routerLink: '/services' },
-      { label: 'Professional Design' },
-    ];
-
     this.home = { label: 'Home', routerLink: '/home' };
 
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
         if (params.get('id')) {
           this.initializeServiceDetails(Number(params.get('id')));
+          this.activeServiceId = Number(params.get('id'));
+
+          this._OurServicesService.getServices().subscribe({
+            next: (services) => {
+              this.services = services.data.filter(
+                (service: any) => service.id != this.activeServiceId
+              );
+            },
+            error: (error) => {
+              console.error('Error fetching services:', error);
+            },
+          });
         }
       },
       error: (error) => {

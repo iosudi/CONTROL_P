@@ -6,6 +6,7 @@ import {
   HttpClient,
   HttpClientModule,
 } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -22,6 +23,7 @@ import { LanguageInterceptorInterceptor } from './core/interceptor/language-inte
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       defaultLanguage: 'ar',
       loader: {

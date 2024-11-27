@@ -16,4 +16,8 @@ export class SiteInfoService {
   getFaqs(): Observable<any> {
     return this.http.get(environment.baseURL + 'Faqs');
   }
+
+  contact(form: object): Observable<any> {
+    return this.http.post(environment.baseURL + 'contact', form);
+  }
 }

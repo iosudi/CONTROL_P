@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { DropdownModule } from 'primeng/dropdown';
@@ -18,6 +18,8 @@ import { ServicesDetailsComponent } from './pages/services-details/services-deta
 
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { register as registerSwiperElements } from 'swiper/element/bundle';
 import { HomeMiniShopComponent } from './components/home-mini-shop/home-mini-shop.component';
@@ -47,7 +49,10 @@ registerSwiperElements();
     SharedModule,
     RouterModule,
     TranslateModule,
+    ReactiveFormsModule,
+    ToastModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [MessageService],
 })
 export class GeneralModule {}

@@ -386,5 +386,10 @@
       "title": "Info",
       "description": "Control P is a limited liability company of Saudi origin, established in 1430 AH based on the principles of the kingdom and the development in the field of advertising."
     }
+  },
+  "Validation": {
+    "required": "This field is required",
+    "email_invalid": "email is invalid",
+    "phone_length": "Phone number must not be more than 15 number"
   }
 }
