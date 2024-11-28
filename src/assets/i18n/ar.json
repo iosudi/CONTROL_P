@@ -200,6 +200,10 @@
     "project_overlay": {
       "view": "عرض المشروع"
     },
+    "project_details": {
+      "about_title": "<span class='fw-bold h3'>لديك مشروع في ذهنك؟</span> دعنا نحقق رؤيتك!",
+      "about_btn": "تواصل معنا"
+    },
     "load_btn": "تحميل المزيد من الصور"
   },
 

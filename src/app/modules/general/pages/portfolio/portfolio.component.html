@@ -135,18 +135,18 @@
             <i class="fa-regular fa-heart"></i>
           </button> -->
 
-          <h5 class="h1">{{ project.name }}</h5>
+          <h5 class="h2 text-center">{{ project.name }}</h5>
 
           <div
             class="controls d-flex w-100 p-3 justify-content-between align-items-center"
           >
-            <button class="btn view-project" (click)="viewProject()">
+            <button class="btn view-project" (click)="viewProject(project.id)">
               {{ "Portfolio.project_overlay.view" | translate }}
               <i class="fa-solid fa-arrow-up ms-3"></i>
             </button>
 
             <div class="d-flex align-items-center gap-2">
-              <button class="btn" (click)="eventGallery(1)">
+              <button class="btn" (click)="eventGallery(project.id)">
                 <i class="fa-solid fa-magnifying-glass-plus"></i>
               </button>
 

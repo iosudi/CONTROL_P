@@ -17,6 +17,7 @@ export class EventGalleryComponent {
     private router: Router,
     private _SiteContentService: SiteContentService
   ) {}
+
   private modalService = inject(NgbModal);
 
   @Input() projectId!: number;
@@ -81,11 +82,14 @@ export class EventGalleryComponent {
     }
   }
 
-  viewProject() {
-    this.modalService.open(ProjectDetailsComponent, {
+  viewProject(id: number) {
+    const modalRef = this.modalService.open(ProjectDetailsComponent, {
       fullscreen: true,
       scrollable: true,
     });
+
+    modalRef.componentInstance.projectId = id;
+
     this.activeModal.close();
   }
 

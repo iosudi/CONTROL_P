@@ -151,10 +151,12 @@ export class PortfolioComponent {
     modalRef.componentInstance.projectId = id;
   }
 
-  viewProject() {
-    this.modalService.open(ProjectDetailsComponent, {
+  viewProject(id: number) {
+    const modalRef = this.modalService.open(ProjectDetailsComponent, {
       fullscreen: true,
       scrollable: true,
     });
+
+    modalRef.componentInstance.projectId = id;
   }
 }

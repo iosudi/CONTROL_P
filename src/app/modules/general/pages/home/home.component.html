@@ -140,7 +140,7 @@
 
     <div class="images mt-5" *ngIf="eventImages.length > 0; else empty">
       <img
-        *ngFor="let image of eventImages; let i = index"
+        *ngFor="let image of eventImages.slice(0, 5); let i = index"
         [class]="'rounded-4 image-' + (i + 1)"
         [src]="image"
         alt="event image"

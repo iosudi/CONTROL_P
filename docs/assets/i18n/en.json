@@ -201,6 +201,10 @@
     "project_overlay": {
       "view": "View Project"
     },
+    "project_details": {
+      "about_title": "<span class='fw-bold h3'>Have a project in mind?</span> Let us make your vision come true!",
+      "about_btn": "Contact us"
+    },
     "load_btn": "load More images"
   },
 

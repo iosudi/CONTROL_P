@@ -203,10 +203,11 @@
   .col-12 {
     .faq {
       border-bottom: 1px solid #444;
-      max-height: 45px;
       overflow: hidden;
       transition: 0.5s;
       cursor: pointer;
+      display: grid;
+      grid-template-rows: 1.8em 0fr;
       h4 {
         color: var(--white-text);
         font-size: 1.2rem;
@@ -224,7 +225,8 @@
 
       &.expand {
         cursor: auto;
-        max-height: 300px;
+        grid-template-rows: 1.8em 1fr;
+
         h4 {
           color: var(--main-color);
         }

@@ -25,12 +25,13 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" [dir]="direction == 'ltr' ? 'rtl' : 'ltr'">
       <div class="col-lg-7">
         <p-timeline
           [value]="eventsWithIndex"
           class="w-full md:w-20rem"
-          align="right"
+          [align]="direction == 'ltr' ? 'left' : 'right'"
+          dir="ltr"
         >
           <ng-template pTemplate="content" let-event let-i="index">
             <div class="content">
@@ -58,11 +59,25 @@
           </ng-template>
         </p-timeline>
 
-        <div class="testimonials-content position-relative overflow-hidden">
+        <div
+          class="testimonials-content position-relative overflow-hidden"
+          dir="ltr"
+        >
           <div class="row">
-            <div class="col-md-9 col-11 ms-auto">
+            <div
+              class="col-md-9 col-11"
+              [ngClass]="{
+                'me-auto': direction === 'ltr',
+                'ms-auto': direction === 'rtl'
+              }"
+            >
               <div class="carousel-container">
-                <div class="navigation-dots d-flex flex-column gap-2">
+                <div
+                  class="navigation-dots d-flex flex-column gap-2"
+                  [ngClass]="{
+                    en: direction === 'ltr'
+                  }"
+                >
                   <div
                     #dot1
                     class="dot"
@@ -85,7 +100,7 @@
                   ></div>
                 </div>
 
-                <div class="carousel">
+                <div class="carousel" dir="ltr">
                   <swiper-container
                     #testimonialSwiper
                     slides-per-view="1"
@@ -95,7 +110,10 @@
                     <swiper-slide
                       *ngFor="let item of [1, 2, 3, 4]; let i = index"
                     >
-                      <div class="slide pb-4 pt-5 px-5" dir="rtl">
+                      <div
+                        class="slide pb-4 pt-5 px-5"
+                        [dir]="'dir' | translate"
+                      >
                         <img
                           src="./assets/images/quote.png"
                           alt="quote symbol"
@@ -137,53 +155,44 @@
           </div>
         </div>
 
-        <div class="contact-us mt-5">
-          <h4 dir="rtl">
-            <span class="fw-bold h3">لديك مشروع في ذهنك؟</span> دعنا نحقق رؤيتك!
-          </h4>
+        <div class="contact-us mt-5" [dir]="'dir' | translate">
+          <h4
+            [innerHTML]="'Portfolio.project_details.about_title' | translate"
+          ></h4>
           <button
-            class="main-btn px-5 py-2 rounded-5 ms-auto fs-5 fw-bold mt-4"
+            class="main-btn px-5 py-2 rounded-5 fs-5 fw-bold mt-4"
             routerLink="/about-us"
+            [ngClass]="{
+              'me-auto': direction === 'ltr',
+              'ms-auto': direction === 'rtl'
+            }"
           >
-            تواصل معنا
+            {{ "Portfolio.project_details.about_btn" | translate }}
           </button>
         </div>
       </div>
 
       <div class="col-lg-5">
-        <div class="event-images w-100 h-100">
-          <img
-            class="rounded-3 image-1"
-            src="./assets/images/portfolio/1.jpg"
-            alt="event image"
-          />
-          <img
-            class="rounded-3 image-2"
-            src="./assets/images/portfolio/2.png"
-            alt="event image"
-          />
-          <img
-            class="rounded-3 image-3"
-            src="./assets/images/portfolio/3.jpg"
-            alt="event image"
-          />
-          <img
-            class="rounded-3 image-4"
-            src="./assets/images/portfolio/4.jpg"
-            alt="event image"
-          />
-          <img
-            class="rounded-3 image-5"
-            src="./assets/images/portfolio/5.jpg"
-            alt="event image"
-          />
+        <div
+          class="event-images w-100 h-100"
+          [ngStyle]="{
+            '--quantity': project.images.length
+          }"
+        >
           <div
-            class="rounded-3 more-images image-6 overflow-hidden pointer"
-            (click)="eventGallery(1)"
+            *ngFor="let image of project.images.slice(0, 6); let i = index"
+            [class]="
+              'rounded-3 image overflow-hidden pointer  image-' + (i + 1)
+            "
+            (click)="eventGallery(project.id)"
           >
-            <img src="./assets/images/portfolio/6.jpg" alt="event image" />
-            <div class="overlay">
-              <h5 class="h4 mb-0">+20</h5>
+            <img [src]="image.image" alt="event image" />
+
+            <div
+              class="overlay"
+              *ngIf="i === 5 || i == project.images.length - 1"
+            >
+              <h5 class="h4 mb-0">+{{ project.images.length }}</h5>
             </div>
           </div>
         </div>

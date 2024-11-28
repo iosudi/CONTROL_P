@@ -2,13 +2,16 @@ import {
   Component,
   ElementRef,
   inject,
+  Input,
   OnInit,
   Renderer2,
   ViewChild,
 } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
+import { SiteContentService } from 'src/app/shared/services/site-content.service';
 import { EventGalleryComponent } from '../event-gallery/event-gallery.component';
 
 @Component({
@@ -19,10 +22,16 @@ import { EventGalleryComponent } from '../event-gallery/event-gallery.component'
 export class ProjectDetailsComponent implements OnInit {
   private modalService = inject(NgbModal);
 
+  @Input() projectId!: number;
+  project: any = {};
+  direction: string = 'ltr'; // Default direction
+
   constructor(
     public activeModal: NgbActiveModal,
     private router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private _SiteContentService: SiteContentService,
+    private translate: TranslateService
   ) {
     this.events = [
       {
@@ -83,6 +92,13 @@ export class ProjectDetailsComponent implements OnInit {
   eventsWithIndex: any[];
 
   ngOnInit(): void {
+    this._SiteContentService.getProjectDetails(this.projectId).subscribe({
+      next: (data) => {
+        this.project = data.data;
+        console.log(this.project);
+      },
+    });
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => {
@@ -90,6 +106,14 @@ export class ProjectDetailsComponent implements OnInit {
           this.activeModal.close();
         }
       });
+
+    const currentLang =
+      this.translate.currentLang || this.translate.getDefaultLang() || 'en';
+    this.direction = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+    this.translate.onLangChange.subscribe((event) => {
+      this.direction = event.lang === 'ar' ? 'rtl' : 'ltr';
+    });
   }
 
   onSlideChange(): void {
