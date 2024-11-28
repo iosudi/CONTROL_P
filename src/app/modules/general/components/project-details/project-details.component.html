@@ -29,7 +29,6 @@
       <div class="col-lg-7">
         <p-timeline
           [value]="eventsWithIndex"
-          class="w-full md:w-20rem"
           [align]="direction == 'ltr' ? 'left' : 'right'"
           dir="ltr"
         >
@@ -37,21 +36,18 @@
             <div class="content">
               <h5 class="mb-4" [ngClass]="{ 'h2 fw-bold': event.index === 0 }">
                 <ng-container
-                  *ngIf="
-                    event.status.split(' ').length === 2;
-                    else longerStatus
-                  "
+                  *ngIf="event.title.split(' ').length === 2; else longerStatus"
                 >
                   <span class="heading-color">{{
-                    event.status.split(" ")[0]
+                    event.title.split(" ")[0]
                   }}</span>
-                  <span> {{ event.status.split(" ")[1] }}</span>
+                  <span> {{ event.title.split(" ")[1] }}</span>
                 </ng-container>
                 <ng-template #longerStatus>
                   <span class="heading-color">{{
-                    event.status.split(" ").slice(0, 2).join(" ")
+                    event.title.split(" ").slice(0, 2).join(" ")
                   }}</span>
-                  <span> {{ event.status.split(" ").slice(2).join(" ") }}</span>
+                  <span> {{ event.title.split(" ").slice(2).join(" ") }}</span>
                 </ng-template>
               </h5>
               <p class="mb-5">{{ event.description }}</p>
@@ -82,21 +78,25 @@
                     #dot1
                     class="dot"
                     [class.active-dot]="activeSlideIndex === 0"
+                    *ngIf="project.testimonials.length >= 1"
                   ></div>
                   <div
                     #dot2
                     class="dot"
                     [class.active-dot]="activeSlideIndex === 1"
+                    *ngIf="project.testimonials.length >= 2"
                   ></div>
                   <div
                     #dot3
                     class="dot"
                     [class.active-dot]="activeSlideIndex === 2"
+                    *ngIf="project.testimonials.length >= 3"
                   ></div>
                   <div
                     #dot4
                     class="dot"
                     [class.active-dot]="activeSlideIndex === 3"
+                    *ngIf="project.testimonials.length >= 4"
                   ></div>
                 </div>
 
@@ -108,7 +108,10 @@
                     (swiperslidechangetransitionend)="onSlideChange()"
                   >
                     <swiper-slide
-                      *ngFor="let item of [1, 2, 3, 4]; let i = index"
+                      *ngFor="
+                        let feedback of project.testimonials;
+                        let i = index
+                      "
                     >
                       <div
                         class="slide pb-4 pt-5 px-5"
@@ -121,9 +124,7 @@
                         />
                         <div class="feedback-content">
                           <p class="my-4 fw-semibold">
-                            كانت تجربة العمل مع Ctrl+P استثنائية. لقد أبدعوا في
-                            تحويل رؤيتنا ليوم التأسيس إلى واقع حي بكل احترافية
-                            وإبداع.
+                            {{ feedback.content }}
                           </p>
                         </div>
                         <div
@@ -131,11 +132,11 @@
                         >
                           <div class="author d-flex gap-2 align-items-center">
                             <img
-                              src="./assets/images/home/hero-image.png"
+                              [src]="feedback.client_image"
                               alt="profile-icon"
                             />
                             <h5 class="author-name fw-normal mb-0">
-                              Barbara D. Smith
+                              {{ feedback.client_name }}
                             </h5>
                           </div>
                           <div class="rating">
