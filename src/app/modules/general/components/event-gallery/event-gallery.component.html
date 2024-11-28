@@ -37,7 +37,7 @@
 
     <div class="event-preview position-relative">
       <span class="index-show px-4 py-2 rounded-4">
-        {{ activeIndex }} / {{ images.length }}
+        {{ activeIndex }} / {{ projectImages.length }}
       </span>
 
       <button
@@ -60,7 +60,7 @@
         space-between="10"
         pagination="true"
       >
-        <swiper-slide *ngFor="let image of images">
+        <swiper-slide *ngFor="let image of projectImages">
           <img [src]="image.image" />
         </swiper-slide>
       </swiper-container>
@@ -74,7 +74,7 @@
       watch-slides-progress="true"
       [breakpoints]="thumbnailsBreakpoints"
     >
-      <swiper-slide *ngFor="let image of images">
+      <swiper-slide *ngFor="let image of projectImages">
         <img [src]="image.image" />
       </swiper-slide>
     </swiper-container>

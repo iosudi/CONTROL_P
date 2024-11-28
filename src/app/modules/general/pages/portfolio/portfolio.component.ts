@@ -13,6 +13,16 @@ export class PortfolioComponent {
   constructor(private _SiteContentService: SiteContentService) {}
   private modalService = inject(NgbModal);
 
+  ourWork: any[] = [];
+  eventImages: string[] = [];
+  eventCategoryName: string = '';
+  currentCategoryProjects: any[] = [];
+  projectCategories: any[] = [];
+
+  searchQuery: string = '';
+
+  filteredProjects: any[] = [];
+
   images: any[] = [
     './assets/images/portfolio/1.jpg',
     './assets/images/portfolio/3.jpg',
@@ -70,30 +80,75 @@ export class PortfolioComponent {
     },
   };
 
-  projects: any[] = [];
-
   ngOnInit(): void {
     this.initialize();
   }
 
   initialize(): void {
-    this._SiteContentService.getProjects().subscribe({
-      next: (projects) => {
-        this.projects = projects.data;
+    this._SiteContentService.getOurWorks().subscribe({
+      next: (data) => {
+        this.projectCategories = data.data;
+
+        this.ourWork = data.data.map((category: any) => {
+          return {
+            id: category.id,
+            categoryName: category.name,
+            images: category.projects
+              .filter((project: any) => project.image)
+              .map((project: any) => project.image),
+          };
+        });
+
+        this.setProjectImagesByCategoryId(this.ourWork[0].id);
+        this.setProjectsByCategoryId(this.projectCategories[0].id);
+        this.eventCategoryName = this.ourWork[0].categoryName;
       },
       error: (error) => {
-        console.error('Error retrieving projects:', error);
+        console.log(error);
       },
     });
   }
 
-  eventGallery(projectImages: any[]) {
+  setProjectImagesByCategoryId(id: number): void {
+    const category = this.ourWork.find((category) => category.id === id);
+    this.eventCategoryName = category.categoryName;
+    this.eventImages = category?.images
+      .map((img: any) => img)
+      .filter((img: any) => img || []);
+  }
+
+  setProjectsByCategoryId(id: number): void {
+    const category = this.projectCategories.find(
+      (category) => category.id === id
+    );
+    this.eventCategoryName = category.name;
+    this.currentCategoryProjects = category?.projects
+      .map((projects: any) => projects)
+      .filter((projects: any) => projects || []);
+
+    this.filteredProjects = this.currentCategoryProjects;
+  }
+
+  filterProjects(): void {
+    if (this.searchQuery.trim() === '') {
+      this.filteredProjects = [...this.currentCategoryProjects]; // Show all projects if search is empty
+      console.log(this.filteredProjects);
+    } else {
+      this.filteredProjects = this.currentCategoryProjects.filter((project) =>
+        project.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+
+      console.log(this.filteredProjects);
+    }
+  }
+
+  eventGallery(id: number) {
     const modalRef = this.modalService.open(EventGalleryComponent, {
       fullscreen: true,
       scrollable: true,
     });
 
-    modalRef.componentInstance.images = projectImages;
+    modalRef.componentInstance.projectId = id;
   }
 
   viewProject() {

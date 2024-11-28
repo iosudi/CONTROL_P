@@ -223,6 +223,13 @@
       }
     }
   }
+
+  .empty {
+    .not_found_image {
+      width: 30%;
+      height: auto;
+    }
+  }
 }
 
 @media (max-width: 1399px) {
@@ -445,6 +452,17 @@
             }
           }
         }
+      }
+    }
+
+    .empty {
+      .not_found_image {
+        width: 90%;
+        height: auto;
+      }
+
+      h4 {
+        font-size: 1rem !important;
       }
     }
 

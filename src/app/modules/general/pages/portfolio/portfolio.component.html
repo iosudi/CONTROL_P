@@ -25,41 +25,23 @@
 <section class="work-categories">
   <div class="container">
     <swiper-container slides-per-view="4" [breakpoints]="ourWorkBreakpoints">
-      <swiper-slide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
+      <swiper-slide *ngFor="let item of ourWork">
         <div
           class="category d-flex justify-content-between overflow-hidden px-4 pointer"
+          (click)="setProjectsByCategoryId(item.id)"
         >
           <div class="title d-flex flex-column justify-content-center">
-            <h4 class="fw-bold mb-1">Events</h4>
-            <p class="mb-0">Sector</p>
+            <h4 class="fw-bold mb-0">{{ item.categoryName.split(" ")[0] }}</h4>
+            <p class="mb-0">
+              {{ item.categoryName.split(" ").slice(1).join(" ") }}
+            </p>
           </div>
 
           <div class="ball"></div>
 
           <div class="images row g-1">
-            <div class="col-6">
-              <img src="./assets/images/home/work/1.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/2.jpg" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/3.jpg" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/4.jpg" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/5.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/6.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/7.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/8.png" alt="event" />
+            <div class="col-6" *ngFor="let img of item.images.slice(0, 8)">
+              <img [src]="img" alt="event" />
             </div>
           </div>
         </div>
@@ -68,13 +50,16 @@
   </div>
 </section>
 
-<section class="events-work" [dir]="'dir' | translate">
+<section class="events-work pb-5" [dir]="'dir' | translate">
   <div class="container">
     <div class="heading d-flex justify-content-between align-items-center">
-      <h3 class="h2 mb-0"><span class="fw-bold">Events</span> Sector</h3>
-      <h4 class="h3 mb-0 pagination-counter">
+      <h3 class="fw-ligh mb-0">
+        <span class="fw-bold">{{ eventCategoryName.split(" ")[0] }}</span>
+        {{ eventCategoryName.split(" ").slice(1).join(" ") }}
+      </h3>
+      <!-- <h4 class="h3 mb-0 pagination-counter">
         24 /150 {{ "Portfolio.events_work.images_counter" | translate }}
-      </h4>
+      </h4> -->
     </div>
 
     <div
@@ -85,7 +70,9 @@
       >
         <input
           type="text"
+          [(ngModel)]="searchQuery"
           [placeholder]="'Portfolio.events_work.search_placeholder' | translate"
+          (input)="filterProjects()"
         />
         <i class="fa-solid fa-magnifying-glass pointer"></i>
       </div>
@@ -134,17 +121,13 @@
       </swiper-container> -->
     </div>
 
-    <div class="event-images">
+    <div class="event-images" *ngIf="filteredProjects.length > 0; else empty">
       <div
         class="event-preview position-relative pointer overflow-hidden"
         dir="ltr"
-        *ngFor="let project of projects"
+        *ngFor="let project of filteredProjects"
       >
-        <img
-          [src]="project.images[0].image"
-          *ngIf="project.images.length > 0"
-          alt="image"
-        />
+        <img [src]="project.image" *ngIf="project.image" alt="image" />
         <div
           class="event-info position-absolute d-flex align-items-center justify-content-center"
         >
@@ -163,7 +146,7 @@
             </button>
 
             <div class="d-flex align-items-center gap-2">
-              <button class="btn" (click)="eventGallery(project.images)">
+              <button class="btn" (click)="eventGallery(1)">
                 <i class="fa-solid fa-magnifying-glass-plus"></i>
               </button>
 
@@ -175,11 +158,28 @@
         </div>
       </div>
     </div>
-    <button
-      class="main-btn px-5 py-3 my-5 rounded-5 mx-auto fw-bold fs-4 disabled"
+
+    <ng-template #empty>
+      <div
+        class="d-flex align-items-center justify-content-center flex-column empty"
+      >
+        <img
+          src="./assets/images/icons/empty.svg"
+          alt="image"
+          class="not_found_image"
+        />
+
+        <h4 class="heading-color fw-bold mt-4">
+          {{ "noProjects" | translate }}
+        </h4>
+      </div>
+    </ng-template>
+
+    <!-- <button
+      class="main-btn px-5 py-3 mt-5 rounded-5 mx-auto fw-bold fs-4 disabled"
     >
       {{ "Portfolio.load_btn" | translate }}
-    </button>
+    </button> -->
   </div>
 </section>
 

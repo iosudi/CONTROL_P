@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
   @ViewChild('ourWorkSwiper', { static: false }) ourWorkSwiper?: ElementRef;
 
   ourWork: any[] = [];
+  eventImages: string[] = [];
+  eventCategoryName: string = '';
+
   services: any[] = [];
   reviews: any[] = [];
   partners: any[] = [];
@@ -142,7 +145,18 @@ export class HomeComponent implements OnInit {
 
     this._SiteContentService.getOurWorks().subscribe({
       next: (data) => {
-        this.ourWork = data.data;
+        this.ourWork = data.data.map((category: any) => {
+          return {
+            id: category.id,
+            categoryName: category.name,
+            images: category.projects
+              .filter((project: any) => project.image) // Ensure the image is not empty
+              .map((project: any) => project.image),
+          };
+        });
+
+        this.setProjectImagesByCategoryId(this.ourWork[0].id);
+        this.eventCategoryName = this.ourWork[0].categoryName;
       },
       error: (error) => {
         console.log(error);
@@ -266,5 +280,13 @@ export class HomeComponent implements OnInit {
     this.activeCategory = categoryId;
     this.activeCategoryProducts = products;
     this.activeCategoryName = categoryName;
+  }
+
+  setProjectImagesByCategoryId(id: number): void {
+    const category = this.ourWork.find((category) => category.id === id);
+    this.eventCategoryName = category.categoryName;
+    this.eventImages = category?.images
+      .map((img: any) => img)
+      .filter((img: any) => img || []);
   }
 }

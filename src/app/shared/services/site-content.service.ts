@@ -25,6 +25,10 @@ export class SiteContentService {
     return this.http.get(environment.baseURL + 'projects');
   }
 
+  getProjectDetails(projectId: number): Observable<any> {
+    return this.http.get(environment.baseURL + `projectDetails/${projectId}`);
+  }
+
   getPartners(): Observable<any> {
     return this.http.get(environment.baseURL + 'partners');
   }

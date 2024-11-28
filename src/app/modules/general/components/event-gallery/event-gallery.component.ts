@@ -2,6 +2,7 @@ import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
+import { SiteContentService } from 'src/app/shared/services/site-content.service';
 import Swiper from 'swiper';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
 
@@ -11,13 +12,21 @@ import { ProjectDetailsComponent } from '../project-details/project-details.comp
   styleUrls: ['./event-gallery.component.scss'],
 })
 export class EventGalleryComponent {
-  constructor(public activeModal: NgbActiveModal, private router: Router) {}
+  constructor(
+    public activeModal: NgbActiveModal,
+    private router: Router,
+    private _SiteContentService: SiteContentService
+  ) {}
   private modalService = inject(NgbModal);
+
+  @Input() projectId!: number;
 
   @ViewChild('GallerySwiper', { static: false }) GallerySwiper?: ElementRef;
   swiperInstance!: Swiper;
 
-  @Input() images: any[] = [];
+  projectImages: any[] = [];
+
+  activeIndex: number = 1;
 
   thumbnailsBreakpoints = {
     0: {
@@ -42,10 +51,13 @@ export class EventGalleryComponent {
     },
   };
 
-  activeIndex: number = 1;
-
   ngOnInit(): void {
-    console.log(this.images);
+    this._SiteContentService.getProjectDetails(this.projectId).subscribe({
+      next: (data) => {
+        this.projectImages = data.data.images;
+        console.log(this.projectImages);
+      },
+    });
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => {
@@ -57,7 +69,7 @@ export class EventGalleryComponent {
 
   triggerNext(): void {
     this.GallerySwiper?.nativeElement.swiper.slideNext();
-    if (this.activeIndex < this.images.length) {
+    if (this.activeIndex < this.projectImages.length) {
       this.activeIndex++;
     }
   }

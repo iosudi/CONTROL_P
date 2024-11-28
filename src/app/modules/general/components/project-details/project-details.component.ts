@@ -127,11 +127,14 @@ export class ProjectDetailsComponent implements OnInit {
     });
   }
 
-  eventGallery() {
-    this.modalService.open(EventGalleryComponent, {
+  eventGallery(id: number) {
+    const modalRef = this.modalService.open(EventGalleryComponent, {
       fullscreen: true,
       scrollable: true,
     });
+
+    modalRef.componentInstance.projectId = id;
+
     this.activeModal.close();
   }
 

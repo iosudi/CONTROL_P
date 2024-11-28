@@ -90,41 +90,23 @@
       [breakpoints]="ourWorkBreakpoints"
       #ourWorkSwiper
     >
-      <swiper-slide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
+      <swiper-slide *ngFor="let item of ourWork">
         <div
           class="category d-flex justify-content-between overflow-hidden px-4 pointer"
+          (click)="setProjectImagesByCategoryId(item.id)"
         >
           <div class="title d-flex flex-column justify-content-center">
-            <h4 class="fw-bold mb-0">Events</h4>
-            <p class="mb-0">Sector</p>
+            <h4 class="fw-bold mb-0">{{ item.categoryName.split(" ")[0] }}</h4>
+            <p class="mb-0">
+              {{ item.categoryName.split(" ").slice(1).join(" ") }}
+            </p>
           </div>
 
           <div class="ball"></div>
 
           <div class="images row g-1">
-            <div class="col-6">
-              <img src="./assets/images/home/work/1.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/2.jpg" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/3.jpg" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/4.jpg" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/5.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/6.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/7.png" alt="event" />
-            </div>
-            <div class="col-6">
-              <img src="./assets/images/home/work/8.png" alt="event" />
+            <div class="col-6" *ngFor="let img of item.images.slice(0, 8)">
+              <img [src]="img" alt="event" />
             </div>
           </div>
         </div>
@@ -137,7 +119,10 @@
       class="heading d-flex justify-content-between align-items-center"
       [dir]="'dir' | translate"
     >
-      <h3 class="fw-ligh mb-0"><span class="fw-bold">Events</span> Sector</h3>
+      <h3 class="fw-ligh mb-0">
+        <span class="fw-bold">{{ eventCategoryName.split(" ")[0] }}</span>
+        {{ eventCategoryName.split(" ").slice(1).join(" ") }}
+      </h3>
       <button
         class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
         routerLink="/portfolio"
@@ -153,37 +138,30 @@
       </button>
     </div>
 
-    <div class="images mt-5">
+    <div class="images mt-5" *ngIf="eventImages.length > 0; else empty">
       <img
-        class="rounded-4 image-1"
-        src="./assets/images/home/work/1.png"
-        alt="event image"
-      />
-
-      <img
-        class="rounded-4 image-2"
-        src="./assets/images/home/work/2.jpg"
-        alt="event image"
-      />
-
-      <img
-        class="rounded-4 image-3"
-        src="./assets/images/home/work/6.png"
-        alt="event image"
-      />
-
-      <img
-        class="rounded-4 image-4"
-        src="./assets/images/home/work/4.jpg"
-        alt="event image"
-      />
-
-      <img
-        class="rounded-4 image-5"
-        src="./assets/images/home/work/5.png"
+        *ngFor="let image of eventImages; let i = index"
+        [class]="'rounded-4 image-' + (i + 1)"
+        [src]="image"
         alt="event image"
       />
     </div>
+
+    <ng-template #empty>
+      <div
+        class="d-flex align-items-center justify-content-center flex-column empty"
+      >
+        <img
+          src="./assets/images/icons/empty.svg"
+          alt="image"
+          class="not_found_image"
+        />
+
+        <h4 class="heading-color fw-bold mt-4">
+          {{ "noImages" | translate }}
+        </h4>
+      </div>
+    </ng-template>
   </div>
 </section>
 
