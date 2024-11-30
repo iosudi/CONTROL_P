@@ -36,6 +36,11 @@ footer {
             color: #1a1a1a;
             background-color: #666;
             text-decoration: none;
+            transition: 0.3s;
+            &:hover {
+              color: white;
+              background-color: var(--main-color);
+            }
           }
         }
       }
@@ -54,7 +59,8 @@ footer {
     }
 
     ul {
-      li {
+      li,
+      a {
         color: #666;
         transition: 0.3s;
         img {

@@ -33,14 +33,15 @@
                 <i class="fa-brands fa-x-twitter"></i>
               </a>
             </li>
-            <!-- <li>
+            <li>
               <a
                 class="d-flex align-items-center justify-content-center pointer"
-                href=""
+                href="https://www.youtube.com/channel/UCKeVef0fB3BCtm8hss_yReA"
+                target="_blank"
               >
                 <i class="fa-brands fa-youtube"></i>
               </a>
-            </li> -->
+            </li>
             <li>
               <a
                 class="d-flex align-items-center justify-content-center pointer"
@@ -50,14 +51,15 @@
                 <i class="fa-brands fa-instagram"></i>
               </a>
             </li>
-            <!-- <li>
+            <li>
               <a
                 class="d-flex align-items-center justify-content-center pointer"
-                href=""
+                href="https://www.linkedin.com/in/controlp-adv-152176197/"
+                target="_blank"
               >
                 <i class="fa-brands fa-linkedin"></i>
               </a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -72,15 +74,25 @@
               <img src="./assets/images/icons/home.svg" alt="icon" />
               {{ "Footer.contactUs.address" | translate }}
             </li>
-            <li class="d-flex gap-2 align-items-center mb-4">
-              <img src="./assets/images/icons/phone.svg" alt="icon" />
-
-              <span dir="ltr">{{ "Footer.contactUs.phone" | translate }}</span>
+            <li>
+              <a
+                class="d-flex gap-2 align-items-center mb-4 pointer"
+                href="tel:+966547223203"
+              >
+                <img src="./assets/images/icons/phone.svg" alt="icon" />
+                <span dir="ltr">{{
+                  "Footer.contactUs.phone" | translate
+                }}</span>
+              </a>
             </li>
-            <li class="d-flex gap-2 align-items-center mb-4">
-              <img src="./assets/images/icons/mail.svg" alt="icon" />
-
-              {{ "Footer.contactUs.email" | translate }}
+            <li>
+              <a
+                class="d-flex gap-2 align-items-center mb-4 pointer"
+                href="mailto:info@ctrlplusp.com"
+              >
+                <img src="./assets/images/icons/mail.svg" alt="icon" />
+                {{ "Footer.contactUs.email" | translate }}
+              </a>
             </li>
           </ul>
 

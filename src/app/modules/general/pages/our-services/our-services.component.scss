@@ -173,14 +173,17 @@
           color: var(--white-text);
           border: 1px solid var(--white-text);
           outline: none;
+          transition: 0.3s;
           .icon {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             background: var(--white-text);
             color: var(--main-color);
+            transition: 0.3s;
             i {
               font-size: 1.5rem;
+              transition: 0.3s;
             }
           }
           &:nth-child(1) {
@@ -193,6 +196,33 @@
                 font-size: 1.2rem;
               }
             }
+
+            &:hover {
+              background: transparent;
+              color: var(--white-text);
+              border: 1px solid var(--white-text);
+              .icon {
+                background: var(--white-text);
+                i {
+                  color: var(--main-color);
+                }
+              }
+            }
+          }
+
+          &:hover {
+            background-color: var(--white-text);
+            color: var(--main-color);
+            .icon {
+              background: #7d5a11;
+              i {
+                color: var(--white-text);
+              }
+            }
+          }
+
+          &:active {
+            transform: scale(0.97);
           }
         }
       }

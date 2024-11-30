@@ -57,7 +57,7 @@
     },
     "testimonials": {
       "title": " What Our <br /> <span class='heading-color fw-bold'>Clients Say</span>",
-      "paragraph": "Lorem ipsum dolor sit amet consectetur. Urna tortor dictum aliquam sit mauris. Est habitant molestie pulvinar mattis."
+      "paragraph": "We deliver high-quality printing solutions tailored to each client's needs, ensuring every project meets the highest standards of precision and care."
     },
     "events": {
       "title": "  Event success, <br /> just one step away",
@@ -77,7 +77,7 @@
   "AboutPage": {
     "hero": {
       "title": "<span class='heading-color'> About </span> Us",
-      "paragraph": "  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+      "paragraph": "Ctrl + p specializes in high-quality printing solutions, focusing on precision, reliability, and client satisfaction."
     },
     "staff_crew": {
       "title": "We make sure your idea & creation<span class='heading-color'> delivered properly",
@@ -371,7 +371,7 @@
 
   "Footer": {
     "company": {
-      "description": "Lorem ipsum dolor sit amet consectetur. Urna tortor dictum aliquam sit mauris."
+      "description": "Providing top-notch printing solutions, we focus on delivering high-quality, reliable services tailored to meet the unique needs of every client"
     },
     "contactUs": {
       "title": "Contact Us",
