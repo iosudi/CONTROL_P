@@ -83,4 +83,12 @@ export class ContactComponent implements OnInit {
       this.message
     )}`;
   }
+
+  callPhoneNumber() {
+    window.location.href = 'tel:+966547223203';
+  }
+
+  sendEmail() {
+    window.location.href = 'mailto:info@ctrlplusp.com';
+  }
 }

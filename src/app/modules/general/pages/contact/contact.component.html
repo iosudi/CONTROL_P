@@ -35,7 +35,10 @@
           </p>
           <p class="heading-color text-center">+966 54 722 3203</p>
 
-          <button class="fs-5 main-btn outlined px-5 py-2 rounded-5">
+          <button
+            class="fs-5 main-btn outlined px-5 py-2 rounded-5"
+            (click)="callPhoneNumber()"
+          >
             {{ "ContactPage.ContactMethods.CallUs.button" | translate }}
           </button>
         </div>
@@ -60,8 +63,7 @@
 
           <button
             class="fs-5 main-btn outlined px-5 py-2 rounded-5"
-            routerLink="/contact-us"
-            fragment="contact"
+            (click)="sendEmail()"
           >
             {{ "ContactPage.ContactMethods.EmailUs.button" | translate }}
           </button>
