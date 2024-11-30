@@ -15,6 +15,8 @@ export class OurServicesComponent implements OnInit {
     public translate: TranslateService
   ) {}
   direction: string = 'ltr'; // Default direction
+  phoneNumber: string = '966547223203';
+  message: string = 'مرحبًا، أود الاستفسار عن خدماتكم.';
 
   solutions_images = [
     './assets/images/our-services/1.png',
@@ -50,5 +52,12 @@ export class OurServicesComponent implements OnInit {
 
   openServiceDetails(id: number) {
     this.route.navigate(['/services', id]);
+  }
+
+  openWhatsApp(): void {
+    const url = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(
+      this.message
+    )}`;
+    window.open(url, '_blank');
   }
 }

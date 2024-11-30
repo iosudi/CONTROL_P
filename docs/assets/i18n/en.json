@@ -293,7 +293,7 @@
       "VisitUs": {
         "title": "Visit Us",
         "description": "Let's meet in person",
-        "address": "Riyadh, Saudi Arabia",
+        "address": "Al-Malaz District, Riyadh, Saudi Arabia",
         "button": "Visit Us Now"
       }
     },
@@ -304,7 +304,7 @@
         "fields": {
           "fullName": {
             "label": "Full Name",
-            "placeholder": "Adel Saudi"
+            "placeholder": "Enter your full name"
           },
           "email": {
             "label": "Email",
@@ -375,9 +375,9 @@
     },
     "contactUs": {
       "title": "Contact Us",
-      "address": "Riyadh, Saudi Arabia",
+      "address": "Al-Malaz District, Riyadh, Saudi Arabia",
       "phone": "+966 54 722 3203",
-      "email": "info@controlpadv.com"
+      "email": "info@ctrlplusp.com"
     },
     "links": {
       "title": "Pages",

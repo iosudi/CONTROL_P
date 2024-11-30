@@ -2,6 +2,7 @@
 <app-home-navbar></app-home-navbar>
 <section
   class="hero d-flex align-items-center justify-content-center position-relative overflow-hidden"
+  [dir]="'dir' | translate"
 >
   <div class="blurred-balls"></div>
   <div class="blurred-balls white"></div>
@@ -19,7 +20,7 @@
     <div class="row gy-5">
       <div class="col-lg-4">
         <div
-          class="method px-5 py-4 d-flex align-items-center justify-content-center flex-column"
+          class="method h-100 px-5 py-4 d-flex align-items-center justify-content-center flex-column"
         >
           <img
             class="mb-4"
@@ -42,7 +43,7 @@
 
       <div class="col-lg-4">
         <div
-          class="method px-5 py-4 d-flex align-items-center justify-content-center flex-column"
+          class="method h-100 px-5 py-4 d-flex align-items-center justify-content-center flex-column"
         >
           <img
             class="mb-4"
@@ -55,7 +56,7 @@
           <p class="text-center">
             {{ "ContactPage.ContactMethods.EmailUs.description" | translate }}
           </p>
-          <p class="heading-color text-center">info&#64;controlpadv.com</p>
+          <p class="heading-color text-center">info&#64;ctrlplusp.com</p>
 
           <button
             class="fs-5 main-btn outlined px-5 py-2 rounded-5"
@@ -68,7 +69,7 @@
       </div>
       <div class="col-lg-4">
         <div
-          class="method px-5 py-4 d-flex align-items-center justify-content-center flex-column"
+          class="method h-100 px-5 py-4 d-flex align-items-center justify-content-center flex-column"
         >
           <img
             class="mb-4"
@@ -293,19 +294,32 @@
             {{ "ContactPage.ContactMessage.Form.paragraph" | translate }}
           </p>
           <div class="social d-flex align-items-center gap-3">
-            <a class="d-flex align-items-center justify-content-center" href="">
+            <a
+              class="d-flex align-items-center justify-content-center"
+              [href]="getWhatsAppLink()"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src="./assets/images/contact/whatapp.png"
                 alt="whats app icon"
               />
             </a>
-            <a class="d-flex align-items-center justify-content-center" href="">
+            <a
+              class="d-flex align-items-center justify-content-center"
+              href="https://www.facebook.com/share/1Efj6cUt5J/?mibextid=LQQJ4d"
+              target="_blank"
+            >
               <img
                 src="./assets/images/contact/facebook-f.png"
                 alt="facebook icon"
               />
             </a>
-            <a class="d-flex align-items-center justify-content-center" href="">
+            <a
+              class="d-flex align-items-center justify-content-center"
+              href="https://www.instagram.com/controlpadv?igsh=MWo5MnNibTJ3dGt1ZQ%3D%3D&utm_source=qr"
+              target="_blank"
+            >
               <img
                 src="./assets/images/contact/instgram.png"
                 alt="instgram icon"

@@ -29,11 +29,14 @@ footer {
 
       .socials {
         li {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          color: #1a1a1a;
-          background-color: #666;
+          a {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: #1a1a1a;
+            background-color: #666;
+            text-decoration: none;
+          }
         }
       }
     }

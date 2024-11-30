@@ -386,7 +386,7 @@
           <div class="categories d-flex flex-column gap-4">
             <div
               class="category pointer overflow-hidden"
-              *ngFor="let category of productsCategories; let i = index"
+              *ngFor="let category of productsCategories"
               (click)="
                 setActiveCategory(
                   category.category.id,
@@ -394,7 +394,7 @@
                   category.category.name
                 )
               "
-              [class.activeCategory]="i + 1 == activeCategory"
+              [class.activeCategory]="category.category.id == activeCategory"
             >
               <p class="mb-3 fw-semibold">{{ category.category.name }}</p>
               <img [src]="category.category.image" alt="category image" />
@@ -604,6 +604,7 @@
           <div class="contact-buttons d-flex align-items-center gap-3">
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
+              routerLink="/contact-us"
             >
               <span
                 class="icon d-flex align-items-center justify-content-center"
@@ -614,6 +615,7 @@
             </button>
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
+              (click)="openWhatsApp()"
             >
               <span
                 class="icon d-flex align-items-center justify-content-center"

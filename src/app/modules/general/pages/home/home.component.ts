@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
     public translate: TranslateService
   ) {}
   direction: string = 'ltr'; // Default direction
+  phoneNumber: string = '966547223203';
+  message: string = 'مرحبًا، أود الاستفسار عن خدماتكم.';
 
   @ViewChild('ourWorkSwiper', { static: false }) ourWorkSwiper?: ElementRef;
 
@@ -179,6 +181,7 @@ export class HomeComponent implements OnInit {
     this._SiteContentService.getHomeProductsCategories().subscribe({
       next: (response) => {
         this.productsCategories = response.data;
+        this.activeCategory = response.data[0].category.id;
         this.activeCategoryProducts = response.data[0].products;
         this.activeCategoryName = response.data[0].category.name;
       },
@@ -277,6 +280,7 @@ export class HomeComponent implements OnInit {
     products: any,
     categoryName: string
   ): void {
+    console.log(categoryId);
     this.activeCategory = categoryId;
     this.activeCategoryProducts = products;
     this.activeCategoryName = categoryName;
@@ -288,5 +292,12 @@ export class HomeComponent implements OnInit {
     this.eventImages = category?.images
       .map((img: any) => img)
       .filter((img: any) => img || []);
+  }
+
+  openWhatsApp(): void {
+    const url = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(
+      this.message
+    )}`;
+    window.open(url, '_blank');
   }
 }

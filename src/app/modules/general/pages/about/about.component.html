@@ -2,6 +2,7 @@
 
 <section
   class="hero d-flex align-items-center justify-content-center position-relative"
+  [dir]="'dir' | translate"
 >
   <div class="blurred-balls"></div>
   <div class="blurred-balls white"></div>
@@ -120,6 +121,7 @@
             <a
               class="d-flex align-items-center justify-content-center"
               [href]="member.social_links.twitter"
+              target="_blank"
             >
               <i class="fab fa-x-twitter"></i>
             </a>
@@ -127,6 +129,7 @@
             <a
               class="d-flex align-items-center justify-content-center"
               [href]="member.social_links.dribbble"
+              target="_blank"
             >
               <i class="fab fa-dribbble"></i>
             </a>
@@ -134,6 +137,7 @@
             <a
               class="d-flex align-items-center justify-content-center"
               [href]="member.social_links.instagram"
+              target="_blank"
             >
               <i class="fab fa-instagram"></i>
             </a>
@@ -141,6 +145,7 @@
             <a
               class="d-flex align-items-center justify-content-center"
               [href]="member.social_links.facebook"
+              target="_blank"
             >
               <i class="fab fa-facebook-f"></i>
             </a>

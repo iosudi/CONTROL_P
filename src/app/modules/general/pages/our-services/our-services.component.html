@@ -2,6 +2,7 @@
 
 <section
   class="hero overflow-hidden d-flex align-items-center justify-content-center position-relative overflow-hidden"
+  [dir]="'dir' | translate"
 >
   <div class="container">
     <div class="blurred-balls"></div>
@@ -72,7 +73,7 @@
           </h3>
           <button
             class="white-btn fw-semibold fs-4 px-5 py-3 rounded-5"
-            routerLink="/about-us"
+            routerLink="/contact-us"
             [ngClass]="{
               'me-auto': direction === 'ltr',
               'ms-auto': direction === 'rtl'
@@ -116,6 +117,7 @@
           <div class="contact-buttons d-flex align-items-center gap-3">
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
+              routerLink="/contact-us"
             >
               <span
                 class="icon d-flex align-items-center justify-content-center"
@@ -126,6 +128,7 @@
             </button>
             <button
               class="px-3 py-2 d-flex align-items-center justify-content-center gap-3"
+              (click)="openWhatsApp()"
             >
               <span
                 class="icon d-flex align-items-center justify-content-center"

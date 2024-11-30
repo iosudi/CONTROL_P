@@ -17,6 +17,9 @@ export class ContactComponent implements OnInit {
     private messageService: MessageService
   ) {}
   direction: string = 'ltr';
+  phoneNumber: string = '966547223203';
+  message: string = 'مرحبًا، أود الاستفسار عن خدماتكم.';
+
   contactForm: FormGroup = this.fb.group({
     full_name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
@@ -73,5 +76,11 @@ export class ContactComponent implements OnInit {
         },
       });
     }
+  }
+
+  getWhatsAppLink(): string {
+    return `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(
+      this.message
+    )}`;
   }
 }
