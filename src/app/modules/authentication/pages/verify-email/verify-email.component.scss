@@ -36,14 +36,16 @@
   }
 
   form {
-    p-inputotp ::ng-deep {
+    ng-otp-input ::ng-deep {
       input {
         background: #656565;
         border: 0.71px solid #cfcfcf;
         border-radius: 11.43px;
+        outline: none;
         width: 45px;
         height: 45px;
         color: var(--white-text);
+        font-size: 1rem;
         font-weight: bold;
         &:focus {
           box-shadow: unset;
