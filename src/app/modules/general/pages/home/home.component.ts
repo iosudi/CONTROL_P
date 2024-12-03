@@ -41,8 +41,6 @@ export class HomeComponent implements OnInit {
   activeCategoryName: string | undefined;
 
   activeSlideIndex = 0;
-  dotWidth: number = 0;
-  contentContainerHeight: number = 0;
 
   ourWorkBreakpoints = {
     0: {
@@ -223,7 +221,7 @@ export class HomeComponent implements OnInit {
 
   slideTo(index: number): void {
     const swiper = this.serviceSwiper?.nativeElement.swiper;
-    console.log(swiper.slideTo(index));
+    swiper.slideTo(index);
   }
 
   updateDots(): void {

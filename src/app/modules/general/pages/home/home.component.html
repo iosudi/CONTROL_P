@@ -6,7 +6,7 @@
   >
     <div class="blurred-balls"></div>
     <div class="blurred-balls"></div>
-    <div class="row justify-content-between">
+    <div class="row w-100 justify-content-between">
       <div class="col-lg-6">
         <div class="title py-4">
           <h1
@@ -38,14 +38,15 @@
         class="col-lg-6 image d-flex align-items-center justify-content-center"
       >
         <img
-          src="./assets/images/home/hero-image.png"
+          src="./assets/images/home/hero-image.svg"
           class="hero-image"
           alt="woman"
+          loading="lazy"
         />
       </div>
     </div>
   </div>
-  <button class="scroll-down-btn main-btn">
+  <button class="scroll-down-btn main-btn" routerLink="/home" fragment="shop">
     <img src="./assets/images/icons/arrow-down.png" alt="arrow down" />
   </button>
 </section>
@@ -114,80 +115,20 @@
     </swiper-container>
   </div>
 
-  <div class="work-preview mt-5">
-    <div
-      class="heading d-flex justify-content-between align-items-center"
-      [dir]="'dir' | translate"
-    >
-      <h3 class="fw-ligh mb-0">
-        <span class="fw-bold">{{ eventCategoryName.split(" ")[0] }}</span>
-        {{ eventCategoryName.split(" ").slice(1).join(" ") }}
-      </h3>
-      <button
-        class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
-        routerLink="/portfolio"
-      >
-        {{ "HomePage.btn_discover" | translate }}
-        <i
-          class="fa-solid fa-arrow-right"
-          [ngClass]="{
-            'fa-arrow-right': direction === 'ltr',
-            'fa-arrow-left': direction === 'rtl'
-          }"
-        ></i>
-      </button>
-    </div>
-
-    <div class="images mt-5" *ngIf="eventImages.length > 0; else empty">
-      <img
-        *ngFor="let image of eventImages.slice(0, 5); let i = index"
-        [class]="'rounded-4 image-' + (i + 1)"
-        [src]="image"
-        alt="event image"
-      />
-    </div>
-
-    <ng-template #empty>
-      <div
-        class="d-flex align-items-center justify-content-center flex-column empty"
-      >
-        <img
-          src="./assets/images/icons/empty.svg"
-          alt="image"
-          class="not_found_image"
-        />
-
-        <h4 class="heading-color fw-bold mt-4">
-          {{ "noImages" | translate }}
-        </h4>
-      </div>
-    </ng-template>
-  </div>
-</section>
-
-<section class="about" [dir]="'dir' | translate">
-  <div class="about-content position-relative overflow-hidden">
-    <div class="background"></div>
-    <div class="container-fluid pb-5">
-      <div class="blurred-balls"></div>
-      <div class="row gy-4 justify-content-between">
-        <div class="col-lg-5 d-flex justify-content-between flex-column">
-          <h3
-            class="h2 mb-2"
-            [innerHTML]="'HomePage.about_us.title' | translate"
-          ></h3>
-
-          <p class="mb-2 fw-normal">
-            {{ "HomePage.about_us.paragraph" | translate }}
-          </p>
-
+  <div pDefer>
+    <ng-template>
+      <div class="work-preview mt-5">
+        <div
+          class="heading d-flex justify-content-between align-items-center"
+          [dir]="'dir' | translate"
+        >
+          <h3 class="fw-ligh mb-0">
+            <span class="fw-bold">{{ eventCategoryName.split(" ")[0] }}</span>
+            {{ eventCategoryName.split(" ").slice(1).join(" ") }}
+          </h3>
           <button
             class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
-            [ngClass]="{
-              'me-auto': direction === 'ltr',
-              'ms-auto': direction === 'rtl'
-            }"
-            routerLink="/about-us"
+            routerLink="/portfolio"
           >
             {{ "HomePage.btn_discover" | translate }}
             <i
@@ -200,17 +141,91 @@
           </button>
         </div>
 
-        <div class="col-lg-6 d-flex align-items-center justify-content-center">
-          <div class="image position-relative">
-            <img src="./assets/images/home/cars.png" alt="about us" />
+        <div class="images mt-5" *ngIf="eventImages.length > 0; else empty">
+          <img
+            *ngFor="let image of eventImages.slice(0, 5); let i = index"
+            [class]="'rounded-4 image-' + (i + 1)"
+            [src]="image"
+            alt="event image"
+          />
+        </div>
+
+        <ng-template #empty>
+          <div
+            class="d-flex align-items-center justify-content-center flex-column empty"
+          >
+            <img
+              src="./assets/images/icons/empty.svg"
+              alt="image"
+              class="not_found_image"
+            />
+
+            <h4 class="heading-color fw-bold mt-4">
+              {{ "noImages" | translate }}
+            </h4>
+          </div>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
+</section>
+
+<section class="about" [dir]="'dir' | translate">
+  <div class="about-content position-relative overflow-hidden">
+    <div class="background"></div>
+    <div pDefer>
+      <ng-template>
+        <div class="container-fluid pb-5">
+          <div class="blurred-balls"></div>
+          <div class="row gy-4 justify-content-between">
+            <div class="col-lg-5 d-flex justify-content-between flex-column">
+              <h3
+                class="h2 mb-2"
+                [innerHTML]="'HomePage.about_us.title' | translate"
+              ></h3>
+
+              <p class="mb-2 fw-normal">
+                {{ "HomePage.about_us.paragraph" | translate }}
+              </p>
+
+              <button
+                class="white-outlined-btn rounded-5 px-3 py-2 fs-5 gap-3"
+                [ngClass]="{
+                  'me-auto': direction === 'ltr',
+                  'ms-auto': direction === 'rtl'
+                }"
+                routerLink="/about-us"
+              >
+                {{ "HomePage.btn_discover" | translate }}
+                <i
+                  class="fa-solid fa-arrow-right"
+                  [ngClass]="{
+                    'fa-arrow-right': direction === 'ltr',
+                    'fa-arrow-left': direction === 'rtl'
+                  }"
+                ></i>
+              </button>
+            </div>
+
             <div
-              class="logo position-absolute d-flex align-items-center justify-content-center px-2"
+              class="col-lg-6 d-flex align-items-center justify-content-center"
             >
-              <img src="./assets/images/logo.png" alt="logo" />
+              <div class="image position-relative">
+                <img
+                  loading="lazy"
+                  src="./assets/images/home/cars.svg"
+                  alt="about us"
+                />
+                <div
+                  class="logo position-absolute d-flex align-items-center justify-content-center px-2"
+                >
+                  <img src="./assets/images/logo.png" alt="logo" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </ng-template>
     </div>
   </div>
 </section>
@@ -326,46 +341,54 @@
       alt="star"
     />
   </div>
-  <div class="services">
-    <h3
-      class="h2 mb-4 fw-light"
-      [innerHTML]="'HomePage.services.title' | translate"
-    ></h3>
+  <div pDefer>
+    <ng-template>
+      <div class="services">
+        <h3
+          class="h2 mb-4 fw-light"
+          [innerHTML]="'HomePage.services.title' | translate"
+        ></h3>
 
-    <div class="dots d-flex gap-2 mb-5">
-      <span
-        [class]="dot.className"
-        *ngFor="let dot of dotsCount; let i = index"
-        (click)="slideTo(i)"
-      ></span>
-    </div>
+        <div class="dots d-flex gap-2 mb-5">
+          <span
+            [class]="dot.className"
+            *ngFor="let dot of dotsCount; let i = index"
+            (click)="slideTo(i)"
+          ></span>
+        </div>
 
-    <div class="service-slider">
-      <swiper-container
-        #serviceSwiper
-        slides-per-view="5.5"
-        [spaceBetween]="50"
-        [breakpoints]="servicesBreakpoints"
-        (swiperslidechangetransitionend)="onSlideChange('services')"
-        (swiperbreakpoint)="updateDots()"
-        pagination="true"
-      >
-        <swiper-slide
-          *ngFor="let service of services"
-          [routerLink]="['/services', service.id]"
-        >
-          <div class="service pointer">
-            <h4 class="fw-bold mb-5">{{ service.name }}</h4>
+        <div class="service-slider">
+          <swiper-container
+            #serviceSwiper
+            slides-per-view="5.5"
+            [spaceBetween]="50"
+            [breakpoints]="servicesBreakpoints"
+            (swiperslidechangetransitionend)="onSlideChange('services')"
+            (swiperbreakpoint)="updateDots()"
+            pagination="true"
+          >
+            <swiper-slide
+              *ngFor="let service of services"
+              [routerLink]="['/services', service.id]"
+            >
+              <div class="service pointer">
+                <h4 class="fw-bold mb-5">{{ service.name }}</h4>
 
-            <img [src]="service.image" alt="service" class="service-preview" />
-          </div>
-        </swiper-slide>
-      </swiper-container>
-    </div>
+                <img
+                  [src]="service.image"
+                  alt="service"
+                  class="service-preview"
+                />
+              </div>
+            </swiper-slide>
+          </swiper-container>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </section>
 
-<section class="shop position-relative" [dir]="'dir' | translate">
+<section class="shop position-relative" id="shop" [dir]="'dir' | translate">
   <div class="blurred-balls"></div>
   <div class="container-fluid px-container my-sections">
     <div class="row gy-4">
@@ -415,171 +438,223 @@
 </section>
 
 <section class="testimonials" [dir]="'dir' | translate">
-  <div
-    class="testimonials-content position-relative ps-sm-5 ps-3 pe-2 overflow-hidden"
-  >
-    <div class="background"></div>
-    <div class="container ps-sm-5 ps-4 position-relative">
-      <div class="blurred-balls"></div>
-      <div class="row gy-4">
-        <div class="col-lg-6 d-flex justify-content-center flex-column">
-          <h3
-            class="h2 mb-2"
-            [innerHTML]="'HomePage.testimonials.title' | translate"
-          ></h3>
+  <div pDefer>
+    <ng-template>
+      <div
+        class="testimonials-content position-relative ps-sm-5 ps-3 pe-2 overflow-hidden"
+      >
+        <div class="background"></div>
+        <div class="container ps-sm-5 ps-4 position-relative">
+          <div class="blurred-balls"></div>
+          <div class="row gy-4">
+            <div class="col-lg-6 d-flex justify-content-center flex-column">
+              <h3
+                class="h2 mb-2"
+                [innerHTML]="'HomePage.testimonials.title' | translate"
+              ></h3>
 
-          <p class="mb-2 fw-light">
-            {{ "HomePage.testimonials.paragraph" | translate }}
-          </p>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="carousel-container" dir="ltr">
-            <div class="navigation-dots d-flex flex-column gap-2">
-              <div
-                #dot1
-                class="dot"
-                [class.active-dot]="activeSlideIndex === 0"
-              ></div>
-              <div
-                #dot2
-                class="dot"
-                [class.active-dot]="activeSlideIndex === 1"
-              ></div>
-              <div
-                #dot3
-                class="dot"
-                [class.active-dot]="activeSlideIndex === 2"
-              ></div>
-              <div
-                #dot4
-                class="dot"
-                [class.active-dot]="activeSlideIndex === 3"
-              ></div>
+              <p class="mb-2 fw-light">
+                {{ "HomePage.testimonials.paragraph" | translate }}
+              </p>
             </div>
 
-            <div class="carousel">
-              <swiper-container
-                #testimonialSwiper
-                slides-per-view="1"
-                [spaceBetween]="50"
-                (swiperslidechangetransitionend)="onSlideChange('feedbacks')"
-              >
-                <swiper-slide *ngFor="let review of reviews; let i = index">
-                  <div class="slide pb-4 pt-5 px-5" [dir]="'dir' | translate">
-                    <img
-                      src="./assets/images/quote.png"
-                      alt="quote symbol"
-                      class="quote-symbol"
-                    />
-                    <div class="review-content">
-                      <p class="my-4 fw-semibold">
-                        {{ review.content }}
-                      </p>
-                    </div>
-                    <div
-                      class="review-author d-flex justify-content-between align-items-center border-top pt-4"
-                    >
-                      <div class="author d-flex gap-2 align-items-center">
-                        <img [src]="review.client_image" alt="profile-icon" />
-                        <h5 class="author-name fw-normal mb-0">
-                          {{ review.client_name }}
-                        </h5>
+            <div class="col-lg-6">
+              <div class="carousel-container" dir="ltr">
+                <div class="navigation-dots d-flex flex-column gap-2">
+                  <div
+                    #dot1
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 0"
+                  ></div>
+                  <div
+                    #dot2
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 1"
+                  ></div>
+                  <div
+                    #dot3
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 2"
+                  ></div>
+                  <div
+                    #dot4
+                    class="dot"
+                    [class.active-dot]="activeSlideIndex === 3"
+                  ></div>
+                </div>
+
+                <div class="carousel">
+                  <swiper-container
+                    #testimonialSwiper
+                    slides-per-view="1"
+                    [spaceBetween]="50"
+                    (swiperslidechangetransitionend)="
+                      onSlideChange('feedbacks')
+                    "
+                  >
+                    <swiper-slide *ngFor="let review of reviews; let i = index">
+                      <div
+                        class="slide pb-4 pt-5 px-5"
+                        [dir]="'dir' | translate"
+                      >
+                        <img
+                          src="./assets/images/quote.png"
+                          alt="quote symbol"
+                          class="quote-symbol"
+                        />
+                        <div class="review-content">
+                          <p class="my-4 fw-semibold">
+                            {{ review.content }}
+                          </p>
+                        </div>
+                        <div
+                          class="review-author d-flex justify-content-between align-items-center border-top pt-4"
+                        >
+                          <div class="author d-flex gap-2 align-items-center">
+                            <img
+                              [src]="review.client_image"
+                              alt="profile-icon"
+                            />
+                            <h5 class="author-name fw-normal mb-0">
+                              {{ review.client_name }}
+                            </h5>
+                          </div>
+                          <div class="rating d-flex align-items-center">
+                            <i
+                              class="fa-solid fa-star star-color"
+                              [class.rating-color]="review.rating >= num"
+                              *ngFor="let num of [1, 2, 3, 4, 5]"
+                            ></i>
+                          </div>
+                        </div>
                       </div>
-                      <div class="rating d-flex align-items-center">
-                        <i
-                          class="fa-solid fa-star star-color"
-                          [class.rating-color]="review.rating >= num"
-                          *ngFor="let num of [1, 2, 3, 4, 5]"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </swiper-slide>
-              </swiper-container>
+                    </swiper-slide>
+                  </swiper-container>
+                </div>
+              </div>
             </div>
           </div>
+          <button
+            class="white-outlined-btn px-3 py-1 fs-6 fw-light rounded-5 d-none align-items-center justify-content-center gap-2 mt-4 me-auto"
+          >
+            Write your comment
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
       </div>
-      <button
-        class="white-outlined-btn px-3 py-1 fs-6 fw-light rounded-5 d-none align-items-center justify-content-center gap-2 mt-4 me-auto"
-      >
-        Write your comment
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>
+    </ng-template>
   </div>
 </section>
 
 <section class="partners-slider overflow-hidden my-5 py-5">
-  <div class="blurred-balls"></div>
+  <div pDefer>
+    <ng-template>
+      <div class="blurred-balls"></div>
 
-  <ul
-    class="list m-0 p-0 d-flex mb-4"
-    [ngStyle]="{
-      '--quantity': partners.length,
-      '--width': '180px',
-      '--height': '80px'
-    }"
-  >
-    <li
-      *ngFor="let partner of partners; let i = index"
-      class="partner-link pointer d-flex align-items-center justify-content-center rounded-3 py-3"
-      [ngStyle]="{ '--position': i + 1 }"
-    >
-      <img [src]="partner.image" alt="partner logo" />
-    </li>
-  </ul>
+      <ul
+        class="list m-0 p-0 d-flex mb-4"
+        [ngStyle]="{
+          '--quantity': partners.length,
+          '--width': '180px',
+          '--height': '80px'
+        }"
+      >
+        <li
+          *ngFor="let partner of partners; let i = index"
+          class="partner-link pointer d-flex align-items-center justify-content-center rounded-3 py-3"
+          [ngStyle]="{ '--position': i + 1 }"
+        >
+          <img [src]="partner.image" alt="partner logo" />
+        </li>
+      </ul>
 
-  <ul
-    class="list m-0 p-0 d-flex"
-    [ngStyle]="{
-      '--quantity': partners.length,
-      '--width': '180px',
-      '--height': '80px'
-    }"
-  >
-    <li
-      *ngFor="let partner of partners; let i = index"
-      class="partner-link reversed pointer d-flex align-items-center justify-content-center rounded-3 py-3"
-      [ngStyle]="{ '--position': i + 1 }"
-    >
-      <img [src]="partner.image" alt="partner logo" />
-    </li>
-  </ul>
+      <ul
+        class="list m-0 p-0 d-flex"
+        [ngStyle]="{
+          '--quantity': partners.length,
+          '--width': '180px',
+          '--height': '80px'
+        }"
+      >
+        <li
+          *ngFor="let partner of partners; let i = index"
+          class="partner-link reversed pointer d-flex align-items-center justify-content-center rounded-3 py-3"
+          [ngStyle]="{ '--position': i + 1 }"
+        >
+          <img [src]="partner.image" alt="partner logo" />
+        </li>
+      </ul>
+    </ng-template>
+  </div>
 </section>
 
 <section
   class="event-step d-flex align-items-center justify-content-center overflow-hidden"
 >
-  <div class="images">
-    <img src="./assets/images/home/events/8.jpg" alt="image" />
-    <img src="./assets/images/home/events/1.jpg" alt="image" />
-    <img src="./assets/images/home/events/2.jpg" alt="image" />
-    <img src="./assets/images/home/events/3.jpg" alt="image" />
-    <img src="./assets/images/home/events/4.jpg" alt="image" />
-    <img src="./assets/images/home/events/5.jpg" alt="image" />
-    <img src="./assets/images/home/events/6.jpg" alt="image" />
-    <img src="./assets/images/home/events/7.jpg" alt="image" />
-  </div>
-  <div class="content text-center">
-    <h3
-      class="fw-bold fs-1"
-      [innerHTML]="'HomePage.events.title' | translate"
-    ></h3>
-
-    <p class="mx-auto fw-light">
-      {{ "HomePage.events.paragraph" | translate }}
-    </p>
-
-    <button class="main-btn p-2 rounded-5 mx-auto disabled">
-      <div class="icon d-flex align-items-center justify-content-center">
-        <img src="./assets/images/icons/Cart.png" alt="cart icon" />
+  <div pDefer>
+    <ng-template>
+      <div class="images">
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/8.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/1.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/2.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/3.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/4.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/5.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/6.jpg"
+          alt="image"
+        />
+        <img
+          loading="lazy"
+          src="./assets/images/home/events/7.jpg"
+          alt="image"
+        />
       </div>
-      <span class="fw-semibold mx-2" routerLink="/shop">
-        {{ "HomePage.btn_shop" | translate }}
-      </span>
-    </button>
+      <div class="content text-center">
+        <h3
+          class="fw-bold fs-1"
+          [innerHTML]="'HomePage.events.title' | translate"
+        ></h3>
+
+        <p class="mx-auto fw-light">
+          {{ "HomePage.events.paragraph" | translate }}
+        </p>
+
+        <button class="main-btn p-2 rounded-5 mx-auto disabled">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <img src="./assets/images/icons/Cart.png" alt="cart icon" />
+          </div>
+          <span class="fw-semibold mx-2" routerLink="/shop">
+            {{ "HomePage.btn_shop" | translate }}
+          </span>
+        </button>
+      </div>
+    </ng-template>
   </div>
 </section>
 
