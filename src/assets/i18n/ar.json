@@ -9,6 +9,7 @@
     "contactUs": "اتصل بنا",
     "languageButton": "الإنجليزية",
     "wishlist": "الرغبات",
+    "company": "الشركة",
     "cart": "العربة",
     "my_account": "البروفايل",
     "menu": "القائمه",
@@ -18,7 +19,7 @@
 
   "HomePage": {
     "Hero": {
-      "title": "حلول<span class='d-block fw-medium heading-color'>الطباعة المبتكرة</span>",
+      "title": "افكار مبتكرة &<span class='d-block fw-medium heading-color'>خدمات متكاملة </span>",
       "paragraph": "ريادة في الطباعة والتسويق الرقمي في السوق السعودي."
     },
     "our_work": {

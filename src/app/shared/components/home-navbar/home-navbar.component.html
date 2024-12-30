@@ -46,9 +46,10 @@
     <div class="nav-controls d-flex align-items-center">
       <div
         class="d-flex align-items-center gap-lg-3 gap-2"
+        [class.border-end]="direction === 'ltr'"
         [ngClass]="{
-          'pe-3': direction === 'ltr',
-          'ps-3': direction === 'rtl'
+          'pe-3': direction == 'ltr',
+          'ps-3': direction == 'rtl'
         }"
       >
         <!-- <button class="btn p-0 d-flex align-items-center gap-3">
@@ -64,25 +65,36 @@
         </button>
       </div>
 
-      <!-- <div
+      <div
         class="d-flex align-items-center gap-lg-3 gap-2"
-        [class.border-end]="direction == 'rtl'"
+        [class.border-end]="direction === 'rtl'"
         [ngClass]="{
-          'ps-3': direction === 'ltr',
-          'pe-3': direction === 'rtl'
+          'ps-3': direction == 'ltr',
+          'pe-3': direction == 'rtl'
         }"
       >
-        <button
+        <button class="btn p-0">
+          <a
+            href="./assets/CTRL-P.pdf"
+            download="CTRL-P.pdf"
+            class="text-decoration-none d-flex align-items-center gap-2"
+          >
+            <i class="fa-regular fa-building"></i>
+            {{ "Navbar.company" | translate }}
+          </a>
+        </button>
+
+        <!-- <button
           class="btn p-0 d-flex align-items-center"
           (click)="openLoginDialog()"
         >
           <img src="./assets/images/icons/user.svg" alt="icon" />
-        </button>
-        <button class="btn p-0 d-flex align-items-center gap-1">
+        </button> -->
+        <!-- <button class="btn p-0 d-flex align-items-center gap-1">
           <img src="./assets/images/icons/heart.svg" alt="icon" />
           1
-        </button>
-        <button
+        </button> -->
+        <!-- <button
           class="btn p-0 d-flex align-items-center gap-lg-2 gap-1"
           (click)="openCartOverlay()"
         >
@@ -91,8 +103,8 @@
             <span class="cart-count">1 </span> /
             <span class="cart-price"> 0</span>
           </span>
-        </button>
-      </div> -->
+        </button> -->
+      </div>
     </div>
   </div>
 </nav>

@@ -36,6 +36,9 @@ nav {
     .nav-controls {
       .btn {
         color: var(--white-text);
+        a {
+          color: var(--paragraph-text-color);
+        }
         &.language-btn {
           color: var(--paragraph-text-color);
         }

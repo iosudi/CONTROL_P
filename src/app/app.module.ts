@@ -11,9 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpRequestInterceptor } from './core/interceptor/http-request.interceptor';
 import { LanguageInterceptorInterceptor } from './core/interceptor/language-interceptor.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +27,8 @@ import { LanguageInterceptorInterceptor } from './core/interceptor/language-inte
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SharedModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-8bits' }),
     TranslateModule.forRoot({
       defaultLanguage: 'ar',
       loader: {
@@ -37,6 +42,11 @@ import { LanguageInterceptorInterceptor } from './core/interceptor/language-inte
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LanguageInterceptorInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
       multi: true,
     },
   ],

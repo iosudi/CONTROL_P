@@ -9,6 +9,7 @@
     "contactUs": "Contact Us",
     "languageButton": "English",
     "wishlist": "wishlist",
+    "company": "Company",
     "cart": "Cart",
     "my_account": "My account",
     "menu": "Menu",
@@ -18,7 +19,7 @@
 
   "HomePage": {
     "Hero": {
-      "title": "Innovative<span class='d-block fw-medium heading-color'>Printing Solutions</span>",
+      "title": "Innovative ideas &<span class='d-block fw-medium heading-color'>integrated services</span>",
       "paragraph": "Leading the way in printing and digital marketing for the Saudi market."
     },
     "our_work": {
