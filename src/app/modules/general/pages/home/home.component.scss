@@ -45,6 +45,9 @@ app-home-navbar ::ng-deep {
       position: absolute;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     button {
@@ -820,12 +823,6 @@ app-home-navbar ::ng-deep {
 }
 
 @media (max-width: 1550px) {
-  .hero {
-    .container-fluid {
-      height: 780px;
-    }
-  }
-
   .about {
     .about-content {
       .container-fluid {
@@ -945,7 +942,6 @@ app-home-navbar ::ng-deep {
 @media (max-width: 1210px) {
   .hero {
     .container-fluid {
-      height: 680px;
       .title {
         h1 {
           font-size: 3rem;
@@ -1099,19 +1095,14 @@ app-home-navbar ::ng-deep {
   }
 }
 
-@media (max-width: 1060px) {
-  .hero {
-    .container-fluid {
-      height: 580px;
-    }
-  }
-}
-
 @media (max-width: 991px) {
   .hero {
     .container-fluid {
-      height: 880px;
-
+      align-items: center !important;
+      height: 700px;
+      .row {
+        margin: 0 !important;
+      }
       .blurred-balls {
         &:nth-child(1) {
           top: 40%;
@@ -1424,14 +1415,6 @@ app-home-navbar ::ng-deep {
   }
 }
 
-@media (max-width: 875px) {
-  .hero {
-    .container-fluid {
-      height: 830px;
-    }
-  }
-}
-
 @media (max-width: 767px) {
   app-home-navbar ::ng-deep {
     nav {
@@ -1449,10 +1432,7 @@ app-home-navbar ::ng-deep {
 
   .hero {
     .container-fluid {
-      height: unset;
-      padding-top: 2rem;
-      border-radius: 0px 0px 50px 50px;
-
+      height: 500px;
       .title {
         h1 {
           font-size: 2rem;
